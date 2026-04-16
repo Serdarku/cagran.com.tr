@@ -25,7 +25,7 @@
         /* TRAVESTİ FİNAL ARKA PLANI */
         body.travesti-final {
             background: radial-gradient(circle at center, #ff1493, #ff6600, #ffcc00, #ff00ff);
-            animation: rainbowBg 0.2s infinite alternate;
+            animation: rainbowBg 0.2s infinite alternate !important;
         }
 
         @keyframes rainbowBg {
@@ -34,7 +34,7 @@
             100% { background: radial-gradient(circle at center, #ff6600, #ff1493, #00ffcc); }
         }
 
-        /* SOL ÜST LİSTE - Mobilde daha küçük ama okunur */
+        /* SOL ÜST LİSTE */
         .sol-liste {
             position: fixed;
             top: 10px;
@@ -47,7 +47,7 @@
             padding: 12px 16px;
             border-left: 5px solid #ff6600;
             box-shadow: 0 0 30px rgba(255, 100, 0, 0.4);
-            max-height: 38vh;
+            max-height: 35vh;
             overflow-y: auto;
             font-size: 14px;
         }
@@ -62,9 +62,7 @@
             margin-top: 10px;
             margin-bottom: 5px;
         }
-        .kategori:first-child {
-            margin-top: 0;
-        }
+        .kategori:first-child { margin-top: 0; }
         .kategori-baslik {
             font-size: 0.9rem;
             font-weight: bold;
@@ -97,7 +95,7 @@
             font-size: 0.9rem;
         }
 
-        /* ORTA ALAN - KOCAMAN YAZI (mobilde tam ekran) */
+        /* ORTA ALAN - KOCAMAN YAZI */
         .orta-alan {
             position: absolute;
             top: 50%;
@@ -105,7 +103,6 @@
             transform: translate(-50%, -50%);
             width: 90%;
             text-align: center;
-            perspective: 800px;
             z-index: 10;
             pointer-events: none;
         }
@@ -125,7 +122,87 @@
             padding: 0.2em;
         }
 
-        /* TRAVESTİ FİNAL EKRANI - TAM EKRAN DEVASA */
+        /* ========== ANİMASYONLAR (KESİN ÇALIŞIR) ========== */
+        .anim-deprem {
+            animation: depremSalla 0.5s cubic-bezier(0.2, 1.2, 0.8, 1) forwards !important;
+        }
+        .anim-katlan {
+            animation: katlan3D 0.6s ease-out forwards !important;
+        }
+        .anim-catlama {
+            animation: catlamaPatlama 0.6s cubic-bezier(0.3, 1.3, 0.7, 1) forwards !important;
+        }
+        .anim-firtina {
+            animation: firtinaDon 0.7s ease-out forwards !important;
+        }
+        .anim-ziplama {
+            animation: ziplamaCatlak 0.6s ease-out forwards !important;
+        }
+        .anim-silkinme {
+            animation: silkinmeDeprem 0.5s ease-in-out forwards !important;
+        }
+        .anim-epic {
+            animation: epicPatlama 0.8s cubic-bezier(0.2, 1.4, 0.8, 1) forwards !important;
+        }
+
+        @keyframes depremSalla {
+            0% { transform: translate(0, 0); }
+            10% { transform: translate(5px, -3px); }
+            20% { transform: translate(-6px, 2px); }
+            30% { transform: translate(6px, 3px); }
+            40% { transform: translate(-5px, -2px); }
+            50% { transform: translate(5px, -1px); }
+            60% { transform: translate(-5px, 2px); }
+            70% { transform: translate(3px, -2px); }
+            80% { transform: translate(-3px, 1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes katlan3D {
+            0% { transform: rotateX(0deg) scale(1); opacity: 0; }
+            25% { transform: rotateX(90deg) scale(0.4); opacity: 0.6; }
+            50% { transform: rotateX(0deg) scale(1.3); text-shadow: 0 0 30px red; }
+            100% { transform: rotateX(0deg) scale(1); }
+        }
+
+        @keyframes catlamaPatlama {
+            0% { letter-spacing: 0.02em; transform: scale(1); }
+            30% { letter-spacing: 0.15em; transform: scale(1.4) rotate(2deg); text-shadow: 0 0 30px orange; }
+            60% { letter-spacing: -0.02em; transform: scale(0.85) rotate(-3deg); filter: blur(2px); }
+            100% { letter-spacing: 0.02em; transform: scale(1); filter: blur(0); }
+        }
+
+        @keyframes firtinaDon {
+            0% { transform: rotate(0deg) scale(0.2); opacity: 0; filter: blur(8px); }
+            40% { transform: rotate(360deg) scale(1.4); opacity: 1; filter: blur(0); }
+            100% { transform: rotate(720deg) scale(1); }
+        }
+
+        @keyframes ziplamaCatlak {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-60px) scale(1.2); }
+            70% { transform: translateY(15px) scale(0.9); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes silkinmeDeprem {
+            0%,100% { transform: translateX(0); }
+            10% { transform: translateX(-12px); }
+            20% { transform: translateX(12px); }
+            30% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            50% { transform: translateX(-4px); }
+            60% { transform: translateX(4px); }
+        }
+
+        @keyframes epicPatlama {
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; letter-spacing: -0.05em; }
+            35% { transform: scale(1.6) rotate(15deg); opacity: 1; letter-spacing: 0.15em; text-shadow: 0 0 40px magenta; }
+            65% { transform: scale(1.1) rotate(-8deg); }
+            100% { transform: scale(1) rotate(0deg); letter-spacing: 0.02em; }
+        }
+
+        /* TRAVESTİ FİNAL EKRANI */
         .travesti-final-ekrani {
             position: fixed;
             top: 0;
@@ -137,7 +214,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
             opacity: 0;
             visibility: hidden;
@@ -154,7 +231,7 @@
         }
 
         .travesti-dev-yazi {
-            font-size: clamp(2.5rem, 12vw, 6rem);
+            font-size: clamp(2rem, 10vw, 5rem);
             font-weight: 900;
             background: linear-gradient(45deg, #ff66cc, #ffcc00, #ff3399, #00ffff, #ff6600);
             background-size: 300% 300%;
@@ -163,7 +240,6 @@
             color: transparent;
             animation: rgbText 0.3s infinite alternate, textShake 0.15s infinite;
             letter-spacing: 0.05em;
-            text-shadow: 0 0 20px rgba(255,255,255,0.6);
             margin-bottom: 20px;
             line-height: 1.3;
         }
@@ -215,73 +291,15 @@
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* ANİMASYONLAR */
-        @keyframes depremSalla {
-            0% { transform: translate(0, 0); }
-            10% { transform: translate(4px, -3px); }
-            20% { transform: translate(-5px, 2px); }
-            30% { transform: translate(5px, 3px); }
-            40% { transform: translate(-4px, -2px); }
-            50% { transform: translate(4px, -1px); }
-            60% { transform: translate(-5px, 2px); }
-            70% { transform: translate(3px, -2px); }
-            80% { transform: translate(-3px, 1px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        @keyframes katlan3D {
-            0% { transform: rotateX(0deg) scale(1); opacity: 0; }
-            25% { transform: rotateX(90deg) scale(0.4); opacity: 0.7; }
-            50% { transform: rotateX(0deg) scale(1.3); text-shadow: 0 0 30px red; }
-            100% { transform: rotateX(0deg) scale(1); }
-        }
-
-        @keyframes catlamaPatlama {
-            0% { letter-spacing: 0.02em; transform: scale(1); }
-            30% { letter-spacing: 0.15em; transform: scale(1.3) rotate(2deg); }
-            60% { letter-spacing: -0.02em; transform: scale(0.9) rotate(-2deg); filter: blur(1px); }
-            100% { letter-spacing: 0.02em; transform: scale(1); filter: blur(0); }
-        }
-
-        @keyframes firtinaDon {
-            0% { transform: rotate(0deg) scale(0.2); opacity: 0; filter: blur(8px); }
-            40% { transform: rotate(360deg) scale(1.4); opacity: 1; filter: blur(0); }
-            100% { transform: rotate(720deg) scale(1); }
-        }
-
-        @keyframes ziplamaCatlak {
-            0% { transform: translateY(0); }
-            30% { transform: translateY(-50px) scale(1.2); }
-            70% { transform: translateY(15px) scale(0.9); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes silkinmeDeprem {
-            0%,100% { transform: translateX(0); }
-            10% { transform: translateX(-10px); }
-            20% { transform: translateX(10px); }
-            30% { transform: translateX(-6px); }
-            40% { transform: translateX(6px); }
-            50% { transform: translateX(-3px); }
-            60% { transform: translateX(3px); }
-        }
-
-        @keyframes epicPatlama {
-            0% { transform: scale(0) rotate(-180deg); opacity: 0; letter-spacing: -0.05em; }
-            35% { transform: scale(1.5) rotate(10deg); opacity: 1; letter-spacing: 0.1em; }
-            65% { transform: scale(1.1) rotate(-5deg); }
-            100% { transform: scale(1) rotate(0deg); letter-spacing: 0.02em; }
-        }
-
         .body-shake {
-            animation: bodyShake 0.15s ease-in-out 0s 2;
+            animation: bodyShake 0.15s ease-in-out 0s 2 !important;
         }
 
         @keyframes bodyShake {
-            0% { transform: translate(1px, 1px); }
-            25% { transform: translate(-1px, -1px); }
-            50% { transform: translate(1px, -1px); }
-            75% { transform: translate(-1px, 1px); }
+            0% { transform: translate(2px, 1px); }
+            25% { transform: translate(-2px, -1px); }
+            50% { transform: translate(2px, -1px); }
+            75% { transform: translate(-2px, 1px); }
             100% { transform: translate(0,0); }
         }
 
@@ -292,7 +310,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background: radial-gradient(circle, transparent 60%, rgba(255,80,0,0.25) 100%);
+            background: radial-gradient(circle, transparent 60%, rgba(255,80,0,0.3) 100%);
             z-index: 9999;
             mix-blend-mode: overlay;
             animation: fadeOut 0.3s forwards;
@@ -302,7 +320,6 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* Tıklama uyarısı */
         .click-info {
             position: fixed;
             bottom: 8px;
@@ -334,12 +351,11 @@
         <div id="efektliIsim">✨</div>
     </div>
 
-    <div class="click-info">👇 Tıkla deprem olsun! (eğlence)</div>
+    <div class="click-info">👇 Tıkla deprem + emoji yağmuru!</div>
 
-    <!-- TRAVESTİ FİNAL EKRANI -->
     <div class="travesti-final-ekrani" id="travestiFinal">
         <div class="travesti-dev-yazi" id="travestiYazi">🎭 TRAVESTİLER 🎭</div>
-        <div class="travesti-emoji-deryasi" id="travestiEmojiler">
+        <div class="travesti-emoji-deryasi">
             <span>🌈</span> <span>💋</span> <span>💃</span> <span>🦄</span> <span>🔥</span> <span>💄</span>
             <span>👠</span> <span>🌟</span> <span>🎭</span> <span>🍆</span> <span>✨</span> <span>💎</span>
             <span>🌸</span> <span>💖</span> <span>🎉</span> <span>💅</span> <span>👑</span> <span>🤡</span>
@@ -348,14 +364,14 @@
 
     <script>
         const isimSırası = [
-            { isim: "ALİ", kategori: "erkek" },
-            { isim: "MENDERES", kategori: "erkek" },
-            { isim: "YAVUZ", kategori: "erkek" },
-            { isim: "SELİM", kategori: "erkek" },
-            { isim: "SERDAR", kategori: "erkek" },
-            { isim: "SELVİNAZ", kategori: "kadin" },
-            { isim: "SAHURE", kategori: "kadin" },
-            { isim: "SULTAN", kategori: "kadin", ozelNot: " (Küçük Selvinaz 🤭)" }
+            { isim: "ALİ", kategori: "erkek", anim: "epic" },
+            { isim: "MENDERES", kategori: "erkek", anim: "deprem" },
+            { isim: "YAVUZ", kategori: "erkek", anim: "katlan" },
+            { isim: "SELİM", kategori: "erkek", anim: "catlama" },
+            { isim: "SERDAR", kategori: "erkek", anim: "firtina" },
+            { isim: "SELVİNAZ", kategori: "kadin", anim: "ziplama" },
+            { isim: "SAHURE", kategori: "kadin", anim: "silkinme" },
+            { isim: "SULTAN", kategori: "kadin", anim: "deprem", ozelNot: " 🤭 (Küçük Selvinaz)" }
         ];
 
         let currentIndex = 0;
@@ -367,11 +383,6 @@
 
         let eklenenErkekler = [];
         let eklenenKadinlar = [];
-
-        const animasyonlar = [
-            "depremSalla", "katlan3D", "catlamaPatlama", "firtinaDon", 
-            "ziplamaCatlak", "silkinmeDeprem", "epicPatlama"
-        ];
 
         function shakeBody() {
             document.body.classList.add("body-shake");
@@ -385,9 +396,9 @@
             setTimeout(() => crack.remove(), 300);
         }
 
-        function uçanEmojiOlustur() {
-            const emojiler = ['🌈', '💋', '💃', '🦄', '🔥', '💄', '👠', '🌟', '🎭', '🍆', '✨', '💎', '🌸', '💖', '🎉', '💅', '👑', '⭐', '🤡', '😈', '💩'];
-            for (let i = 0; i < 25; i++) {
+        function uçanEmojiOlustur(adet = 20) {
+            const emojiler = ['🌈', '💋', '💃', '🦄', '🔥', '💄', '👠', '🌟', '🎭', '🍆', '✨', '💎', '🌸', '💖', '🎉', '💅', '👑', '⭐', '🤡', '😈', '💩', '🤣', '😭', '💀'];
+            for (let i = 0; i < adet; i++) {
                 setTimeout(() => {
                     const emoji = document.createElement('div');
                     emoji.className = 'uçan-emoji';
@@ -397,15 +408,14 @@
                     emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
                     document.body.appendChild(emoji);
                     setTimeout(() => emoji.remove(), 3500);
-                }, i * 80);
+                }, i * 60);
             }
         }
 
         function listeyeIsimEkle(item) {
             const isim = item.isim;
             const kategori = item.kategori;
-            let görünenIsim = isim;
-            if (item.ozelNot) görünenIsim = isim + item.ozelNot;
+            let görünenIsim = isim + (item.ozelNot || "");
             
             if (kategori === "erkek" && !eklenenErkekler.includes(isim)) {
                 eklenenErkekler.push(isim);
@@ -436,90 +446,77 @@
         }
 
         function ortadaIsmiGoster(item, index) {
-            let isim = item.isim;
-            let gosterilecekIsim = isim;
-            if (item.ozelNot && item.isim === "SULTAN") {
-                gosterilecekIsim = isim + " 🤭 (Küçük Selvinaz)";
-            }
+            let gosterilecekIsim = item.isim + (item.ozelNot || "");
             efektliIsimDiv.innerText = gosterilecekIsim;
             
-            let animasyonAdi = (isim === "ALİ") ? "epicPatlama" : animasyonlar[index % animasyonlar.length];
-            efektliIsimDiv.style.animation = "none";
-            efektliIsimDiv.offsetHeight;
-            efektliIsimDiv.style.animation = `${animasyonAdi} 0.6s cubic-bezier(0.2, 1.2, 0.8, 1) forwards`;
+            // Animasyon sınıfını temizle
+            efektliIsimDiv.className = '';
+            efektliIsimDiv.offsetHeight; // reflow
+            
+            // Animasyon sınıfını ekle
+            let animClass = '';
+            switch(item.anim) {
+                case 'epic': animClass = 'anim-epic'; break;
+                case 'deprem': animClass = 'anim-deprem'; break;
+                case 'katlan': animClass = 'anim-katlan'; break;
+                case 'catlama': animClass = 'anim-catlama'; break;
+                case 'firtina': animClass = 'anim-firtina'; break;
+                case 'ziplama': animClass = 'anim-ziplama'; break;
+                case 'silkinme': animClass = 'anim-silkinme'; break;
+                default: animClass = 'anim-deprem';
+            }
+            efektliIsimDiv.classList.add(animClass);
+            
+            // Efektler
             shakeBody();
             addCrackEffect();
+            uçanEmojiOlustur(5);
             
-            if (isim === "ALİ") {
+            if (item.isim === "ALİ") {
                 setTimeout(() => shakeBody(), 100);
                 setTimeout(() => addCrackEffect(), 150);
+                setTimeout(() => uçanEmojiOlustur(10), 200);
             }
-            
-            const animEnd = () => {
-                efektliIsimDiv.style.animation = "";
-                efektliIsimDiv.removeEventListener("animationend", animEnd);
-            };
-            efektliIsimDiv.addEventListener("animationend", animEnd, { once: true });
         }
 
         function travestiFinaliniBaslat() {
             document.body.classList.add("travesti-final");
             document.querySelector('.sol-liste').classList.add('travesti-aninda');
             
-            uçanEmojiOlustur();
+            uçanEmojiOlustur(30);
             travestiFinalDiv.classList.add('active');
             
-            // 2.5 saniye sonra SENNNNNN YYYOOOOOUUUU (Senin Yüzünden)
+            // 2.5 saniye sonra SENNNNNN YYYOOOOOUUUU
             setTimeout(() => {
-                travestiYazi.style.animation = "none";
-                travestiYazi.offsetHeight;
-                travestiYazi.innerHTML = "💅 SENNNNNN YYYOOOOOUUUU 💅<br><span style='font-size:0.5em'>(Senin Yüzünden Kraliçe Oldum)</span>";
-                travestiYazi.style.animation = "rgbText 0.3s infinite alternate, textShake 0.15s infinite";
+                travestiYazi.innerHTML = "💅 SENNNNNN YYYOOOOOUUUU 💅<br><span style='font-size:0.6em'>✨ Senin Yüzünden Kraliçe Oldum ✨</span>";
                 
                 shakeBody();
                 addCrackEffect();
                 setTimeout(() => shakeBody(), 200);
                 setTimeout(() => addCrackEffect(), 400);
-                setTimeout(() => uçanEmojiOlustur(), 100);
-                setTimeout(() => uçanEmojiOlustur(), 500);
+                uçanEmojiOlustur(40);
                 
-                // Mizah patlaması
-                for (let i = 0; i < 3; i++) {
+                // Mizah patlamaları
+                for (let i = 0; i < 8; i++) {
                     setTimeout(() => {
                         const espri = document.createElement('div');
-                        espri.textContent = ['🤣', '😭', '💀', '🎭', 'SENİN YÜZÜNDEN', 'AYNEN', 'KATILIYORUM'][Math.floor(Math.random()*7)];
+                        const espiriler = ['🤣🤣🤣', '😭 AĞLAMA', '💀 BİTTİN', '🎭 AYNEN', 'SENİN YÜZÜNDEN', 'KATILIYORUM', '🍆 YOK ARTIK', '💅 KRALİÇE'];
+                        espri.textContent = espiriler[Math.floor(Math.random() * espiriler.length)];
                         espri.style.position = 'fixed';
-                        espri.style.bottom = Math.random() * 80 + '%';
-                        espri.style.left = Math.random() * 80 + '%';
-                        espri.style.fontSize = '1.5rem';
+                        espri.style.top = Math.random() * 70 + 15 + '%';
+                        espri.style.left = Math.random() * 80 + 10 + '%';
+                        espri.style.fontSize = '1.3rem';
                         espri.style.zIndex = '10001';
                         espri.style.pointerEvents = 'none';
+                        espri.style.fontWeight = 'bold';
+                        espri.style.textShadow = '0 0 5px black';
                         espri.style.animation = 'fadeOut 1s forwards';
                         document.body.appendChild(espri);
                         setTimeout(() => espri.remove(), 1000);
-                    }, i * 300);
+                    }, i * 200);
                 }
             }, 2500);
             
-            // Emoji yağmuru
+            // Emoji yağmuru devam
             const yagmur = setInterval(() => {
-                if (travestiFinalDiv.classList.contains('active')) uçanEmojiOlustur();
-                else clearInterval(yagmur);
-            }, 1800);
-            
-            for (let i = 0; i < 8; i++) setTimeout(() => shakeBody(), i * 150);
-        }
-
-        function siradakiIsmiGoster() {
-            if (currentIndex >= isimSırası.length) {
-                setTimeout(() => travestiFinaliniBaslat(), 500);
-                return;
-            }
-            const item = isimSırası[currentIndex];
-            ortadaIsmiGoster(item, currentIndex);
-            setTimeout(() => listeyeIsimEkle(item), 500);
-            currentIndex++;
-            if (currentIndex < isimSırası.length) {
-                setTimeout(() => siradakiIsmiGoster(), 2600);
-            } else {
-                setTimeout(() => travestiFinaliniBaslat(), 30
+                if (travestiFinalDiv.classList.contains(
