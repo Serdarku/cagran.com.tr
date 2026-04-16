@@ -488,7 +488,7 @@
             
             // 2.5 saniye sonra SENNNNNN YYYOOOOOUUUU
             setTimeout(() => {
-                travestiYazi.innerHTML = "💅 SENNNNNN YYYOOOOOUUUU 💅<br><span style='font-size:0.6em'>✨ Senin Yüzünden Kraliçe Oldum ✨</span>";
+                travestiYazi.innerHTML = "💅 SENNNNNN YYYOOOOOUUUU 💅<br><span style='font-size:0.6em'>✨ tttttttttttrraameessttiii ✨</span>";
                 
                 shakeBody();
                 addCrackEffect();
@@ -519,4 +519,43 @@
             
             // Emoji yağmuru devam
             const yagmur = setInterval(() => {
-                if (travestiFinalDiv.classList.contains(
+                if (travestiFinalDiv.classList.contains('active')) uçanEmojiOlustur(15);
+                else clearInterval(yagmur);
+            }, 1800);
+            
+            for (let i = 0; i < 10; i++) setTimeout(() => shakeBody(), i * 150);
+        }
+
+        function siradakiIsmiGoster() {
+            if (currentIndex >= isimSırası.length) {
+                setTimeout(() => travestiFinaliniBaslat(), 500);
+                return;
+            }
+            const item = isimSırası[currentIndex];
+            ortadaIsmiGoster(item, currentIndex);
+            setTimeout(() => listeyeIsimEkle(item), 600);
+            currentIndex++;
+            if (currentIndex < isimSırası.length) {
+                setTimeout(() => siradakiIsmiGoster(), 2800);
+            } else {
+                setTimeout(() => travestiFinaliniBaslat(), 3200);
+            }
+        }
+
+        efektliIsimDiv.innerText = "✨";
+        setTimeout(() => siradakiIsmiGoster(), 500);
+
+        document.body.addEventListener("click", () => {
+            shakeBody();
+            addCrackEffect();
+            uçanEmojiOlustur(15);
+            if (efektliIsimDiv) {
+                efektliIsimDiv.style.transform = "scale(1.05)";
+                setTimeout(() => { if(efektliIsimDiv) efektliIsimDiv.style.transform = ""; }, 150);
+            }
+        });
+
+        console.log("🔥 ANİMASYONLAR AKTİF! Sultan (Küçük Selvinaz) + TRAVESTİLER finali SENNNNNN YYYOOOOOUUUU 🔥");
+    </script>
+</body>
+</html>
