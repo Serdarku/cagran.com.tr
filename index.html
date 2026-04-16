@@ -1,561 +1,1007 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>🎭 ERKEKLER | KADINLAR | TRAVESTİLER 🤡</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🎭 KARNAVAL DELUXE - Mizah Edition</title>
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at center, #0a0f1e, #000000);
-            font-family: 'Segoe UI', 'Poppins', 'Impact', 'Arial Black', sans-serif;
-            overflow-x: hidden;
-            position: relative;
-            transition: all 0.3s ease;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap');
 
-        /* TRAVESTİ FİNAL ARKA PLANI */
-        body.travesti-final {
-            background: radial-gradient(circle at center, #ff1493, #ff6600, #ffcc00, #ff00ff);
-            animation: rainbowBg 0.2s infinite alternate !important;
-        }
+*{margin:0;padding:0;box-sizing:border-box}
 
-        @keyframes rainbowBg {
-            0% { background: radial-gradient(circle at center, #ff1493, #ff6600, #ffcc00); }
-            50% { background: radial-gradient(circle at center, #00ffff, #ff00ff, #ffcc00); }
-            100% { background: radial-gradient(circle at center, #ff6600, #ff1493, #00ffcc); }
-        }
+:root {
+  --neon-pink: #ff00cc;
+  --neon-blue: #00ffff;
+  --neon-yellow: #ffff00;
+  --neon-green: #00ff00;
+  --neon-purple: #9d00ff;
+}
 
-        /* SOL ÜST LİSTE */
-        .sol-liste {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 12px 16px;
-            border-left: 5px solid #ff6600;
-            box-shadow: 0 0 30px rgba(255, 100, 0, 0.4);
-            max-height: 35vh;
-            overflow-y: auto;
-            font-size: 14px;
-        }
+body{
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0d0d2b 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
 
-        .sol-liste.travesti-aninda {
-            background: rgba(0,0,0,0.95);
-            border-left-color: #ff00ff;
-            box-shadow: 0 0 40px #ff00ff;
-        }
+.floating-meme {
+  position: fixed;
+  font-size: 2rem;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
 
-        .kategori {
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-        .kategori:first-child { margin-top: 0; }
-        .kategori-baslik {
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            padding-bottom: 3px;
-            border-bottom: 2px solid;
-            display: inline-block;
-            margin-bottom: 6px;
-        }
-        .erkek-baslik { color: #33ccff; border-bottom-color: #33ccff; }
-        .kadin-baslik { color: #ff66cc; border-bottom-color: #ff66cc; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+}
 
-        .liste-item {
-            color: #ffdd99;
-            font-size: 0.9rem;
-            font-weight: bold;
-            padding: 4px 0 4px 8px;
-            border-bottom: 1px dotted rgba(255,100,0,0.2);
-            font-family: monospace;
-        }
-        .liste-item.ali-item {
-            color: #ffaa44;
-            font-size: 1.1rem;
-            text-shadow: 0 0 5px #ff6600;
-            border-left: 3px solid #ffaa44;
-            padding-left: 8px;
-        }
-        .liste-item.sultan-item {
-            color: #ff99cc;
-            font-size: 0.9rem;
-        }
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
 
-        /* ORTA ALAN - KOCAMAN YAZI */
-        .orta-alan {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            text-align: center;
-            z-index: 10;
-            pointer-events: none;
-        }
+.logo {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(3rem, 8vw, 6rem);
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-yellow), var(--neon-blue), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255,0,204,0.5);
+  animation: glitch 2s infinite;
+  letter-spacing: 4px;
+}
 
-        #efektliIsim {
-            display: inline-block;
-            font-size: clamp(2rem, 10vw, 5rem);
-            font-weight: 900;
-            letter-spacing: 0.03em;
-            background: linear-gradient(135deg, #ffd89b, #c7e9fb, #ffaa66);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(255,200,0,0.5);
-            white-space: normal;
-            word-break: break-word;
-            padding: 0.2em;
-        }
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-3px, 3px); }
+  94% { transform: translate(3px, -3px); }
+  96% { transform: translate(-3px, -3px); }
+  98% { transform: translate(3px, 3px); }
+}
 
-        /* ========== ANİMASYONLAR (KESİN ÇALIŞIR) ========== */
-        .anim-deprem {
-            animation: depremSalla 0.5s cubic-bezier(0.2, 1.2, 0.8, 1) forwards !important;
-        }
-        .anim-katlan {
-            animation: katlan3D 0.6s ease-out forwards !important;
-        }
-        .anim-catlama {
-            animation: catlamaPatlama 0.6s cubic-bezier(0.3, 1.3, 0.7, 1) forwards !important;
-        }
-        .anim-firtina {
-            animation: firtinaDon 0.7s ease-out forwards !important;
-        }
-        .anim-ziplama {
-            animation: ziplamaCatlak 0.6s ease-out forwards !important;
-        }
-        .anim-silkinme {
-            animation: silkinmeDeprem 0.5s ease-in-out forwards !important;
-        }
-        .anim-epic {
-            animation: epicPatlama 0.8s cubic-bezier(0.2, 1.4, 0.8, 1) forwards !important;
-        }
+.subtitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  color: var(--neon-blue);
+  margin-top: 15px;
+  text-shadow: 0 0 20px var(--neon-blue);
+  animation: blink 1s infinite;
+}
 
-        @keyframes depremSalla {
-            0% { transform: translate(0, 0); }
-            10% { transform: translate(5px, -3px); }
-            20% { transform: translate(-6px, 2px); }
-            30% { transform: translate(6px, 3px); }
-            40% { transform: translate(-5px, -2px); }
-            50% { transform: translate(5px, -1px); }
-            60% { transform: translate(-5px, 2px); }
-            70% { transform: translate(3px, -2px); }
-            80% { transform: translate(-3px, 1px); }
-            100% { transform: translate(0, 0); }
-        }
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
 
-        @keyframes katlan3D {
-            0% { transform: rotateX(0deg) scale(1); opacity: 0; }
-            25% { transform: rotateX(90deg) scale(0.4); opacity: 0.6; }
-            50% { transform: rotateX(0deg) scale(1.3); text-shadow: 0 0 30px red; }
-            100% { transform: rotateX(0deg) scale(1); }
-        }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
 
-        @keyframes catlamaPatlama {
-            0% { letter-spacing: 0.02em; transform: scale(1); }
-            30% { letter-spacing: 0.15em; transform: scale(1.4) rotate(2deg); text-shadow: 0 0 30px orange; }
-            60% { letter-spacing: -0.02em; transform: scale(0.85) rotate(-3deg); filter: blur(2px); }
-            100% { letter-spacing: 0.02em; transform: scale(1); filter: blur(0); }
-        }
+.stage-section {
+  background: rgba(0,0,0,0.6);
+  border: 3px solid var(--neon-pink);
+  border-radius: 30px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 60px rgba(255,0,204,0.3), inset 0 0 60px rgba(255,0,204,0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-        @keyframes firtinaDon {
-            0% { transform: rotate(0deg) scale(0.2); opacity: 0; filter: blur(8px); }
-            40% { transform: rotate(360deg) scale(1.4); opacity: 1; filter: blur(0); }
-            100% { transform: rotate(720deg) scale(1); }
-        }
+.stage-section::before {
+  content: '🎪';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  animation: bounce 1s infinite;
+}
 
-        @keyframes ziplamaCatlak {
-            0% { transform: translateY(0); }
-            30% { transform: translateY(-60px) scale(1.2); }
-            70% { transform: translateY(15px) scale(0.9); }
-            100% { transform: translateY(0); }
-        }
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
 
-        @keyframes silkinmeDeprem {
-            0%,100% { transform: translateX(0); }
-            10% { transform: translateX(-12px); }
-            20% { transform: translateX(12px); }
-            30% { transform: translateX(-8px); }
-            40% { transform: translateX(8px); }
-            50% { transform: translateX(-4px); }
-            60% { transform: translateX(4px); }
-        }
+#startScreen {
+  text-align: center;
+  padding: 60px 20px;
+}
 
-        @keyframes epicPatlama {
-            0% { transform: scale(0) rotate(-180deg); opacity: 0; letter-spacing: -0.05em; }
-            35% { transform: scale(1.6) rotate(15deg); opacity: 1; letter-spacing: 0.15em; text-shadow: 0 0 40px magenta; }
-            65% { transform: scale(1.1) rotate(-8deg); }
-            100% { transform: scale(1) rotate(0deg); letter-spacing: 0.02em; }
-        }
+#startScreen h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--neon-yellow);
+  margin-bottom: 30px;
+  text-shadow: 0 0 30px var(--neon-yellow);
+}
 
-        /* TRAVESTİ FİNAL EKRANI */
-        .travesti-final-ekrani {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            pointer-events: none;
-            text-align: center;
-            padding: 20px;
-        }
+.start-btn {
+  padding: 25px 60px;
+  font-size: 1.8rem;
+  font-family: 'Bangers', cursive;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 50px var(--neon-pink), 0 10px 30px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
 
-        .travesti-final-ekrani.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
+.start-btn:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 0 80px var(--neon-pink);
+}
 
-        .travesti-dev-yazi {
-            font-size: clamp(2rem, 10vw, 5rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff66cc, #ffcc00, #ff3399, #00ffff, #ff6600);
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: rgbText 0.3s infinite alternate, textShake 0.15s infinite;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
+.start-btn::after {
+  content: '👆';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: point 0.5s infinite alternate;
+}
 
-        @keyframes rgbText {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+@keyframes point {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(10px); }
+}
 
-        @keyframes textShake {
-            0% { transform: translate(1px, 1px); }
-            25% { transform: translate(-1px, -1px); }
-            50% { transform: translate(-1px, 1px); }
-            75% { transform: translate(1px, -1px); }
-            100% { transform: translate(0,0); }
-        }
+.control-panel {
+  background: rgba(0,0,0,0.8);
+  border: 2px solid var(--neon-blue);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
 
-        .travesti-emoji-deryasi {
-            font-size: 2.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            max-width: 95%;
-        }
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-        .travesti-emoji-deryasi span {
-            display: inline-block;
-            animation: emojiDans 0.4s infinite alternate;
-            font-size: 2.5rem;
-        }
+.control-group label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-        @keyframes emojiDans {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.3) rotate(10deg); }
-        }
+.control-group input[type="range"] {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-yellow));
+  outline: none;
+  -webkit-appearance: none;
+}
 
-        /* Uçuşan emojiler */
-        .uçan-emoji {
-            position: fixed;
-            font-size: 2rem;
-            pointer-events: none;
-            z-index: 9999;
-            animation: uç 3s linear forwards;
-        }
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 20px var(--neon-pink);
+  cursor: pointer;
+}
 
-        @keyframes uç {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
-        }
+.control-group input[type="checkbox"] {
+  width: 50px;
+  height: 25px;
+  -webkit-appearance: none;
+  background: #333;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+}
 
-        .body-shake {
-            animation: bodyShake 0.15s ease-in-out 0s 2 !important;
-        }
+.control-group input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--neon-pink);
+  top: 2.5px;
+  left: 2.5px;
+  transition: 0.3s;
+}
 
-        @keyframes bodyShake {
-            0% { transform: translate(2px, 1px); }
-            25% { transform: translate(-2px, -1px); }
-            50% { transform: translate(2px, -1px); }
-            75% { transform: translate(-2px, 1px); }
-            100% { transform: translate(0,0); }
-        }
+.control-group input[type="checkbox"]:checked::after {
+  left: 27.5px;
+  background: var(--neon-green);
+}
 
-        .crack-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: radial-gradient(circle, transparent 60%, rgba(255,80,0,0.3) 100%);
-            z-index: 9999;
-            mix-blend-mode: overlay;
-            animation: fadeOut 0.3s forwards;
-        }
+.display-area {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(255,0,204,0.1) 0%, transparent 70%);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
 
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
-        }
+#centerText {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-yellow), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 60px rgba(255,255,255,0.3);
+  animation: pulse 0.5s infinite alternate;
+  text-align: center;
+}
 
-        .click-info {
-            position: fixed;
-            bottom: 8px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 10px;
-            color: #888;
-            background: rgba(0,0,0,0.5);
-            padding: 4px;
-            z-index: 200;
-        }
-    </style>
+@keyframes pulse {
+  from { transform: scale(1); filter: brightness(1); }
+  to { transform: scale(1.05); filter: brightness(1.3); }
+}
+
+#particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.name-list {
+  background: rgba(0,0,0,0.7);
+  border: 2px solid var(--neon-yellow);
+  border-radius: 15px;
+  padding: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.name-list h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  color: var(--neon-yellow);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.name-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  margin: 5px 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.name-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(10px);
+}
+
+.name-item.shown { border-left-color: var(--neon-green); }
+.name-item.current { 
+  border-left-color: var(--neon-pink); 
+  background: rgba(255,0,204,0.2);
+  animation: highlight 0.5s infinite alternate;
+}
+
+@keyframes highlight {
+  from { box-shadow: 0 0 10px var(--neon-pink); }
+  to { box-shadow: 0 0 30px var(--neon-pink); }
+}
+
+#finalScreen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #1a0a2e 0%, #000 100%);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: finalAppear 0.5s ease-out;
+}
+
+@keyframes finalAppear {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.final-title {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(3rem, 12vw, 8rem);
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-yellow), var(--neon-blue), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: finalShake 0.2s infinite, rainbow 2s infinite;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@keyframes finalShake {
+  0% { transform: translate(2px, 2px) rotate(1deg); }
+  25% { transform: translate(-2px, -2px) rotate(-1deg); }
+  50% { transform: translate(2px, -2px) rotate(1deg); }
+  75% { transform: translate(-2px, 2px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.final-emoji {
+  font-size: 5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.stats-section {
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--neon-green);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.stats-section h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  color: var(--neon-green);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,255,0,0.2);
+  border-color: var(--neon-green);
+}
+
+.stat-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--neon-yellow);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.quotes-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.quote-box {
+  background: linear-gradient(135deg, rgba(255,0,204,0.2), rgba(0,255,255,0.2));
+  border: 2px dashed var(--neon-pink);
+  border-radius: 20px;
+  padding: 30px;
+  font-style: italic;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.quote-box::before {
+  content: '"';
+  font-size: 5rem;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: var(--neon-pink);
+  opacity: 0.5;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.footer span {
+  color: var(--neon-pink);
+  animation: heart 1s infinite;
+}
+
+@keyframes heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--neon-pink), var(--neon-blue));
+  border-radius: 5px;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confetti-fall 3s linear forwards;
+  z-index: 999;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.dance {
+  animation: dance 0.5s infinite;
+}
+
+@keyframes dance {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.1); }
+}
+
+.shake-screen {
+  animation: screenShake 0.5s;
+}
+
+@keyframes screenShake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-10px, -10px); }
+  20% { transform: translate(10px, 10px); }
+  30% { transform: translate(-10px, 10px); }
+  40% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 5px); }
+  60% { transform: translate(5px, -5px); }
+  70% { transform: translate(-5px, -5px); }
+  80% { transform: translate(5px, 5px); }
+  90% { transform: translate(-2px, 2px); }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="sol-liste">
-        <div class="kategori">
-            <div class="kategori-baslik erkek-baslik">👨 ERKEKLER (Maço)</div>
-            <div class="kategori-icerik" id="erkekListesi"></div>
-        </div>
-        <div class="kategori">
-            <div class="kategori-baslik kadin-baslik">👩 KADINLAR (Hanım)</div>
-            <div class="kategori-icerik" id="kadinListesi"></div>
-        </div>
+<div class="floating-meme" style="top:10%;left:5%;animation-delay:0s">🎭</div>
+<div class="floating-meme" style="top:20%;right:10%;animation-delay:1s">🎪</div>
+<div class="floating-meme" style="top:60%;left:8%;animation-delay:2s">🎨</div>
+<div class="floating-meme" style="top:40%;right:5%;animation-delay:3s">🎬</div>
+<div class="floating-meme" style="top:80%;left:15%;animation-delay:4s">🎤</div>
+<div class="floating-meme" style="top:30%;left:80%;animation-delay:5s">🎧</div>
+
+<header class="header">
+  <h1 class="logo">🎭 KARNAVAL DELUXE 🎭</h1>
+  <p class="subtitle">>> MIZAH EDITION v2.0 <<</p>
+</header>
+
+<div class="container">
+
+  <section class="stage-section">
+    
+    <div id="startScreen">
+      <h2>🎯 Hazır mısın Şovmen?</h2>
+      <p style="color:#aaa;margin-bottom:30px;font-size:1.1rem">
+        8 Muhteşem İsim • 8 Farklı Efekt • Sınırsız Eğlence
+      </p>
+      <button class="start-btn" onclick="startShow()">ŞOVU BAŞLAT</button>
+      <p style="margin-top:20px;color:#666;font-size:0.9rem">
+        💡 İpucu: Sesini aç ve hazır ol!
+      </p>
     </div>
 
-    <div class="orta-alan">
-        <div id="efektliIsim">✨</div>
-    </div>
-
-    <div class="click-info">👇 Tıkla deprem + emoji yağmuru!</div>
-
-    <div class="travesti-final-ekrani" id="travestiFinal">
-        <div class="travesti-dev-yazi" id="travestiYazi">🎭 TRAVESTİLER 🎭</div>
-        <div class="travesti-emoji-deryasi">
-            <span>🌈</span> <span>💋</span> <span>💃</span> <span>🦄</span> <span>🔥</span> <span>💄</span>
-            <span>👠</span> <span>🌟</span> <span>🎭</span> <span>🍆</span> <span>✨</span> <span>💎</span>
-            <span>🌸</span> <span>💖</span> <span>🎉</span> <span>💅</span> <span>👑</span> <span>🤡</span>
+    <div id="gameArea" style="display:none">
+      
+      <div class="control-panel">
+        <div class="control-group">
+          <label>⚡ Hız (ms)</label>
+          <input type="range" id="speedControl" min="300" max="3000" value="1500" oninput="updateSpeed(this.value)">
+          <span id="speedValue" style="color:var(--neon-pink);font-weight:bold">1500ms</span>
         </div>
+        <div class="control-group">
+          <label>💥 Partikül Gücü</label>
+          <input type="range" id="powerControl" min="5" max="100" value="25" oninput="updatePower(this.value)">
+          <span id="powerValue" style="color:var(--neon-yellow);font-weight:bold">25</span>
+        </div>
+        <div class="control-group">
+          <label>🔊 Ses Efektleri</label>
+          <input type="checkbox" id="soundControl" checked onchange="toggleSound(this.checked)">
+        </div>
+        <div class="control-group">
+          <label>🌈 Mega Mod</label>
+          <input type="checkbox" id="megaMode" onchange="toggleMega(this.checked)">
+        </div>
+      </div>
+
+      <div class="display-area">
+        <canvas id="particleCanvas"></canvas>
+        <div id="centerText">READY?</div>
+        <div id="effectLabel" style="margin-top:20px;font-family:'Press Start 2P';font-size:0.8rem;color:var(--neon-blue);opacity:0">
+          EFEKT: <span id="currentEffect">NONE</span>
+        </div>
+      </div>
+
+      <div class="name-list">
+        <h3>📋 ŞOV LİSTESİ</h3>
+        <div id="nameList"></div>
+      </div>
+
     </div>
 
-    <script>
-        const isimSırası = [
-            { isim: "ALİ", kategori: "erkek", anim: "epic" },
-            { isim: "MENDERES", kategori: "erkek", anim: "deprem" },
-            { isim: "YAVUZ", kategori: "erkek", anim: "katlan" },
-            { isim: "SELİM", kategori: "erkek", anim: "catlama" },
-            { isim: "SERDAR", kategori: "erkek", anim: "firtina" },
-            { isim: "SELVİNAZ", kategori: "kadin", anim: "ziplama" },
-            { isim: "SAHURE", kategori: "kadin", anim: "silkinme" },
-            { isim: "SULTAN", kategori: "kadin", anim: "deprem", ozelNot: " 🤭 (Küçük Selvinaz)" }
-        ];
+  </section>
 
-        let currentIndex = 0;
-        const erkekListesiDiv = document.getElementById("erkekListesi");
-        const kadinListesiDiv = document.getElementById("kadinListesi");
-        const efektliIsimDiv = document.getElementById("efektliIsim");
-        const travestiFinalDiv = document.getElementById("travestiFinal");
-        const travestiYazi = document.getElementById("travestiYazi");
+  <section class="stats-section">
+    <h2>🏆 KARNAVAL İSTATİSTİKLERİ</h2>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-emoji">🎭</div>
+        <div class="stat-value" id="statShows">0</div>
+        <div class="stat-label">Toplam Şov</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-emoji">💥</div>
+        <div class="stat-value" id="statParticles">0</div>
+        <div class="stat-label">Partikül Sayısı</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-emoji">😱</div>
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Şaşkınlık Seviyesi</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-emoji">⚡</div>
+        <div class="stat-value" id="statEnergy">100%</div>
+        <div class="stat-label">Enerji</div>
+      </div>
+    </div>
+  </section>
 
-        let eklenenErkekler = [];
-        let eklenenKadinlar = [];
+  <section class="quotes-section">
+    <div class="quote-box" id="quoteBox">
+      "Karnaval başlamadan önce hayatımın anlamı yoktu... şimdi de yok ama en azından eğlenceli!"
+    </div>
+  </section>
 
-        function shakeBody() {
-            document.body.classList.add("body-shake");
-            setTimeout(() => document.body.classList.remove("body-shake"), 200);
-        }
+</div>
 
-        function addCrackEffect() {
-            const crack = document.createElement('div');
-            crack.className = 'crack-overlay';
-            document.body.appendChild(crack);
-            setTimeout(() => crack.remove(), 300);
-        }
+<div id="finalScreen">
+  <div class="final-emoji">🎉</div>
+  <h1 class="final-title">KARNAVAL<br>BİTTİ!</h1>
+  <p style="font-size:1.5rem;color:var(--neon-yellow);margin:20px 0">
+    Tüm isimler gösterildi! 🎊
+  </p>
+  <button class="start-btn" onclick="location.reload()" style="margin-top:30px">
+    🔄 YENİDEN BAŞLA
+  </button>
+</div>
 
-        function uçanEmojiOlustur(adet = 20) {
-            const emojiler = ['🌈', '💋', '💃', '🦄', '🔥', '💄', '👠', '🌟', '🎭', '🍆', '✨', '💎', '🌸', '💖', '🎉', '💅', '👑', '⭐', '🤡', '😈', '💩', '🤣', '😭', '💀'];
-            for (let i = 0; i < adet; i++) {
-                setTimeout(() => {
-                    const emoji = document.createElement('div');
-                    emoji.className = 'uçan-emoji';
-                    emoji.textContent = emojiler[Math.floor(Math.random() * emojiler.length)];
-                    emoji.style.left = Math.random() * 100 + '%';
-                    emoji.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-                    emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                    document.body.appendChild(emoji);
-                    setTimeout(() => emoji.remove(), 3500);
-                }, i * 60);
-            }
-        }
+<footer class="footer">
+  Made with <span>❤️</span> ve çok fazla kahve ☕<br>
+  Karnaval Premium Show - Mizah Edition
+</footer>
 
-        function listeyeIsimEkle(item) {
-            const isim = item.isim;
-            const kategori = item.kategori;
-            let görünenIsim = isim + (item.ozelNot || "");
-            
-            if (kategori === "erkek" && !eklenenErkekler.includes(isim)) {
-                eklenenErkekler.push(isim);
-                const listeItem = document.createElement('div');
-                listeItem.className = 'liste-item';
-                if (isim === "ALİ") listeItem.classList.add('ali-item');
-                listeItem.textContent = görünenIsim;
-                listeItem.style.opacity = "0";
-                setTimeout(() => {
-                    listeItem.style.transition = "all 0.3s ease";
-                    listeItem.style.opacity = "1";
-                }, 30);
-                erkekListesiDiv.appendChild(listeItem);
-            } 
-            else if (kategori === "kadin" && !eklenenKadinlar.includes(isim)) {
-                eklenenKadinlar.push(isim);
-                const listeItem = document.createElement('div');
-                listeItem.className = 'liste-item';
-                if (isim === "SULTAN") listeItem.classList.add('sultan-item');
-                listeItem.textContent = görünenIsim;
-                listeItem.style.opacity = "0";
-                setTimeout(() => {
-                    listeItem.style.transition = "all 0.3s ease";
-                    listeItem.style.opacity = "1";
-                }, 30);
-                kadinListesiDiv.appendChild(listeItem);
-            }
-        }
+<script>
+const names = [
+  { n: "ALİ", t: "epic", emoji: "👑", quote: "Ali geldi, ortalık karıştı!" },
+  { n: "MENDERES", t: "shake", emoji: "🌊", quote: "Menderes gibi akar gider..." },
+  { n: "YAVUZ", t: "wave", emoji: "🦁", quote: "Yavuz geliyor, sessiz olun!" },
+  { n: "SELİM", t: "zoom", emoji: "⚡", quote: "Selim zoom yapıyor!" },
+  { n: "SERDAR", t: "storm", emoji: "⛈️", quote: "Serdar fırtınası başladı!" },
+  { n: "SELVİNAZ", t: "jump", emoji: "🦘", quote: "Selvinaz zıplıyor!" },
+  { n: "SAHURE", t: "shake", emoji: "☕", quote: "Sahure vakti!" },
+  { n: "SULTAN", t: "epic", emoji: "👸", quote: "Sultan geldi, hürmetler!" }
+];
 
-        function ortadaIsmiGoster(item, index) {
-            let gosterilecekIsim = item.isim + (item.ozelNot || "");
-            efektliIsimDiv.innerText = gosterilecekIsim;
-            
-            // Animasyon sınıfını temizle
-            efektliIsimDiv.className = '';
-            efektliIsimDiv.offsetHeight; // reflow
-            
-            // Animasyon sınıfını ekle
-            let animClass = '';
-            switch(item.anim) {
-                case 'epic': animClass = 'anim-epic'; break;
-                case 'deprem': animClass = 'anim-deprem'; break;
-                case 'katlan': animClass = 'anim-katlan'; break;
-                case 'catlama': animClass = 'anim-catlama'; break;
-                case 'firtina': animClass = 'anim-firtina'; break;
-                case 'ziplama': animClass = 'anim-ziplama'; break;
-                case 'silkinme': animClass = 'anim-silkinme'; break;
-                default: animClass = 'anim-deprem';
-            }
-            efektliIsimDiv.classList.add(animClass);
-            
-            // Efektler
-            shakeBody();
-            addCrackEffect();
-            uçanEmojiOlustur(5);
-            
-            if (item.isim === "ALİ") {
-                setTimeout(() => shakeBody(), 100);
-                setTimeout(() => addCrackEffect(), 150);
-                setTimeout(() => uçanEmojiOlustur(10), 200);
-            }
-        }
+const quotes = [
+  "Karnaval başlamadan önce hayatımın anlamı yoktu... şimdi de yok ama en azından eğlenceli!",
+  "Bu şovu izleyenlerin IQ'sı artar... ya da azalır, emin değilim!",
+  "Partiküller gerçek, isimler gerçek, eğlence gerçek!",
+  "Bir karnaval bir kere yaşanır... ya da iki... ya da sürekli!",
+  "Bugünün modası: Parlak renkler ve uçuşan emojiler!",
+  "Bu siteyi yapan kişi çok fazla kahve içmiş olabilir...",
+  "Karnaval: Hayatın en renkli anlarından biri!"
+];
 
-        function travestiFinaliniBaslat() {
-            document.body.classList.add("travesti-final");
-            document.querySelector('.sol-liste').classList.add('travesti-aninda');
-            
-            uçanEmojiOlustur(30);
-            travestiFinalDiv.classList.add('active');
-            
-            // 2.5 saniye sonra SENNNNNN YYYOOOOOUUUU
-            setTimeout(() => {
-                travestiYazi.innerHTML = "💅 SENNNNNN YYYOOOOOUUUU 💅<br><span style='font-size:0.6em'>✨ tttttttttttrraameessttiii ✨</span>";
-                
-                shakeBody();
-                addCrackEffect();
-                setTimeout(() => shakeBody(), 200);
-                setTimeout(() => addCrackEffect(), 400);
-                uçanEmojiOlustur(40);
-                
-                // Mizah patlamaları
-                for (let i = 0; i < 8; i++) {
-                    setTimeout(() => {
-                        const espri = document.createElement('div');
-                        const espiriler = ['🤣🤣🤣', '😭 AĞLAMA', '💀 BİTTİN', '🎭 AYNEN', 'SENİN YÜZÜNDEN', 'KATILIYORUM', '🍆 YOK ARTIK', '💅 KRALİÇE'];
-                        espri.textContent = espiriler[Math.floor(Math.random() * espiriler.length)];
-                        espri.style.position = 'fixed';
-                        espri.style.top = Math.random() * 70 + 15 + '%';
-                        espri.style.left = Math.random() * 80 + 10 + '%';
-                        espri.style.fontSize = '1.3rem';
-                        espri.style.zIndex = '10001';
-                        espri.style.pointerEvents = 'none';
-                        espri.style.fontWeight = 'bold';
-                        espri.style.textShadow = '0 0 5px black';
-                        espri.style.animation = 'fadeOut 1s forwards';
-                        document.body.appendChild(espri);
-                        setTimeout(() => espri.remove(), 1000);
-                    }, i * 200);
-                }
-            }, 2500);
-            
-            // Emoji yağmuru devam
-            const yagmur = setInterval(() => {
-                if (travestiFinalDiv.classList.contains('active')) uçanEmojiOlustur(15);
-                else clearInterval(yagmur);
-            }, 1800);
-            
-            for (let i = 0; i < 10; i++) setTimeout(() => shakeBody(), i * 150);
-        }
+let state = {
+  index: 0,
+  speed: 1500,
+  power: 25,
+  sound: true,
+  mega: false,
+  running: false,
+  totalParticles: 0,
+  totalShows: parseInt(localStorage.getItem('karnavalShows') || '0')
+};
 
-        function siradakiIsmiGoster() {
-            if (currentIndex >= isimSırası.length) {
-                setTimeout(() => travestiFinaliniBaslat(), 500);
-                return;
-            }
-            const item = isimSırası[currentIndex];
-            ortadaIsmiGoster(item, currentIndex);
-            setTimeout(() => listeyeIsimEkle(item), 600);
-            currentIndex++;
-            if (currentIndex < isimSırası.length) {
-                setTimeout(() => siradakiIsmiGoster(), 2800);
-            } else {
-                setTimeout(() => travestiFinaliniBaslat(), 3200);
-            }
-        }
+document.getElementById('statShows').textContent = state.totalShows;
 
-        efektliIsimDiv.innerText = "✨";
-        setTimeout(() => siradakiIsmiGoster(), 500);
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-        document.body.addEventListener("click", () => {
-            shakeBody();
-            addCrackEffect();
-            uçanEmojiOlustur(15);
-            if (efektliIsimDiv) {
-                efektliIsimDiv.style.transform = "scale(1.05)";
-                setTimeout(() => { if(efektliIsimDiv) efektliIsimDiv.style.transform = ""; }, 150);
-            }
-        });
+function resizeCanvas() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-        console.log("🔥 ANİMASYONLAR AKTİF! Sultan (Küçük Selvinaz) + TRAVESTİLER finali SENNNNNN YYYOOOOOUUUU 🔥");
-    </script>
+class Particle {
+  constructor(x, y, type = 'normal') {
+    this.x = x;
+    this.y = y;
+    this.type = type;
+    
+    const emojis = ['🔥', '💥', '✨', '💫', '🎉', '🌈', '💃', '🕺', '🎭', '🎪', '⭐', '🌟'];
+    const megaEmojis = ['🚀', '🦄', '🌮', '🍕', '🎸', '🤯', '👽', '🤖', '💎', '👑'];
+    
+    this.emoji = state.mega ? 
+      megaEmojis[Math.floor(Math.random() * megaEmojis.length)] :
+      emojis[Math.floor(Math.random() * emojis.length)];
+    
+    const speed = state.mega ? 15 : 6;
+    this.vx = (Math.random() - 0.5) * speed;
+    this.vy = (Math.random() - 0.5) * speed;
+    this.life = 100 + Math.random() * 50;
+    this.maxLife = this.life;
+    this.size = 15 + Math.random() * 20;
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = (Math.random() - 0.5) * 10;
+    this.gravity = 0.1;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy += this.gravity;
+    this.rotation += this.rotationSpeed;
+    this.life--;
+    
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -0.8;
+    if (this.y > canvas.height) {
+      this.y = canvas.height;
+      this.vy *= -0.6;
+    }
+  }
+
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate((this.rotation * Math.PI) / 180);
+    ctx.font = `${this.size}px Arial`;
+    ctx.globalAlpha = this.life / this.maxLife;
+    ctx.fillText(this.emoji, -this.size/2, this.size/2);
+    ctx.restore();
+  }
+}
+
+function spawnParticles(x, y, count) {
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle(x, y));
+  }
+  state.totalParticles += count;
+  document.getElementById('statParticles').textContent = state.totalParticles;
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  particles = particles.filter(p => {
+    p.update();
+    p.draw();
+    return p.life > 0;
+  });
+  
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+const effects = {
+  epic: () => {
+    document.body.classList.add('shake-screen');
+    spawnParticles(canvas.width/2, canvas.height/2, state.power * 2);
+    setTimeout(() => document.body.classList.remove('shake-screen'), 500);
+    return "EPIC MODE 💎";
+  },
+  shake: () => {
+    const center = document.getElementById('centerText');
+    center.style.animation = 'screenShake 0.3s infinite';
+    spawnParticles(canvas.width/2, canvas.height/2, state.power);
+    setTimeout(() => center.style.animation = 'pulse 0.5s infinite alternate', 1000);
+    return "SHAKE IT 🌊";
+  },
+  wave: () => {
+    const center = document.getElementById('centerText');
+    center.style.transform = 'scale(1.2)';
+    spawnParticles(canvas.width/2, canvas.height/2, state.power);
+    setTimeout(() => center.style.transform = 'scale(1)', 500);
+    return "WAVE 🌊";
+  },
+  zoom: () => {
+    const center = document.getElementById('centerText');
+    center.style.animation = 'none';
+    center.offsetHeight;
+    center.style.animation = 'pulse 0.1s infinite alternate';
+    spawnParticles(canvas.width/2, canvas.height/2, state.power * 1.5);
+    setTimeout(() => center.style.animation = 'pulse 0.5s infinite alternate', 800);
+    return "ZOOM ⚡";
+  },
+  storm: () => {
+    for(let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        spawnParticles(
+          Math.random() * canvas.width,
+          Math.random() * canvas.height,
+          state.power / 2
+        );
+      }, i * 100);
+    }
+    return "STORM ⛈️";
+  },
+  jump: () => {
+    const center = document.getElementById('centerText');
+    center.style.animation = 'dance 0.3s infinite';
+    spawnParticles(canvas.width/2, canvas.height/2, state.power);
+    setTimeout(() => center.style.animation = 'pulse 0.5s infinite alternate', 1000);
+    return "JUMP 🦘";
+  }
+};
+
+function playSound(type) {
+  if (!state.sound) return;
+  
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const ctx = new AudioContext();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  
+  const now = ctx.currentTime;
+  
+  switch(type) {
+    case 'epic':
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(200, now);
+      osc.frequency.exponentialRampToValueAtTime(800, now + 0.5);
+      gain.gain.setValueAtTime(0.3, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+      osc.start(now);
+      osc.stop(now + 0.5);
+      break;
+    case 'shake':
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(150, now);
+      osc.frequency.linearRampToValueAtTime(100, now + 0.2);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+      osc.start(now);
+      osc.stop(now + 0.2);
+      break;
+    default:
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(440, now);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+      osc.start(now);
+      osc.stop(now + 0.1);
+  }
+}
+
+function startShow() {
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('gameArea').style.display = 'block';
+  
+  const listContainer = document.getElementById('nameList');
+  listContainer.innerHTML = names.map((name, i) => `
+    <div class="name-item" id="name-${i}">
+      <span>${name.emoji}</span>
+      <span>${name.n}</span>
+      <span style="margin-left:auto;font-size:0.8rem;color:#666">${name.t}</span>
+    </div>
+  `).join('');
+  
+  state.running = true;
+  state.index = 0;
+  state.totalParticles = 0;
+  
+  state.totalShows++;
+  localStorage.setItem('karnavalShows', state.totalShows);
+  document.getElementById('statShows').textContent = state.totalShows;
+  
+  showNextName();
+}
+
+function showNextName() {
+  if (!state.running || state.index >= names.length) {
+    finishShow();
+    return;
+  }
+  
+  const current = names[state.index];
+  const centerText = document.getElementById('centerText');
+  const effectLabel = document.getElementById('effectLabel');
+  const currentEffect = document.getElementById('currentEffect');
+  
+  centerText.textContent = current.n;
+  centerText.style.background = `linear-gradient(90deg, hsl(${Math.random()*360},100%,50%), hsl(${Math.random()*360},100%,50%))`;
+  centerText.style.webkitBackgroundClip = 'text';
+  
+  effectLabel.style.opacity = '1';
+  
+  const effectName = effects[current.t] ? effects[current.t]() : "NORMAL";
+  currentEffect.textContent = effectName;
+  
+  playSound(current.t);
+  
+  document.querySelectorAll('.name-item').forEach((el, i) => {
+    el.classList.remove('current', 'shown');
+    if (i < state.index) el.classList.add('shown');
+    if (i === state.index) el.classList.add('current');
+  });
+  
+  document.getElementById('quoteBox').textContent = current.quote;
+  
+  if (Math.random() > 0.5) createConfetti();
+  
+  state.index++;
+  
+  setTimeout(showNextName, state.speed);
+}
+
+function finishShow() {
+  state.running = false;
+  
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      spawnParticles(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        50
+      );
+    }, i * 100);
+  }
+  
+  setTimeout(() => {
+    document.getElementById('finalScreen').style.display = 'flex';
+    createConfetti();
+    setInterval(createConfetti, 1000);
+  }, 1500);
+}
+
+function updateSpeed(val) {
+  state.speed = parseInt(val);
+  document.getElementById('speedValue').textContent = val + 'ms';
+}
+
+function updatePower(val) {
+  state.power = parseInt(val);
+  document.getElementById('powerValue').textContent = val;
+}
+
+function toggleSound(checked) {
+  state.sound = checked;
+}
+
+function toggleMega(checked) {
+  state.mega = checked;
+  if (checked) {
+    document.body.style.filter = 'hue-rotate(180deg)';
+    document.getElementById('centerText').style.animation = 'rainbow 1s infinite';
+  } else {
+    document.body.style.filter = 'none';
+    document.getElementById('centerText').style.animation = 'pulse 0.5s infinite alternate';
+  }
+}
+
+function createConfetti() {
+  const colors = ['#ff00cc', '#00ffff', '#ffff00', '#00ff00', '#9d00ff'];
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => confetti.remove(), 4000);
+  }
+}
+
+setInterval(() => {
+  if (!state.running) {
+    document.getElementById('quoteBox').textContent = 
+      quotes[Math.floor(Math.random() * quotes.length)];
+  }
+}, 5000);
+
+let konami = [];
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
+                     'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 
+                     'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+  konami.push(e.key);
+  konami = konami.slice(-10);
+  
+  if (konami.join(',') === konamiCode.join(',')) {
+    alert('🎮 KONAMI CODE AKTİF! MEGA MOD AÇILDI! 🎮');
+    document.getElementById('megaMode').checked = true;
+    toggleMega(true);
+  }
+});
+</script>
+
 </body>
 </html>
