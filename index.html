@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cagran.com.tr - Yakında Burada!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Taşmaları gizle (emojiler için) */
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- Zıplayan Harfler --- */
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .title span {
+            display: inline-block;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        /* Renkli gölgeler ve zıplama efekti */
+        .title span:nth-child(1) { animation-delay: 0.0s; color: #ffadad; text-shadow: 0 0 10px #ffadad; }
+        .title span:nth-child(2) { animation-delay: 0.1s; color: #ffd6a5; text-shadow: 0 0 10px #ffd6a5; }
+        .title span:nth-child(3) { animation-delay: 0.2s; color: #fdffb6; text-shadow: 0 0 10px #fdffb6; }
+        .title span:nth-child(4) { animation-delay: 0.3s; color: #caffbf; text-shadow: 0 0 10px #caffbf; }
+        .title span:nth-child(5) { animation-delay: 0.4s; color: #9bf6ff; text-shadow: 0 0 10px #9bf6ff; }
+        .title span:nth-child(6) { animation-delay: 0.5s; color: #a0c4ff; text-shadow: 0 0 10px #a0c4ff; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        /* --- Yakında Burada Metni --- */
+        .subtitle {
+            font-size: 1.5rem;
+            color: #bdc3c7;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+
+        /* --- Patlayan Emojiler --- */
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: explode 3s linear infinite;
+            opacity: 0;
+            user-select: none;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1.5) rotate(var(--r));
+                opacity: 0;
+            }
+        }
+
+        /* Farklı emoji pozisyonları ve hareketleri (rastgelelik hissi) */
+        .emoji:nth-child(odd) { --r: 360deg; }
+        .emoji:nth-child(even) { --r: -360deg; }
+
+    </style>
+</head>
+<body>
+
+    <div class="emoji" style="--x: 80vw; --y: -30vh; animation-delay: 0s;">🚀</div>
+    <div class="emoji" style="--x: -60vw; --y: 40vh; animation-delay: 0.5s;">✨</div>
+    <div class="emoji" style="--x: 90vw; --y: 70vh; animation-delay: 1.0s;">🎉</div>
+    <div class="emoji" style="--x: -80vw; --y: -50vh; animation-delay: 1.5s;">🌟</div>
+    <div class="emoji" style="--x: -30vw; --y: -80vh; animation-delay: 2.0s;">🔥</div>
+    <div class="emoji" style="--x: 50vw; --y: -90vh; animation-delay: 2.5s;">💻</div>
+    <div class="emoji" style="--x: 70vw; --y: 20vh; animation-delay: 3.0s;">⚡</div>
+    <div class="emoji" style="--x: -90vw; --y: 90vh; animation-delay: 3.5s;">💎</div>
+
+    <div class="container">
+        <div class="title">
+            <span>c</span>
+            <span>a</span>
+            <span>g</span>
+            <span>r</span>
+            <span>a</span>
+            <span>n</span>
+        </div>
+        
+        <div class="subtitle">yakında burada!</div>
+    </div>
+
+</body>
+</html>
