@@ -1,12 +1,602 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minik Yürekler Akademi</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minik Yürekler Akademi Anaokulu | MEB Onaylı</title>
+  <meta name="description" content="Minik Yürekler Akademi Anaokulu - MEB lisanslı, Avrupa standartlarında eğitim. İstanbul'da güvenli, sevgi dolu anaokulu ve kreş.">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --primary:#2E86AB;--primary-dark:#1a5f7a;--accent:#F6AE2D;--accent-dark:#d4891a;
+      --green:#4CAF50;--soft:#F8F9FA;--white:#ffffff;--text:#2C3E50;--muted:#6c757d;
+      --radius:14px;--radius-lg:20px;--shadow:0 4px 24px rgba(0,0,0,0.08)
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--white)}
+
+    /* NAVBAR */
+    .navbar{
+      background:var(--white);border-bottom:1px solid #e8ecf0;padding:0 5%;
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;position:sticky;top:0;z-index:100
+    }
+    .logo-area{display:flex;align-items:center;gap:12px}
+    .logo-icon{
+      width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--accent));
+      border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px
+    }
+    .logo-text{font-size:17px;font-weight:700;color:var(--primary);line-height:1.2}
+    .logo-text span{display:block;font-size:11px;font-weight:400;color:var(--muted)}
+    .meb-badge{background:#e8f4fd;color:var(--primary);font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;border:1px solid #b8d9f0}
+    .nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+    .nav-links a{text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--primary)}
+    .nav-cta{background:var(--primary)!important;color:var(--white)!important;padding:8px 18px;border-radius:8px;font-size:13px!important}
+    .nav-cta:hover{background:var(--primary-dark)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;transition:.3s}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(135deg,#eaf6fb 0%,#fff8e6 100%);
+      padding:80px 5% 70px;display:flex;align-items:center;gap:60px;min-height:520px
+    }
+    .hero-left{flex:1;max-width:540px}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:6px;background:var(--white);
+      border:1px solid #d4e8f5;color:var(--primary);font-size:12px;font-weight:600;
+      padding:6px 14px;border-radius:30px;margin-bottom:20px
+    }
+    .hero h1{font-size:42px;font-weight:800;line-height:1.15;color:var(--text);margin-bottom:16px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{font-size:17px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{
+      background:var(--primary);color:var(--white);border:none;padding:13px 26px;
+      border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;
+      display:inline-flex;align-items:center;gap:8px;transition:background .2s
+    }
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-outline{
+      background:transparent;color:var(--primary);border:2px solid var(--primary);
+      padding:11px 22px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;
+      text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s
+    }
+    .btn-outline:hover{background:var(--primary);color:var(--white)}
+    .hero-right{flex:0 0 400px}
+    .hero-card{
+      background:var(--white);border-radius:var(--radius-lg);padding:28px;
+      box-shadow:var(--shadow);border:1px solid #e8ecf0
+    }
+    .hero-card h3{font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat-item{text-align:center;background:var(--soft);border-radius:10px;padding:16px 8px}
+    .stat-num{font-size:28px;font-weight:800;color:var(--primary);line-height:1}
+    .stat-label{font-size:11px;color:var(--muted);margin-top:4px}
+    .contact-strip{
+      margin-top:16px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px
+    }
+    .contact-item{display:flex;align-items:center;gap:10px}
+    .contact-item a{color:var(--white);text-decoration:none;font-size:13px;font-weight:500}
+    .contact-icon{
+      width:28px;height:28px;background:rgba(255,255,255,0.2);border-radius:7px;
+      display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0
+    }
+    .contact-sub{font-size:10px;color:rgba(255,255,255,0.7);margin-top:1px}
+
+    /* SECTIONS */
+    section{padding:70px 5%}
+    .section-tag{color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .section-title{font-size:32px;font-weight:800;margin-bottom:12px;color:var(--text)}
+    .section-desc{font-size:16px;color:var(--muted);max-width:580px;line-height:1.7;margin-bottom:40px}
+
+    /* PROGRAMS */
+    .programs{background:var(--soft)}
+    .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .prog-card{
+      background:var(--white);border-radius:var(--radius);border:1px solid #e8ecf0;
+      overflow:hidden;transition:box-shadow .2s,transform .2s
+    }
+    .prog-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+    .prog-img{height:170px;overflow:hidden;position:relative}
+    .prog-img img{width:100%;height:100%;object-fit:cover}
+    .prog-img-placeholder{
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:64px
+    }
+    .age-badge{
+      position:absolute;top:12px;left:12px;background:var(--accent);color:var(--white);
+      font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px
+    }
+    .prog-body{padding:20px}
+    .prog-body h3{font-size:17px;font-weight:700;margin-bottom:8px}
+    .prog-body p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+    .prog-features{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+    .prog-features li{font-size:12px;color:var(--text);display:flex;align-items:center;gap:7px}
+    .prog-features li::before{content:"✓";color:var(--green);font-weight:700;font-size:13px}
+    .prog-link{color:var(--primary);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+
+    /* FEATURES */
+    .features{background:var(--white)}
+    .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .feat-card{text-align:center;padding:28px 16px;border-radius:var(--radius);border:1px solid #e8ecf0;transition:box-shadow .2s}
+    .feat-card:hover{box-shadow:var(--shadow)}
+    .feat-icon{font-size:36px;margin-bottom:14px;display:block}
+    .feat-card h3{font-size:15px;font-weight:700;margin-bottom:8px}
+    .feat-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+    /* WHY */
+    .why-section{background:var(--soft)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .why-left h2{font-size:32px;font-weight:800;line-height:1.3;margin-bottom:24px}
+    .why-left h2 span{color:var(--primary)}
+    .why-list{display:flex;flex-direction:column;gap:20px}
+    .why-item{display:flex;gap:14px;align-items:flex-start}
+    .why-num{
+      width:32px;height:32px;background:var(--primary);color:var(--white);border-radius:8px;
+      display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px
+    }
+    .why-item-text h4{font-size:14px;font-weight:700;margin-bottom:5px}
+    .why-item-text p{font-size:13px;color:var(--muted);line-height:1.6}
+    .why-visual{background:linear-gradient(135deg,#eaf6fb,#e8f8f0);border-radius:var(--radius-lg);padding:36px;border:1px solid #d4e8f5}
+    .cert-badge{
+      background:var(--white);border-radius:var(--radius);padding:16px 20px;margin-bottom:12px;
+      display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid #e8ecf0
+    }
+    .cert-icon{font-size:24px;flex-shrink:0}
+    .cert-text{font-size:13px;font-weight:600}
+    .cert-sub{font-size:11px;color:var(--muted);font-weight:400;display:block;margin-top:2px}
+
+    /* TESTIMONIALS */
+    .testimonials{background:var(--white)}
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .test-card{background:var(--soft);border-radius:var(--radius);padding:24px;border:1px solid #e8ecf0}
+    .stars{color:var(--accent);font-size:14px;margin-bottom:10px}
+    .test-card p{font-size:13px;color:var(--text);line-height:1.7;margin-bottom:16px;font-style:italic}
+    .test-author{display:flex;align-items:center;gap:10px}
+    .test-avatar{
+      width:36px;height:36px;background:var(--primary);color:var(--white);
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:13px;font-weight:700;flex-shrink:0
+    }
+    .test-name{font-size:13px;font-weight:600}
+    .test-role{font-size:11px;color:var(--muted)}
+
+    /* CONTACT */
+    .contact-section{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:var(--white)}
+    .contact-section .section-title{color:var(--white)}
+    .contact-section .section-desc{color:rgba(255,255,255,0.8);max-width:none}
+    .contact-section .section-tag{color:var(--accent)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .contact-block{background:rgba(255,255,255,0.12);border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,0.2)}
+    .contact-block h3{font-size:16px;font-weight:700;margin-bottom:20px;color:var(--white)}
+    .cinfo-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .cinfo-icon{
+      width:42px;height:42px;background:rgba(255,255,255,0.15);border-radius:10px;
+      display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0
+    }
+    .cinfo-label{font-size:11px;color:rgba(255,255,255,0.6);margin-bottom:3px}
+    .cinfo-value{font-size:14px;font-weight:600;color:var(--white)}
+    .call-btn{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+      text-decoration:none;transition:opacity .2s;width:100%;margin-top:6px;
+      background:rgba(255,255,255,0.2);color:var(--white);border:1px solid rgba(255,255,255,0.3)
+    }
+    .call-btn:hover{background:rgba(255,255,255,0.3)}
+    .whatsapp-btn{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+      text-decoration:none;transition:opacity .2s;width:100%;margin-top:8px;
+      background:#25D366;color:var(--white);border:none
+    }
+    .whatsapp-btn:hover{opacity:.9}
+    .map-embed{
+      border-radius:var(--radius);overflow:hidden;height:220px;
+      background:rgba(255,255,255,0.1);display:flex;align-items:center;
+      justify-content:center;font-size:14px;color:rgba(255,255,255,0.8);
+      border:1px solid rgba(255,255,255,0.2);text-align:center;padding:20px
+    }
+
+    /* FOOTER */
+    footer{background:#1a2332;color:rgba(255,255,255,0.8);padding:48px 5% 24px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+    .footer-brand p{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:14px}
+    .footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+    .footer-logo-icon{
+      width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));
+      border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px
+    }
+    .footer-logo-text{font-size:15px;font-weight:700;color:var(--white);line-height:1.2}
+    .footer-logo-text span{display:block;font-size:10px;font-weight:400;color:rgba(255,255,255,0.5)}
+    .footer-col h4{font-size:12px;font-weight:700;color:var(--white);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color .2s}
+    .footer-col ul li a:hover{color:var(--white)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.4)}
+
+    /* FLOATING BUTTONS */
+    .floating-btns{position:fixed;right:20px;bottom:80px;display:flex;flex-direction:column;gap:10px;z-index:999}
+    .float-btn{
+      width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.25);text-decoration:none;
+      border:none;transition:transform .2s
+    }
+    .float-btn:hover{transform:scale(1.1)}
+    .float-call{background:var(--primary)}
+    .float-wa{background:#25D366}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero{flex-direction:column;padding:40px 5%}
+      .hero-right{flex:none;width:100%}
+      .hero h1{font-size:30px}
+      .prog-grid,.feat-grid,.test-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .contact-grid,.why-grid{grid-template-columns:1fr}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--white);padding:20px 5%;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+      .nav-links.open{display:flex}
+      .hamburger{display:flex}
+    }
+    @media(max-width:600px){
+      .prog-grid,.feat-grid,.test-grid{grid-template-columns:1fr}
+      .hero h1{font-size:26px}
+      .section-title{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo-area">
+    <div class="logo-icon">🌟</div>
+    <div class="logo-text">
+      Minik Yürekler Akademi
+      <span>Anaokulu</span>
+    </div>
+  </div>
+  <div class="meb-badge">MEB Onaylı</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#programs">Programlar</a></li>
+    <li><a href="#why">Neden Biz?</a></li>
+    <li><a href="#testimonials">Yorumlar</a></li>
+    <li><a href="#contact" class="nav-cta">📞 İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🏅 MEB Lisanslı &amp; Denetimli Anaokulu</div>
+    <h1>Çocuğunuzun <span>Geleceğini</span> Birlikte İnşa Ediyoruz</h1>
+    <p>Avrupa standartlarında eğitim anlayışıyla, her çocuğun bireysel gelişimini destekleyen güvenli ve sevgi dolu bir ortam sunuyoruz.</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">📚 Programları Keşfet</a>
+      <a href="#contact" class="btn-outline">📞 Bize Ulaşın</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <h3>📊 Minik Yürekler'de Rakamlar</h3>
+      <div class="stat-grid">
+        <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Yıllık Deneyim</div></div>
+        <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Veli Memnuniyeti</div></div>
+        <div class="stat-item"><div class="stat-num">250+</div><div class="stat-label">Mezun Öğrenci</div></div>
+        <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Uzman Eğitimci</div></div>
+      </div>
+      <div class="contact-strip">
+        <div class="contact-item">
+          <div class="contact-icon">☎️</div>
+          <div>
+            <a href="tel:02124345050">0(212) 434 50 50</a>
+            <div class="contact-sub">Sekreterlik hattı — tıkla ara</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <a href="tel:05533231987">0(553) 323 19 87</a>
+            <div class="contact-sub">Mobil &amp; WhatsApp hattı</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-tag">Eğitim Programlarımız</div>
+  <div class="section-title">Her Yaşa Özel Program</div>
+  <div class="section-desc">Çocuğunuzun yaşına ve gelişim düzeyine uygun, uzmanlar tarafından hazırlanmış eğitim programları.</div>
+  <div class="prog-grid">
+    <div class="prog-card">
+      <div class="prog-img">
+        <div class="prog-img-placeholder" style="background:linear-gradient(135deg,#e8f4fb,#d4eaf5)">👶</div>
+        <div class="age-badge">0–2 Yaş</div>
+      </div>
+      <div class="prog-body">
+        <h3>Bebek Grubu</h3>
+        <p>En küçüklere özel birebir bakım, duygusal bağ ve erken gelişim desteği sunuyoruz.</p>
+        <ul class="prog-features">
+          <li>Birebir Özel Bakım</li>
+          <li>Duyusal Oyun Aktiviteleri</li>
+          <li>Erken Gelişim Desteği</li>
+        </ul>
+        <a href="#contact" class="prog-link">Detaylı Bilgi →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-img">
+        <div class="prog-img-placeholder" style="background:linear-gradient(135deg,#e8f8e8,#d4f0d4)">🎨</div>
+        <div class="age-badge">2–3 Yaş</div>
+      </div>
+      <div class="prog-body">
+        <h3>Kreş</h3>
+        <p>Güvenli, sevgi dolu ortamda sosyalleşme ve temel becerilerin gelişimi için özel bakım.</p>
+        <ul class="prog-features">
+          <li>Günlük Profesyonel Bakım</li>
+          <li>Oyun Temelli Aktiviteler</li>
+          <li>Sosyalleşme ve İletişim</li>
+        </ul>
+        <a href="#contact" class="prog-link">Detaylı Bilgi →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-img">
+        <div class="prog-img-placeholder" style="background:linear-gradient(135deg,#fff8e0,#fdeec8)">📖</div>
+        <div class="age-badge">3–6 Yaş</div>
+      </div>
+      <div class="prog-body">
+        <h3>Anaokulu</h3>
+        <p>Okul öncesi dönemde bilişsel, sosyal ve duygusal gelişimi destekleyen Avrupa modeli program.</p>
+        <ul class="prog-features">
+          <li>Okul Öncesi Eğitim</li>
+          <li>Sosyal Gelişim</li>
+          <li>Yaratıcı Aktiviteler</li>
+        </ul>
+        <a href="#contact" class="prog-link">Detaylı Bilgi →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-tag">Özelliklerimiz</div>
+  <div class="section-title">Fark Yaratan Hizmetlerimiz</div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <span class="feat-icon">🇪🇺</span>
+      <h3>Avrupa Standartları</h3>
+      <p>Kindergarten modelini esas alan, bilimsel temelli pedagoji anlayışıyla eğitim.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🛡️</span>
+      <h3>Güvenli Ortam</h3>
+      <p>7/24 kamera sistemi, güvenli giriş-çıkış kontrol ve hijyen protokolleri.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">👩‍🏫</span>
+      <h3>Uzman Kadro</h3>
+      <p>Alanında sertifikalı, sevgi dolu ve deneyimli öğretmen ve bakıcı ekibi.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🍽️</span>
+      <h3>Organik Beslenme</h3>
+      <p>Diyetisyen onaylı, günlük taze hazırlanan dengeli ve besleyici öğünler.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="why-grid">
+    <div class="why-left">
+      <div class="section-tag">Tercih Nedenleri</div>
+      <h2>Neden <span>Minik Yürekler</span> Ailesi?</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-item-text">
+            <h4>MEB Lisanslı &amp; Denetimli</h4>
+            <p>Millî Eğitim Bakanlığı onaylı, düzenli denetlenen, resmî belgeli bir eğitim kurumuyuz.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-item-text">
+            <h4>Bireyselleştirilmiş Eğitim</h4>
+            <p>Her çocuğun özel gelişim hızına göre uyarlanmış kişisel eğitim planları hazırlanır.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-item-text">
+            <h4>Veli Katılımı &amp; Şeffaflık</h4>
+            <p>Günlük raporlar, veli toplantıları ve açık kapı politikasıyla tam şeffaflık.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-item-text">
+            <h4>İngilizce Eğitim</h4>
+            <p>Erken yaştan itibaren yabancı dil eğitimiyle çocuğunuza küresel bir perspektif sunuyoruz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="cert-badge">
+        <div class="cert-icon">🏛️</div>
+        <div class="cert-text">MEB Onaylı<span class="cert-sub">Millî Eğitim Bakanlığı Lisansı</span></div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-text">ISO 9001 Kalite<span class="cert-sub">Kalite Yönetim Sistemi Sertifikası</span></div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🌍</div>
+        <div class="cert-text">Avrupa Pedagoji Standartları<span class="cert-sub">Kindergarten Modeli Uygulaması</span></div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-icon">🔒</div>
+        <div class="cert-text">Güvenli Tesis<span class="cert-sub">Kamera, Güvenli Giriş-Çıkış Sistemi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-tag">Veli Yorumları</div>
+  <div class="section-title">Aileler Ne Diyor?</div>
+  <div class="section-desc">Minik Yürekler Akademi'ye güvenen ailelerin deneyimleri.</div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Kızım buraya başladığından beri inanılmaz bir gelişim gösterdi. Öğretmenler gerçekten işini seven, sevgi dolu insanlar. Teşekkürler Minik Yürekler!"</p>
+      <div class="test-author">
+        <div class="test-avatar">AK</div>
+        <div><div class="test-name">Ayşe Kılıç</div><div class="test-role">Elif'in Annesi — 4 Yaş</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Avrupa standartlarında eğitim sözünü gerçekten tutuyorlar. Oğlum hem Türkçe hem İngilizce çok güzel gelişiyor. Çok memnunuz."</p>
+      <div class="test-author">
+        <div class="test-avatar">MA</div>
+        <div><div class="test-name">Mehmet Aydın</div><div class="test-role">Can'ın Babası — 5 Yaş</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Güvenli ortam ve şeffaf yönetim anlayışı bizi çok etkiledi. Her sabah çocuğumu gönül rahatlığıyla bırakıyorum. Kesinlikle tavsiye ederim."</p>
+      <div class="test-author">
+        <div class="test-avatar">FD</div>
+        <div><div class="test-name">Fatma Demir</div><div class="test-role">Zeynep'in Annesi — 3 Yaş</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-tag">İletişim</div>
+  <div class="section-title">Bize Ulaşın</div>
+  <div class="section-desc">Sorularınız ve kayıt bilgisi için bizimle iletişime geçin. Size en kısa sürede dönüş yaparız.</div>
+  <div class="contact-grid">
+    <div class="contact-block">
+      <h3>📞 Telefon ile Ulaşın</h3>
+      <div class="cinfo-row">
+        <div class="cinfo-icon">☎️</div>
+        <div>
+          <div class="cinfo-label">Sabit Hat — Sekreterlik</div>
+          <div class="cinfo-value">0(212) 434 50 50</div>
+        </div>
+      </div>
+      <a href="tel:02124345050" class="call-btn">📞 Hemen Ara — 0(212) 434 50 50</a>
+
+      <div style="margin-top:20px">
+        <div class="cinfo-row">
+          <div class="cinfo-icon">📱</div>
+          <div>
+            <div class="cinfo-label">Mobil &amp; WhatsApp Hattı</div>
+            <div class="cinfo-value">0(553) 323 19 87</div>
+          </div>
+        </div>
+        <a href="tel:05533231987" class="call-btn">📞 Hemen Ara — 0(553) 323 19 87</a>
+        <a href="https://wa.me/905533231987?text=Merhaba%2C%20Minik%20Y%C3%BCrekler%20Akademi%20Anaokulu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="whatsapp-btn">💬 WhatsApp ile Mesaj Gönder</a>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <h3>📍 Adres &amp; Harita</h3>
+      <div class="cinfo-row">
+        <div class="cinfo-icon">🗺️</div>
+        <div>
+          <div class="cinfo-label">Okul Adresi</div>
+          <div class="cinfo-value" style="font-size:13px">Minik Yürekler Akademi Anaokulu, İstanbul</div>
+        </div>
+      </div>
+      <a href="https://share.google/Tye8YgJbW2B5zhICB" target="_blank" class="call-btn">🗺️ Google Maps'te Görüntüle &amp; Yol Tarifi Al</a>
+      <div class="map-embed" style="margin-top:16px">
+        <div>
+          <div style="font-size:40px;margin-bottom:10px">📍</div>
+          <a href="https://share.google/Tye8YgJbW2B5zhICB" target="_blank" style="color:rgba(255,255,255,0.9);font-size:13px;font-weight:600">Haritayı Açmak İçin Tıklayın →</a>
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="cinfo-row">
+          <div class="cinfo-icon">🕐</div>
+          <div>
+            <div class="cinfo-label">Çalışma Saatleri</div>
+            <div class="cinfo-value" style="font-size:13px">Pazartesi – Cuma: 07:30 – 18:30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">🌟</div>
+        <div class="footer-logo-text">
+          Minik Yürekler Akademi
+          <span>MEB Lisanslı Anaokulu</span>
+        </div>
+      </div>
+      <p>Avrupa standartlarında eğitim anlayışıyla çocuklarınızın geleceğini şekillendiriyoruz. Her çocuk bizim için özel, her gün yeni bir keşif.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programlar</h4>
+      <ul>
+        <li><a href="#programs">Bebek Grubu (0–2 Yaş)</a></li>
+        <li><a href="#programs">Kreş (2–3 Yaş)</a></li>
+        <li><a href="#programs">Anaokulu (3–6 Yaş)</a></li>
+        <li><a href="#programs">İngilizce Eğitim</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>İletişim</h4>
+      <ul>
+        <li><a href="tel:02124345050">☎️ 0(212) 434 50 50</a></li>
+        <li><a href="tel:05533231987">📱 0(553) 323 19 87</a></li>
+        <li><a href="https://wa.me/905533231987?text=Merhaba%2C%20bilgi%20almak%20istiyorum." target="_blank">💬 WhatsApp</a></li>
+        <li><a href="https://share.google/Tye8YgJbW2B5zhICB" target="_blank">🗺️ Yol Tarifi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Minik Yürekler Akademi Anaokulu. Tüm hakları saklıdır.</p>
+    <p>MEB Lisanslı &amp; Denetimli</p>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="tel:02124345050" class="float-btn float-call" title="Hemen Ara — 0(212) 434 50 50">☎️</a>
+  <a href="https://wa.me/905533231987?text=Merhaba%2C%20Minik%20Y%C3%BCrekler%20Akademi%20Anaokulu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="float-btn float-wa" title="WhatsApp ile Mesaj Gönder">💬</a>
+</div>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+</body>
 </html>
