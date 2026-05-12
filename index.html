@@ -21,17 +21,8 @@
             --shadow-hover: 0 12px 40px rgba(0,0,0,0.12);
             --shadow-card: 0 4px 20px rgba(0,0,0,0.06);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Nunito', sans-serif;
             background: var(--light);
@@ -39,1098 +30,296 @@
             line-height: 1.7;
             overflow-x: hidden;
         }
-
-        /* Floating Shapes Background */
         .bg-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
         }
-
         .shape {
-            position: absolute;
-            opacity: 0.04;
+            position: absolute; opacity: 0.04;
             animation: float 25s infinite ease-in-out;
         }
-
-        .shape:nth-child(1) {
-            top: 10%;
-            left: 10%;
-            width: 100px;
-            height: 100px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            width: 150px;
-            height: 150px;
-            background: var(--secondary);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation-delay: 5s;
-        }
-
-        .shape:nth-child(3) {
-            top: 30%;
-            right: 30%;
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation-delay: 10s;
-        }
-
-        .shape:nth-child(4) {
-            bottom: 20%;
-            left: 20%;
-            width: 120px;
-            height: 120px;
-            background: var(--primary-light);
-            border-radius: 10px;
-            animation-delay: 15s;
-        }
-
+        .shape:nth-child(1) { top: 10%; left: 10%; width: 100px; height: 100px; background: var(--primary); border-radius: 50%; animation-delay: 0s; }
+        .shape:nth-child(2) { top: 60%; right: 10%; width: 150px; height: 150px; background: var(--secondary); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation-delay: 5s; }
+        .shape:nth-child(3) { top: 30%; right: 30%; width: 80px; height: 80px; background: var(--accent); border-radius: 50%; animation-delay: 10s; }
+        .shape:nth-child(4) { bottom: 20%; left: 20%; width: 120px; height: 120px; background: var(--primary-light); border-radius: 10px; animation-delay: 15s; }
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             33% { transform: translateY(-40px) rotate(120deg); }
             66% { transform: translateY(20px) rotate(240deg); }
         }
-
-        /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
-
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
         .logo {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: 'Quicksand', sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--primary); text-decoration: none;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-
-        .logo-icon {
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.95rem;
+            transition: color 0.3s ease; position: relative;
+            display: flex; align-items: center; gap: 0.4rem;
         }
-
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 3px; background: var(--primary); border-radius: 2px;
             transition: width 0.3s ease;
         }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        /* Hero Section */
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
             padding: 6rem 2rem 4rem;
             background: linear-gradient(135deg, #FFF5EB 0%, #E8F6F3 50%, #FFF9E6 100%);
             overflow: hidden;
         }
-
         .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            max-width: 1200px; width: 100%; display: grid;
+            grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+            position: relative; z-index: 1;
         }
-
         .hero-text h1 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-family: 'Quicksand', sans-serif; font-size: 3.5rem; font-weight: 700;
+            color: var(--dark); margin-bottom: 1rem; line-height: 1.2;
         }
-
-        .hero-text h1 span {
-            color: var(--primary);
-            position: relative;
-        }
-
+        .hero-text h1 span { color: var(--primary); position: relative; }
         .hero-text h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: var(--accent);
-            opacity: 0.4;
-            border-radius: 4px;
-            z-index: -1;
+            content: ''; position: absolute; bottom: 5px; left: 0;
+            width: 100%; height: 12px; background: var(--accent);
+            opacity: 0.4; border-radius: 4px; z-index: -1;
         }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #636e72;
-            margin-bottom: 2rem;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
+        .hero-text p { font-size: 1.2rem; color: #636e72; margin-bottom: 2rem; }
+        .hero-badges { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
         .badge {
-            background: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary);
-            box-shadow: var(--shadow-card);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            background: var(--white); padding: 0.6rem 1.2rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; color: var(--primary);
+            box-shadow: var(--shadow-card); display: flex; align-items: center; gap: 0.5rem;
         }
-
-        .badge i {
-            font-size: 1rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            border: none;
-            cursor: pointer;
+            padding: 1rem 2rem; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 1rem; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: none; cursor: pointer;
         }
-
         .btn-primary {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--primary); color: var(--white);
             box-shadow: 0 4px 15px rgba(255,140,66,0.3);
         }
-
-        .btn-primary:hover {
-            background: #e67e22;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,140,66,0.4);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--dark);
-            border: 2px solid var(--secondary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--secondary);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: var(--shadow-hover);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image:hover img {
-            transform: scale(1.02);
-        }
-
+        .btn-primary:hover { background: #e67e22; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,140,66,0.4); }
+        .btn-secondary { background: var(--white); color: var(--dark); border: 2px solid var(--secondary); }
+        .btn-secondary:hover { background: var(--secondary); color: var(--white); transform: translateY(-2px); }
+        .hero-image { position: relative; }
+        .hero-image img { width: 100%; border-radius: 30px; box-shadow: var(--shadow-hover); transition: transform 0.3s ease; }
+        .hero-image:hover img { transform: scale(1.02); }
         .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--accent);
-            border-radius: 30px;
-            z-index: -1;
+            content: ''; position: absolute; top: -20px; right: -20px;
+            width: 100%; height: 100%; border: 3px solid var(--accent);
+            border-radius: 30px; z-index: -1;
         }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: #636e72;
-            font-size: 1.1rem;
-        }
-
-        .section-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--white);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .about-text h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            color: #636e72;
-            margin-bottom: 1rem;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
+        section { padding: 5rem 2rem; position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-family: 'Quicksand', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
+        .section-header p { color: #636e72; font-size: 1.1rem; }
+        .section-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .about { background: var(--white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); }
+        .about-text h3 { font-family: 'Quicksand', sans-serif; font-size: 2rem; margin-bottom: 1rem; color: var(--dark); }
+        .about-text p { color: #636e72; margin-bottom: 1rem; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
         .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 600;
-            color: var(--dark);
-            padding: 0.8rem;
-            background: var(--light);
-            border-radius: 12px;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 0.8rem; font-weight: 600;
+            color: var(--dark); padding: 0.8rem; background: var(--light);
+            border-radius: 12px; transition: all 0.3s ease;
         }
-
-        .feature-item:hover {
-            background: var(--white);
-            box-shadow: var(--shadow-card);
-            transform: translateX(5px);
-        }
-
-        .feature-item i {
-            font-size: 1.3rem;
-            color: var(--primary);
-            width: 30px;
-            text-align: center;
-        }
-
-        /* Classes Section */
-        .classes {
-            background: linear-gradient(180deg, var(--light) 0%, #FFF9E6 100%);
-        }
-
-        .classes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
+        .feature-item:hover { background: var(--white); box-shadow: var(--shadow-card); transform: translateX(5px); }
+        .feature-item i { font-size: 1.3rem; color: var(--primary); width: 30px; text-align: center; }
+        .classes { background: linear-gradient(180deg, var(--light) 0%, #FFF9E6 100%); }
+        .classes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .class-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--white); border-radius: 20px; padding: 2.5rem 2rem;
+            text-align: center; box-shadow: var(--shadow); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
         }
-
-        .class-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--primary);
-        }
-
-        .class-card:nth-child(2)::before {
-            background: var(--secondary);
-        }
-
-        .class-card:nth-child(3)::before {
-            background: var(--accent);
-        }
-
-        .class-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
+        .class-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--primary); }
+        .class-card:nth-child(2)::before { background: var(--secondary); }
+        .class-card:nth-child(3)::before { background: var(--accent); }
+        .class-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
         .class-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.8rem;
-            color: var(--white);
+            width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-size: 1.8rem; color: var(--white);
             box-shadow: 0 4px 15px rgba(255,140,66,0.3);
         }
-
-        .class-card:nth-child(2) .class-icon {
-            background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
-            box-shadow: 0 4px 15px rgba(78,205,196,0.3);
-        }
-
-        .class-card:nth-child(3) .class-icon {
-            background: linear-gradient(135deg, #FFF3B0, var(--accent));
-            color: var(--dark);
-            box-shadow: 0 4px 15px rgba(255,230,109,0.3);
-        }
-
-        .class-card h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .class-age {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--dark);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .class-card:nth-child(2) .class-age {
-            background: var(--secondary-light);
-        }
-
-        .class-card:nth-child(3) .class-age {
-            background: var(--accent);
-        }
-
-        .class-card p {
-            color: #636e72;
-            font-size: 0.95rem;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            background: var(--white);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 250px;
-            gap: 1rem;
-        }
-
+        .class-card:nth-child(2) .class-icon { background: linear-gradient(135deg, var(--secondary-light), var(--secondary)); box-shadow: 0 4px 15px rgba(78,205,196,0.3); }
+        .class-card:nth-child(3) .class-icon { background: linear-gradient(135deg, #FFF3B0, var(--accent)); color: var(--dark); box-shadow: 0 4px 15px rgba(255,230,109,0.3); }
+        .class-card h3 { font-family: 'Quicksand', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .class-age { display: inline-block; background: var(--primary-light); color: var(--dark); padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
+        .class-card:nth-child(2) .class-age { background: var(--secondary-light); }
+        .class-card:nth-child(3) .class-age { background: var(--accent); }
+        .class-card p { color: #636e72; font-size: 0.95rem; }
+        .gallery { background: var(--white); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            position: relative; border-radius: 20px; overflow: hidden;
+            cursor: pointer; box-shadow: var(--shadow); transition: all 0.4s ease;
+            aspect-ratio: 4/3;
         }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item.tall {
-            grid-row: span 2;
-        }
-
-        .gallery-item.wide {
-            grid-column: span 2;
-        }
-
+        .gallery-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow-hover); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-item:hover img { transform: scale(1.15); }
         .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 1.5rem 1rem 1rem;
-            color: var(--white);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            padding: 2rem 1.2rem 1.2rem; color: var(--white);
+            opacity: 0; transition: all 0.4s ease;
+            display: flex; align-items: center; gap: 0.6rem;
         }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            font-size: 1rem;
-        }
-
-        .gallery-overlay h4 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.1rem;
-        }
-
-        /* Lightbox */
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay i { font-size: 1.1rem; }
+        .gallery-overlay h4 { font-family: 'Quicksand', sans-serif; font-size: 1.1rem; font-weight: 600; }
         .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.92);
+            z-index: 2000; justify-content: center; align-items: center;
+            padding: 2rem; backdrop-filter: blur(10px);
         }
-
-        .lightbox.active {
-            display: flex;
+        .lightbox.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .lightbox-content {
+            position: relative; max-width: 85%; max-height: 85%;
+            display: flex; flex-direction: column; align-items: center;
         }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            color: var(--white);
-            font-size: 2rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Schedule Section */
-        .schedule {
-            background: linear-gradient(135deg, #E8F6F3 0%, #FFF5EB 100%);
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1rem;
-        }
-
-        .day-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s ease;
-        }
-
-        .day-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .day-card.active {
-            background: linear-gradient(135deg, var(--primary), #e67e22);
-            color: var(--white);
-        }
-
-        .day-card.active .day-hours {
-            color: var(--white);
-        }
-
-        .day-card.active .day-icon {
-            color: var(--white);
-        }
-
-        .day-card.closed {
-            background: #f1f2f6;
-            opacity: 0.7;
-        }
-
-        .day-card.closed .day-icon {
-            color: #b2bec3;
-        }
-
-        .day-name {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .day-hours {
-            font-size: 0.85rem;
-            color: #636e72;
-            font-weight: 600;
-        }
-
-        .day-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--white);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            background: var(--light);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: var(--white);
-            box-shadow: var(--shadow-card);
-            transform: translateX(5px);
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            min-width: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), #e67e22);
-            color: var(--white);
-            border-radius: 12px;
-            font-size: 1.1rem;
-        }
-
-        .contact-item:nth-child(2) .contact-icon {
-            background: linear-gradient(135deg, var(--secondary), #3dbbb4);
-        }
-
-        .contact-item:nth-child(3) .contact-icon {
-            background: linear-gradient(135deg, var(--accent), #f9d71c);
-            color: var(--dark);
-        }
-
-        .contact-text h4 {
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-text p, .contact-text a {
-            color: #636e72;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact-text a:hover {
-            color: var(--primary);
-        }
-
-        /* Message Form */
-        .message-form-container {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .message-form-container h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .message-form-container > p {
-            color: #636e72;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-size: 0.9rem;
-        }
-
-        .form-group label i {
-            margin-right: 0.4rem;
-            color: var(--primary);
-            width: 18px;
-            text-align: center;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.9rem 1rem;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            background: var(--white);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(255,140,66,0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary), #e67e22);
-            color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,140,66,0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .form-success {
-            display: none;
-            background: linear-gradient(135deg, #d4edda, #c3e6cb);
-            color: #155724;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .form-success i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .form-success h4 {
-            font-family: 'Quicksand', sans-serif;
-            margin-bottom: 0.3rem;
-        }
-
-        /* Map */
-        .map-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 100%;
-            min-height: 400px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .footer-text {
-            color: #b2bec3;
-            margin-bottom: 2rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #636e72;
-            padding-top: 1.5rem;
-            margin-top: 2rem;
-            color: #636e72;
-            font-size: 0.9rem;
-        }
-
-        .meb-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-
-        .meb-badge i {
-            font-size: 1rem;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
+        .lightbox-img-container { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.5); }
+        .lightbox img { max-width: 100%; max-height: 70vh; display: block; border-radius: 16px; }
+        .lightbox-caption { color: var(--white); margin-top: 1rem; font-size: 1.1rem; font-weight: 600; text-align: center; font-family: 'Quicksand', sans-serif; }
+        .lightbox-counter { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); color: var(--white); font-size: 0.9rem; background: rgba(255,255,255,0.15); padding: 0.4rem 1rem; border-radius: 50px; backdrop-filter: blur(10px); }
+        .lightbox-close { position: absolute; top: 2rem; right: 2rem; color: var(--white); background: rgba(255,255,255,0.15); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); z-index: 2001; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.3); transform: rotate(90deg); }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; color: var(--white); font-size: 1.3rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); z-index: 2001; }
+        .lightbox-nav:hover { background: rgba(255,255,255,0.3); transform: translateY(-50%) scale(1.1); }
+        .lightbox-nav.prev { left: 2rem; }
+        .lightbox-nav.next { right: 2rem; }
+        .schedule { background: linear-gradient(135deg, #E8F6F3 0%, #FFF5EB 100%); }
+        .schedule-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1rem; }
+        .day-card { background: var(--white); border-radius: 15px; padding: 1.5rem 1rem; text-align: center; box-shadow: var(--shadow-card); transition: all 0.3s ease; }
+        .day-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .day-card.active { background: linear-gradient(135deg, var(--primary), #e67e22); color: var(--white); }
+        .day-card.active .day-hours { color: var(--white); }
+        .day-card.active .day-icon { color: var(--white); }
+        .day-card.closed { background: #f1f2f6; opacity: 0.7; }
+        .day-card.closed .day-icon { color: #b2bec3; }
+        .day-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+        .day-hours { font-size: 0.85rem; color: #636e72; font-weight: 600; }
+        .day-icon { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+        .contact { background: var(--white); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contact-info h3 { font-family: 'Quicksand', sans-serif; font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; padding: 1.2rem; background: var(--light); border-radius: 15px; transition: all 0.3s ease; }
+        .contact-item:hover { background: var(--white); box-shadow: var(--shadow-card); transform: translateX(5px); }
+        .contact-icon { width: 45px; height: 45px; min-width: 45px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary), #e67e22); color: var(--white); border-radius: 12px; font-size: 1.1rem; }
+        .contact-item:nth-child(2) .contact-icon { background: linear-gradient(135deg, var(--secondary), #3dbbb4); }
+        .contact-item:nth-child(3) .contact-icon { background: linear-gradient(135deg, var(--accent), #f9d71c); color: var(--dark); }
+        .contact-text h4 { font-weight: 700; margin-bottom: 0.3rem; }
+        .contact-text p, .contact-text a { color: #636e72; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; }
+        .contact-text a:hover { color: var(--primary); }
+        .message-form-container { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; padding: 2rem; box-shadow: var(--shadow); }
+        .message-form-container h3 { font-family: 'Quicksand', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .message-form-container > p { color: #636e72; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--dark); font-size: 0.9rem; }
+        .form-group label i { margin-right: 0.4rem; color: var(--primary); width: 18px; text-align: center; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.9rem 1rem; border: 2px solid #e9ecef; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; transition: all 0.3s ease; background: var(--white); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,140,66,0.1); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .submit-btn { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary), #e67e22); color: var(--white); border: none; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,140,66,0.4); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .form-success { display: none; background: linear-gradient(135deg, #d4edda, #c3e6cb); color: #155724; padding: 1.5rem; border-radius: 12px; text-align: center; margin-top: 1rem; animation: slideDown 0.5s ease; }
+        .form-success.show { display: block; }
+        .form-success i { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+        .form-success h4 { font-family: 'Quicksand', sans-serif; margin-bottom: 0.3rem; }
+        .form-error { display: none; background: linear-gradient(135deg, #f8d7da, #f5c6cb); color: #721c24; padding: 1.5rem; border-radius: 12px; text-align: center; margin-top: 1rem; animation: slideDown 0.5s ease; }
+        .form-error.show { display: block; }
+        .form-error i { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 100%; min-height: 400px; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        footer { background: var(--dark); color: var(--white); padding: 3rem 2rem 1rem; text-align: center; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { font-family: 'Quicksand', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+        .footer-text { color: #b2bec3; margin-bottom: 2rem; }
+        .footer-bottom { border-top: 1px solid #636e72; padding-top: 1.5rem; margin-top: 2rem; color: #636e72; font-size: 0.9rem; }
+        .meb-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.85rem; margin-top: 1rem; }
+        .meb-badge i { font-size: 1rem; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
         @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-badges {
-                justify-content: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .classes-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .schedule-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-badges { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .classes-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .schedule-grid { grid-template-columns: repeat(4, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .lightbox-nav { width: 45px; height: 45px; font-size: 1rem; }
+            .lightbox-nav.prev { left: 1rem; }
+            .lightbox-nav.next { right: 1rem; }
+            .lightbox-close { top: 1rem; right: 1rem; width: 45px; height: 45px; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 1rem; box-shadow: var(--shadow); }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
         }
-
         @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-text h1 { font-size: 2rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .lightbox-content { max-width: 95%; }
+            .lightbox img { max-height: 60vh; }
         }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e67e22;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--light); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e67e22; }
     </style>
 <base target="_blank">
 </head>
 <body>
-    <!-- Background Shapes -->
     <div class="bg-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
     </div>
-
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-child-reaching logo-icon"></i>
-                Minik Yürekler
-            </a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <a href="#" class="logo"><i class="fas fa-child-reaching logo-icon"></i> Minik Yürekler</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#anasayfa"><i class="fas fa-home"></i> Anasayfa</a></li>
-                <li><a href="#hakkimizda"><i class="fas fa-school"></i> Hakkımızda</a></li>
-                <li><a href="#siniflar"><i class="fas fa-users"></i> Sınıflar</a></li>
+                <li><a href="#egitim"><i class="fas fa-graduation-cap"></i> Eğitim</a></li>
                 <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
+                <li><a href="#hakkimizda"><i class="fas fa-school"></i> Hakkımızda</a></li>
                 <li><a href="#iletisim"><i class="fas fa-envelope"></i> İletişim</a></li>
+                <li><a href="tel:+905533231987" style="color: var(--primary);"><i class="fas fa-phone"></i> Hemen Ara</a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Hero Section -->
     <section class="hero" id="anasayfa">
         <div class="hero-content">
             <div class="hero-text fade-in">
@@ -1141,83 +330,37 @@
                 <h1>Minik <span>Yürekler</span><br>Anaokulu</h1>
                 <p>Çocuklarınızın ilk adımını güvenle atacağı, sevgi dolu bir eğitim yuvası. Güngören Güneştepe'de, Milli Eğitim Bakanlığına bağlı resmi anaokulumuzda 0-5 yaş arası çocuklarınızı bekliyoruz.</p>
                 <div class="hero-buttons">
-                    <a href="tel:+905533231987" class="btn btn-primary">
-                        <i class="fas fa-phone"></i> Bizi Arayın
-                    </a>
-                    <a href="#siniflar" class="btn btn-secondary">
-                        <i class="fas fa-baby"></i> Sınıflarımız
-                    </a>
+                    <a href="tel:+905533231987" class="btn btn-primary"><i class="fas fa-phone"></i> Bizi Arayın</a>
+                    <a href="#egitim" class="btn btn-secondary"><i class="fas fa-baby"></i> Sınıflarımız</a>
                 </div>
             </div>
             <div class="hero-image fade-in">
-                <img src="https://kimi-web-img.moonshot.cn/img/thestepbystepschool.com/1fd6cc4b63aa7a581601e3b09d0353d9b6ea355b.jpg" alt="Minik Yürekler Anaokulu - Mutlu Çocuklar">
+                <img src="https://kimi-web-img.moonshot.cn/img/thestepbystepschool.com/1fd6cc4b63aa7a581601e3b09d0353d9b6ea355b.jpg" alt="Minik Yürekler Anaokulu">
             </div>
         </div>
     </section>
-
-    <!-- About Section -->
-    <section class="about" id="hakkimizda">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg" alt="Anaokulumuzun Modern Binasi">
-                </div>
-                <div class="about-text fade-in">
-                    <h3>Geleceğin Minik Yıldızları Burada Yetişiyor <i class="fas fa-star" style="color: var(--accent);"></i></h3>
-                    <p>Minik Yürekler Anaokulu olarak, çocukların en değerli yıllarını güvenli, sevgi dolu ve öğretici bir ortamda geçirmelerini sağlıyoruz. Milli Eğitim Bakanlığı müfredatına uygun, oyun temelli eğitim anlayışımızla çocuklarınızın bilişsel, duygusal ve sosyal gelişimlerini destekliyoruz.</p>
-                    <p>Güngören Güneştepe mahallesinde, modern eğitim araç-gereçleri ve deneyimli öğretmen kadromuzla hizmetinizdeyiz. Her çocuğun bireysel gelişim hızına saygı duyarak, onları ilkokula en iyi şekilde hazırlıyoruz.</p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fas fa-palette"></i>
-                            <span>Yaratıcı Atölyeler</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-tree"></i>
-                            <span>Güvenli Bahçe</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-apple-alt"></i>
-                            <span>Sağlıklı Beslenme</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-book-open"></i>
-                            <span>MEB Müfredatı</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Classes Section -->
-    <section class="classes" id="siniflar">
+    <section class="classes" id="egitim">
         <div class="container">
             <div class="section-header fade-in">
-                <i class="fas fa-baby section-icon"></i>
-                <h2>Yaş Gruplarımız</h2>
-                <p>Her yaş grubuna özel, gelişim dönemine uygun eğitim programları</p>
+                <i class="fas fa-graduation-cap section-icon"></i>
+                <h2>Eğitim</h2>
+                <p>Yaş gruplarımıza özel, gelişim dönemine uygun eğitim programları</p>
             </div>
             <div class="classes-grid">
                 <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
+                    <div class="class-icon"><i class="fas fa-baby"></i></div>
                     <span class="class-age">0 - 2 Yaş</span>
                     <h3>Minikler Grubu</h3>
                     <p>Bebeklerimiz için güvenli, sıcak ve besleyici bir ortam. Temel bakım, erken sosyalleşme ve duyusal gelişim aktiviteleri.</p>
                 </div>
                 <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
+                    <div class="class-icon"><i class="fas fa-puzzle-piece"></i></div>
                     <span class="class-age">3 - 4 Yaş</span>
                     <h3>Keşif Grubu</h3>
                     <p>Oyun temelli öğrenme, renkler, şekiller, sayılar ve sosyal beceriler. Paylaşmayı, sırayı beklemeyi öğrenme dönemi.</p>
                 </div>
                 <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
+                    <div class="class-icon"><i class="fas fa-rocket"></i></div>
                     <span class="class-age">4 - 5 Yaş</span>
                     <h3>Hazırlık Grubu</h3>
                     <p>İlkokula hazırlık, okuma-yazma temelleri, matematik kavramları ve bağımsızlık becerileri kazandırma.</p>
@@ -1225,8 +368,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Gallery Section -->
     <section class="gallery" id="galeri">
         <div class="container">
             <div class="section-header fade-in">
@@ -1235,53 +376,49 @@
                 <p>Anaokulumuzdan kareler - Eğlenceli anlar ve etkinlikler</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item tall" onclick="openLightbox(this)">
+                <div class="gallery-item" onclick="openLightbox(0)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thestepbystepschool.com/1fd6cc4b63aa7a581601e3b09d0353d9b6ea355b.jpg" alt="Çocuklar Oyun Oynuyor">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Oyun Zamanı</h4>
-                    </div>
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h4>Oyun Zamanı</h4></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
+                <div class="gallery-item" onclick="openLightbox(1)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg" alt="Anaokulu Bahçesi">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Modern Kampüs</h4>
-                    </div>
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h4>Modern Kampüs</h4></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://kimi-web-img.moonshot.cn/img/yourelc.com.au/93877e33cac6a4b2b6a97bf725d62b97f08b1a5e.png" alt="Etkinlikler">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Sanat Etkinlikleri</h4>
-                    </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://kimi-web-img.moonshot.cn/img/yourelc.com.au/93877e33cac6a4b2b6a97bf725d62b97f08b1a5e.png" alt="Sanat Etkinlikleri">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h4>Sanat Etkinlikleri</h4></div>
                 </div>
-                <div class="gallery-item wide" onclick="openLightbox(this)">
+                <div class="gallery-item" onclick="openLightbox(3)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/eaccafa4bff4584c62c289d32f074f1d2321af9f.jpg" alt="Grup Aktivitesi">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Grup Aktiviteleri</h4>
-                    </div>
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h4>Grup Aktiviteleri</h4></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://kimi-web-img.moonshot.cn/img/blog.ide.k12.tr/ab8a94f1d575897dfa6a4c498aaca969c024f13e.jpg" alt="Sınıf İçi">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Sınıf İçi Eğitim</h4>
-                    </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://kimi-web-img.moonshot.cn/img/blog.ide.k12.tr/ab8a94f1d575897dfa6a4c498aaca969c024f13e.jpg" alt="Sınıf İçi Eğitim">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i><h4>Sınıf İçi Eğitim</h4></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="https://kimi-web-img.moonshot.cn/img/idsb.tmgrup.com.tr/fe9986eb0d51521862a241016e0e4b89bb0fcb0d.jpg" alt="Türkiye Anaokulu">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <h4>Resim Çalışması</h4>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="hakkimizda">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg" alt="Anaokulumuz">
+                </div>
+                <div class="about-text fade-in">
+                    <h3>Hakkımızda <i class="fas fa-star" style="color: var(--accent);"></i></h3>
+                    <p>Minik Yürekler Anaokulu olarak, çocukların en değerli yıllarını güvenli, sevgi dolu ve öğretici bir ortamda geçirmelerini sağlıyoruz. Milli Eğitim Bakanlığı müfredatına uygun, oyun temelli eğitim anlayışımızla çocuklarınızın bilişsel, duygusal ve sosyal gelişimlerini destekliyoruz.</p>
+                    <p>Güngören Güneştepe mahallesinde, modern eğitim araç-gereçleri ve deneyimli öğretmen kadromuzla hizmetinizdeyiz. Her çocuğun bireysel gelişim hızına saygı duyarak, onları ilkokula en iyi şekilde hazırlıyoruz.</p>
+                    <div class="about-features">
+                        <div class="feature-item"><i class="fas fa-palette"></i><span>Yaratıcı Atölyeler</span></div>
+                        <div class="feature-item"><i class="fas fa-tree"></i><span>Güvenli Bahçe</span></div>
+                        <div class="feature-item"><i class="fas fa-apple-alt"></i><span>Sağlıklı Beslenme</span></div>
+                        <div class="feature-item"><i class="fas fa-book-open"></i><span>MEB Müfredatı</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Schedule Section -->
     <section class="schedule">
         <div class="container">
             <div class="section-header fade-in">
@@ -1290,46 +427,16 @@
                 <p>Haftanın 5 günü, çocuklarınız için buradayız</p>
             </div>
             <div class="schedule-grid fade-in">
-                <div class="day-card active">
-                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="day-name">Pazartesi</div>
-                    <div class="day-hours">07:30 - 19:00</div>
-                </div>
-                <div class="day-card active">
-                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="day-name">Salı</div>
-                    <div class="day-hours">07:30 - 19:00</div>
-                </div>
-                <div class="day-card active">
-                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="day-name">Çarşamba</div>
-                    <div class="day-hours">07:30 - 19:00</div>
-                </div>
-                <div class="day-card active">
-                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="day-name">Perşembe</div>
-                    <div class="day-hours">07:30 - 19:00</div>
-                </div>
-                <div class="day-card active">
-                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="day-name">Cuma</div>
-                    <div class="day-hours">07:30 - 19:00</div>
-                </div>
-                <div class="day-card closed">
-                    <div class="day-icon"><i class="fas fa-bed"></i></div>
-                    <div class="day-name">Cumartesi</div>
-                    <div class="day-hours">Kapalı</div>
-                </div>
-                <div class="day-card closed">
-                    <div class="day-icon"><i class="fas fa-bed"></i></div>
-                    <div class="day-name">Pazar</div>
-                    <div class="day-hours">Kapalı</div>
-                </div>
+                <div class="day-card active"><div class="day-icon"><i class="fas fa-calendar-check"></i></div><div class="day-name">Pazartesi</div><div class="day-hours">07:30 - 19:00</div></div>
+                <div class="day-card active"><div class="day-icon"><i class="fas fa-calendar-check"></i></div><div class="day-name">Salı</div><div class="day-hours">07:30 - 19:00</div></div>
+                <div class="day-card active"><div class="day-icon"><i class="fas fa-calendar-check"></i></div><div class="day-name">Çarşamba</div><div class="day-hours">07:30 - 19:00</div></div>
+                <div class="day-card active"><div class="day-icon"><i class="fas fa-calendar-check"></i></div><div class="day-name">Perşembe</div><div class="day-hours">07:30 - 19:00</div></div>
+                <div class="day-card active"><div class="day-icon"><i class="fas fa-calendar-check"></i></div><div class="day-name">Cuma</div><div class="day-hours">07:30 - 19:00</div></div>
+                <div class="day-card closed"><div class="day-icon"><i class="fas fa-bed"></i></div><div class="day-name">Cumartesi</div><div class="day-hours">Kapalı</div></div>
+                <div class="day-card closed"><div class="day-icon"><i class="fas fa-bed"></i></div><div class="day-name">Pazar</div><div class="day-hours">Kapalı</div></div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
     <section class="contact" id="iletisim">
         <div class="container">
             <div class="section-header fade-in">
@@ -1340,64 +447,41 @@
             <div class="contact-grid">
                 <div class="contact-info fade-in">
                     <h3>Bize Ulaşın <i class="fas fa-map-pin" style="color: var(--primary);"></i></h3>
-
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-text">
-                            <h4>Telefon</h4>
-                            <a href="tel:+905533231987">0553 323 19 87</a>
-                        </div>
+                        <div class="contact-text"><h4>Telefon</h4><a href="tel:+905533231987">0553 323 19 87</a></div>
                     </div>
-
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text">
-                            <h4>Adres</h4>
-                            <p>Güneştepe Mah.<br>Soğanlı Cd. No:121<br>Güngören / İstanbul</p>
-                        </div>
+                        <div class="contact-text"><h4>Adres</h4><p>Güneştepe Mah.<br>Soğanlı Cd. No:121<br>Güngören / İstanbul</p></div>
                     </div>
-
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-text">
-                            <h4>Çalışma Saatleri</h4>
-                            <p>Pazartesi - Cuma<br>07:30 - 19:00</p>
-                        </div>
+                        <div class="contact-text"><h4>Çalışma Saatleri</h4><p>Pazartesi - Cuma<br>07:30 - 19:00</p></div>
                     </div>
-
-                    <a href="tel:+905533231987" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
-                        <i class="fas fa-phone-volume"></i> Hemen Ara
-                    </a>
+                    <a href="tel:+905533231987" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-phone-volume"></i> Hemen Ara</a>
                 </div>
-
                 <div class="message-form-container fade-in">
                     <h3><i class="fas fa-envelope-open-text" style="color: var(--primary);"></i> Bize Mesaj Gönderin</h3>
                     <p>Formu doldurun, en kısa sürede size dönüş yapalım.</p>
-
-                    <form id="contactForm" action="https://formsubmit.co/serdarcagran@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Minik Yürekler Anaokulu - Yeni Mesaj">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="">
-
+                    <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label><i class="fas fa-user"></i> Adınız Soyadınız</label>
-                                <input type="text" name="name" placeholder="örn. Ahmet Yılmaz" required>
+                                <label><i class="fas fa-user"></i> Adınız Soyadınız *</label>
+                                <input type="text" id="formName" placeholder="örn. Ahmet Yılmaz" required>
                             </div>
                             <div class="form-group">
-                                <label><i class="fas fa-phone"></i> Telefon Numaranız</label>
-                                <input type="tel" name="phone" placeholder="örn. 0555 123 45 67" required>
+                                <label><i class="fas fa-phone"></i> Telefon Numaranız *</label>
+                                <input type="tel" id="formPhone" placeholder="örn. 0555 123 45 67" required>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label><i class="fas fa-envelope"></i> E-posta Adresiniz</label>
-                            <input type="email" name="email" placeholder="örn. email@ornek.com">
+                            <input type="email" id="formEmail" placeholder="örn. email@ornek.com">
                         </div>
-
                         <div class="form-group">
-                            <label><i class="fas fa-child"></i> Çocuğunuzun Yaşı</label>
-                            <select name="child_age" required>
+                            <label><i class="fas fa-child"></i> Çocuğunuzun Yaşı *</label>
+                            <select id="formAge" required>
                                 <option value="">Yaş Grubu Seçin</option>
                                 <option value="0-2">0 - 2 Yaş (Minikler Grubu)</option>
                                 <option value="3-4">3 - 4 Yaş (Keşif Grubu)</option>
@@ -1405,170 +489,175 @@
                                 <option value="diger">Henüz Belli Değil / Diğer</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label><i class="fas fa-comment-dots"></i> Mesajınız</label>
-                            <textarea name="message" placeholder="Bize iletmek istediğiniz notunuzu buraya yazabilirsiniz... (Opsiyonel)"></textarea>
+                            <textarea id="formMessage" placeholder="Bize iletmek istediğiniz notunuzu buraya yazabilirsiniz... (Opsiyonel)"></textarea>
                         </div>
-
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Mesaj Gönder
-                        </button>
+                        <button type="submit" class="submit-btn" id="submitBtn"><i class="fas fa-paper-plane"></i> Mesaj Gönder</button>
                     </form>
-
                     <div class="form-success" id="formSuccess">
                         <i class="fas fa-check-circle"></i>
                         <h4>Mesajınız Gönderildi!</h4>
-                        <p>En kısa sürede size dönüş yapacağız.</p>
+                        <p>En kısa sürede size dönüş yapacağız. Teşekkür ederiz.</p>
+                    </div>
+                    <div class="form-error" id="formError">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h4>Bir Hata Oluştu</h4>
+                        <p>Lütfen daha sonra tekrar deneyin veya telefon ile bize ulaşın.</p>
                     </div>
                 </div>
             </div>
-
             <div style="margin-top: 3rem;">
                 <div class="map-container fade-in">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.5953454451637!2d28.8778333!3d41.0097222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7b8e9c6c6b%3A0x8c8c8c8c8c8c8c8c!2sG%C3%BCne%C5%9Ftepe%2C%20So%C4%9Fanl%C4%B1%20Cd.%20No%3A121%2C%2034560%20G%C3%BCng%C3%B6ren%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1234567890"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.5953454451637!2d28.8778333!3d41.0097222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7b8e9c6c6b%3A0x8c8c8c8c8c8c8c8c!2sG%C3%BCne%C5%9Ftepe%2C%20So%C4%9Fanl%C4%B1%20Cd.%20No%3A121%2C%2034560%20G%C3%BCng%C3%B6ren%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-child-reaching"></i> Minik Yürekler Anaokulu
-            </div>
+            <div class="footer-logo"><i class="fas fa-child-reaching"></i> Minik Yürekler Anaokulu</div>
             <p class="footer-text">Güngören / İstanbul - Çocuklarınızın güvenli geleceği için buradayız</p>
-            <div class="meb-badge">
-                <i class="fas fa-landmark"></i>
-                <span>Milli Eğitim Bakanlığına Bağlı Resmi Anaokulu</span>
-            </div>
+            <div class="meb-badge"><i class="fas fa-landmark"></i><span>Milli Eğitim Bakanlığına Bağlı Resmi Anaokulu</span></div>
             <div class="footer-bottom">
                 <p><i class="fas fa-copyright"></i> 2026 Minik Yürekler Anaokulu. Tüm hakları saklıdır.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                    <i class="fas fa-map-marker-alt"></i> Güneştepe Mah. Soğanlı Cd. No:121, Güngören/İstanbul 
-                    <span style="margin: 0 0.5rem;">|</span> 
-                    <i class="fas fa-phone"></i> 0553 323 19 87
-                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><i class="fas fa-map-marker-alt"></i> Güneştepe Mah. Soğanlı Cd. No:121, Güngören/İstanbul <span style="margin: 0 0.5rem;">|</span> <i class="fas fa-phone"></i> 0553 323 19 87</p>
             </div>
         </div>
     </footer>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close"><i class="fas fa-times"></i></button>
-        <img src="" alt="Gallery Image" id="lightbox-img">
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <div class="lightbox-img-container"><img src="" alt="Gallery Image" id="lightbox-img"></div>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 5</div>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
     </div>
-
     <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-            }
-        });
-
-        // Fade In Animation on Scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Lightbox
-        function openLightbox(element) {
-            const img = element.querySelector('img');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = img.src;
-            lightbox.classList.add('active');
+        const galleryImages = [
+            { src: "https://kimi-web-img.moonshot.cn/img/thestepbystepschool.com/1fd6cc4b63aa7a581601e3b09d0353d9b6ea355b.jpg", caption: "Oyun Zamanı" },
+            { src: "https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg", caption: "Modern Kampüs" },
+            { src: "https://kimi-web-img.moonshot.cn/img/yourelc.com.au/93877e33cac6a4b2b6a97bf725d62b97f08b1a5e.png", caption: "Sanat Etkinlikleri" },
+            { src: "https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/eaccafa4bff4584c62c289d32f074f1d2321af9f.jpg", caption: "Grup Aktiviteleri" },
+            { src: "https://kimi-web-img.moonshot.cn/img/blog.ide.k12.tr/ab8a94f1d575897dfa6a4c498aaca969c024f13e.jpg", caption: "Sınıf İçi Eğitim" }
+        ];
+        let currentImageIndex = 0;
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-
-        // Close lightbox with Escape key
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+            else if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+            updateLightbox();
+        }
+        function updateLightbox() {
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex].src;
+            document.getElementById('lightbox-caption').textContent = galleryImages[currentImageIndex].caption;
+            document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+        }
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') changeImage(-1);
+            else if (e.key === 'ArrowRight') changeImage(1);
         });
-
-        // Active Navigation Link
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('navLinks').classList.remove('active'); }
+            });
+        });
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            else navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         const sections = document.querySelectorAll('section[id]');
         window.addEventListener('scroll', () => {
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
+            sections.forEach(section => { if (scrollY >= section.offsetTop - 200) current = section.getAttribute('id'); });
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
             });
         });
-
-        // Form Submit Handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // FormSubmit.co handles the actual submission
-            // This just shows a visual confirmation
-            const btn = this.querySelector('.submit-btn');
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const successDiv = document.getElementById('formSuccess');
+            const errorDiv = document.getElementById('formError');
             const originalText = btn.innerHTML;
+            const name = document.getElementById('formName').value;
+            const phone = document.getElementById('formPhone').value;
+            const email = document.getElementById('formEmail').value;
+            const age = document.getElementById('formAge').value;
+            const message = document.getElementById('formMessage').value;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
             btn.disabled = true;
-
+            successDiv.classList.remove('show');
+            errorDiv.classList.remove('show');
+            const iframeName = 'formTarget_' + Date.now();
+            const iframe = document.createElement('iframe');
+            iframe.name = iframeName;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/serdarcagran@gmail.com';
+            form.target = iframeName;
+            form.style.display = 'none';
+            const fields = {
+                'name': name, 'phone': phone, 'email': email || 'Belirtilmemiş',
+                'child_age': age, 'message': message || 'Mesaj bırakılmadı',
+                '_subject': 'Minik Yürekler Anaokulu - Yeni Mesaj',
+                '_template': 'table', '_captcha': 'false', '_next': 'about:blank'
+            };
+            for (const [key, value] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden'; input.name = key; input.value = value;
+                form.appendChild(input);
+            }
+            document.body.appendChild(form);
+            let responseReceived = false;
+            iframe.onload = function() {
+                if (responseReceived) return;
+                responseReceived = true;
+                btn.innerHTML = originalText; btn.disabled = false;
+                successDiv.classList.add('show');
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    if (form.parentNode) document.body.removeChild(form);
+                    if (iframe.parentNode) document.body.removeChild(iframe);
+                }, 3000);
+            };
             setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }, 3000);
+                if (!responseReceived) {
+                    responseReceived = true;
+                    btn.innerHTML = originalText; btn.disabled = false;
+                    successDiv.classList.add('show');
+                    document.getElementById('contactForm').reset();
+                    if (form.parentNode) document.body.removeChild(form);
+                    if (iframe.parentNode) document.body.removeChild(iframe);
+                }
+            }, 4000);
+            form.submit();
         });
     </script>
 </body>
