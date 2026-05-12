@@ -6,6 +6,7 @@
     <title>Minik Yürekler Anaokulu | Güngören / İstanbul</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --primary: #FF8C42;
@@ -18,6 +19,7 @@
             --white: #FFFFFF;
             --shadow: 0 8px 32px rgba(0,0,0,0.08);
             --shadow-hover: 0 12px 40px rgba(0,0,0,0.12);
+            --shadow-card: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         * {
@@ -52,15 +54,15 @@
 
         .shape {
             position: absolute;
-            opacity: 0.05;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.04;
+            animation: float 25s infinite ease-in-out;
         }
 
         .shape:nth-child(1) {
             top: 10%;
             left: 10%;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: var(--primary);
             border-radius: 50%;
             animation-delay: 0s;
@@ -69,8 +71,8 @@
         .shape:nth-child(2) {
             top: 60%;
             right: 10%;
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             background: var(--secondary);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             animation-delay: 5s;
@@ -79,8 +81,8 @@
         .shape:nth-child(3) {
             top: 30%;
             right: 30%;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: var(--accent);
             border-radius: 50%;
             animation-delay: 10s;
@@ -89,8 +91,8 @@
         .shape:nth-child(4) {
             bottom: 20%;
             left: 20%;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: var(--primary-light);
             border-radius: 10px;
             animation-delay: 15s;
@@ -98,7 +100,7 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
+            33% { transform: translateY(-40px) rotate(120deg); }
             66% { transform: translateY(20px) rotate(240deg); }
         }
 
@@ -135,7 +137,8 @@
         }
 
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary);
         }
 
         .nav-links {
@@ -151,6 +154,9 @@
             font-size: 0.95rem;
             transition: color 0.3s ease;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         .nav-links a::after {
@@ -247,15 +253,19 @@
 
         .badge {
             background: var(--white);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--primary);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-card);
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+        }
+
+        .badge i {
+            font-size: 1rem;
         }
 
         .hero-buttons {
@@ -273,7 +283,7 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             border: none;
             cursor: pointer;
         }
@@ -359,9 +369,9 @@
             font-size: 1.1rem;
         }
 
-        .section-header .emoji {
-            font-size: 2rem;
-            display: block;
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
@@ -409,13 +419,26 @@
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
             font-weight: 600;
             color: var(--dark);
+            padding: 0.8rem;
+            background: var(--light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
-        .feature-item .icon {
-            font-size: 1.5rem;
+        .feature-item:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-card);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            font-size: 1.3rem;
+            color: var(--primary);
+            width: 30px;
+            text-align: center;
         }
 
         /* Classes Section */
@@ -432,7 +455,7 @@
         .class-card {
             background: var(--white);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -464,8 +487,28 @@
         }
 
         .class-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(255,140,66,0.3);
+        }
+
+        .class-card:nth-child(2) .class-icon {
+            background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
+            box-shadow: 0 4px 15px rgba(78,205,196,0.3);
+        }
+
+        .class-card:nth-child(3) .class-icon {
+            background: linear-gradient(135deg, #FFF3B0, var(--accent));
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(255,230,109,0.3);
         }
 
         .class-card h3 {
@@ -478,7 +521,7 @@
             display: inline-block;
             background: var(--primary-light);
             color: var(--dark);
-            padding: 0.3rem 1rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 700;
@@ -553,10 +596,17 @@
             color: var(--white);
             opacity: 0;
             transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 1rem;
         }
 
         .gallery-overlay h4 {
@@ -599,6 +649,17 @@
             cursor: pointer;
             background: none;
             border: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         /* Schedule Section */
@@ -617,16 +678,17 @@
             border-radius: 15px;
             padding: 1.5rem 1rem;
             text-align: center;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-card);
             transition: all 0.3s ease;
         }
 
         .day-card:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .day-card.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #e67e22);
             color: var(--white);
         }
 
@@ -634,9 +696,17 @@
             color: var(--white);
         }
 
+        .day-card.active .day-icon {
+            color: var(--white);
+        }
+
         .day-card.closed {
-            background: #dfe6e9;
+            background: #f1f2f6;
             opacity: 0.7;
+        }
+
+        .day-card.closed .day-icon {
+            color: #b2bec3;
         }
 
         .day-name {
@@ -654,6 +724,7 @@
         .day-icon {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            color: var(--primary);
         }
 
         /* Contact Section */
@@ -678,54 +749,177 @@
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            padding: 1.2rem;
             background: var(--light);
             border-radius: 15px;
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            background: #fff;
-            box-shadow: var(--shadow);
+            background: var(--white);
+            box-shadow: var(--shadow-card);
             transform: translateX(5px);
         }
 
         .contact-icon {
-            font-size: 1.5rem;
-            min-width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #e67e22);
             color: var(--white);
-            border-radius: 10px;
+            border-radius: 12px;
+            font-size: 1.1rem;
         }
 
         .contact-item:nth-child(2) .contact-icon {
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #3dbbb4);
         }
 
         .contact-item:nth-child(3) .contact-icon {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #f9d71c);
             color: var(--dark);
         }
 
         .contact-text h4 {
             font-weight: 700;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
         }
 
         .contact-text p, .contact-text a {
             color: #636e72;
             text-decoration: none;
             font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         .contact-text a:hover {
             color: var(--primary);
         }
 
+        /* Message Form */
+        .message-form-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .message-form-container h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .message-form-container > p {
+            color: #636e72;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group label i {
+            margin-right: 0.4rem;
+            color: var(--primary);
+            width: 18px;
+            text-align: center;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255,140,66,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), #e67e22);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,140,66,0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-success {
+            display: none;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-success i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-success h4 {
+            font-family: 'Quicksand', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Map */
         .map-container {
             border-radius: 20px;
             overflow: hidden;
@@ -779,10 +973,14 @@
             align-items: center;
             gap: 0.5rem;
             background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
             font-size: 0.85rem;
             margin-top: 1rem;
+        }
+
+        .meb-badge i {
+            font-size: 1rem;
         }
 
         /* Animations */
@@ -836,6 +1034,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -873,6 +1075,10 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Scrollbar */
@@ -908,16 +1114,18 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <span class="logo-icon">🧸</span>
+                <i class="fas fa-child-reaching logo-icon"></i>
                 Minik Yürekler
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#anasayfa">Anasayfa</a></li>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#siniflar">Sınıflar</a></li>
-                <li><a href="#galeri">Galeri</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="#anasayfa"><i class="fas fa-home"></i> Anasayfa</a></li>
+                <li><a href="#hakkimizda"><i class="fas fa-school"></i> Hakkımızda</a></li>
+                <li><a href="#siniflar"><i class="fas fa-users"></i> Sınıflar</a></li>
+                <li><a href="#galeri"><i class="fas fa-images"></i> Galeri</a></li>
+                <li><a href="#iletisim"><i class="fas fa-envelope"></i> İletişim</a></li>
             </ul>
         </div>
     </nav>
@@ -927,14 +1135,18 @@
         <div class="hero-content">
             <div class="hero-text fade-in">
                 <div class="hero-badges">
-                    <span class="badge">🏫 Milli Eğitim Bakanlığına Bağlı</span>
-                    <span class="badge">📍 Güngören / İstanbul</span>
+                    <span class="badge"><i class="fas fa-landmark"></i> Milli Eğitim Bakanlığına Bağlı</span>
+                    <span class="badge"><i class="fas fa-map-marker-alt"></i> Güngören / İstanbul</span>
                 </div>
                 <h1>Minik <span>Yürekler</span><br>Anaokulu</h1>
                 <p>Çocuklarınızın ilk adımını güvenle atacağı, sevgi dolu bir eğitim yuvası. Güngören Güneştepe'de, Milli Eğitim Bakanlığına bağlı resmi anaokulumuzda 0-5 yaş arası çocuklarınızı bekliyoruz.</p>
                 <div class="hero-buttons">
-                    <a href="#iletisim" class="btn btn-primary">📞 Bizi Arayın</a>
-                    <a href="#siniflar" class="btn btn-secondary">👶 Sınıflarımız</a>
+                    <a href="tel:+905533231987" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Bizi Arayın
+                    </a>
+                    <a href="#siniflar" class="btn btn-secondary">
+                        <i class="fas fa-baby"></i> Sınıflarımız
+                    </a>
                 </div>
             </div>
             <div class="hero-image fade-in">
@@ -951,24 +1163,24 @@
                     <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg" alt="Anaokulumuzun Modern Binasi">
                 </div>
                 <div class="about-text fade-in">
-                    <h3>Geleceğin Minik Yıldızları Burada Yetişiyor 🌟</h3>
+                    <h3>Geleceğin Minik Yıldızları Burada Yetişiyor <i class="fas fa-star" style="color: var(--accent);"></i></h3>
                     <p>Minik Yürekler Anaokulu olarak, çocukların en değerli yıllarını güvenli, sevgi dolu ve öğretici bir ortamda geçirmelerini sağlıyoruz. Milli Eğitim Bakanlığı müfredatına uygun, oyun temelli eğitim anlayışımızla çocuklarınızın bilişsel, duygusal ve sosyal gelişimlerini destekliyoruz.</p>
                     <p>Güngören Güneştepe mahallesinde, modern eğitim araç-gereçleri ve deneyimli öğretmen kadromuzla hizmetinizdeyiz. Her çocuğun bireysel gelişim hızına saygı duyarak, onları ilkokula en iyi şekilde hazırlıyoruz.</p>
                     <div class="about-features">
                         <div class="feature-item">
-                            <span class="icon">🎨</span>
+                            <i class="fas fa-palette"></i>
                             <span>Yaratıcı Atölyeler</span>
                         </div>
                         <div class="feature-item">
-                            <span class="icon">🌳</span>
+                            <i class="fas fa-tree"></i>
                             <span>Güvenli Bahçe</span>
                         </div>
                         <div class="feature-item">
-                            <span class="icon">🍎</span>
+                            <i class="fas fa-apple-alt"></i>
                             <span>Sağlıklı Beslenme</span>
                         </div>
                         <div class="feature-item">
-                            <span class="icon">📚</span>
+                            <i class="fas fa-book-open"></i>
                             <span>MEB Müfredatı</span>
                         </div>
                     </div>
@@ -981,25 +1193,31 @@
     <section class="classes" id="siniflar">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="emoji">👶</span>
+                <i class="fas fa-baby section-icon"></i>
                 <h2>Yaş Gruplarımız</h2>
                 <p>Her yaş grubuna özel, gelişim dönemine uygun eğitim programları</p>
             </div>
             <div class="classes-grid">
                 <div class="class-card fade-in">
-                    <div class="class-icon">🍼</div>
+                    <div class="class-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
                     <span class="class-age">0 - 2 Yaş</span>
                     <h3>Minikler Grubu</h3>
                     <p>Bebeklerimiz için güvenli, sıcak ve besleyici bir ortam. Temel bakım, erken sosyalleşme ve duyusal gelişim aktiviteleri.</p>
                 </div>
                 <div class="class-card fade-in">
-                    <div class="class-icon">🧩</div>
+                    <div class="class-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
                     <span class="class-age">3 - 4 Yaş</span>
                     <h3>Keşif Grubu</h3>
                     <p>Oyun temelli öğrenme, renkler, şekiller, sayılar ve sosyal beceriler. Paylaşmayı, sırayı beklemeyi öğrenme dönemi.</p>
                 </div>
                 <div class="class-card fade-in">
-                    <div class="class-icon">🚀</div>
+                    <div class="class-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
                     <span class="class-age">4 - 5 Yaş</span>
                     <h3>Hazırlık Grubu</h3>
                     <p>İlkokula hazırlık, okuma-yazma temelleri, matematik kavramları ve bağımsızlık becerileri kazandırma.</p>
@@ -1012,7 +1230,7 @@
     <section class="gallery" id="galeri">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="emoji">📸</span>
+                <i class="fas fa-camera-retro section-icon"></i>
                 <h2>Galerimiz</h2>
                 <p>Anaokulumuzdan kareler - Eğlenceli anlar ve etkinlikler</p>
             </div>
@@ -1020,36 +1238,42 @@
                 <div class="gallery-item tall" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thestepbystepschool.com/1fd6cc4b63aa7a581601e3b09d0353d9b6ea355b.jpg" alt="Çocuklar Oyun Oynuyor">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Oyun Zamanı</h4>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e062b0d3fd3f3d160b7301be0eacb40892c03dcd.jpg" alt="Anaokulu Bahçesi">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Modern Kampüs</h4>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/yourelc.com.au/93877e33cac6a4b2b6a97bf725d62b97f08b1a5e.png" alt="Etkinlikler">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Sanat Etkinlikleri</h4>
                     </div>
                 </div>
                 <div class="gallery-item wide" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/eaccafa4bff4584c62c289d32f074f1d2321af9f.jpg" alt="Grup Aktivitesi">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Grup Aktiviteleri</h4>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/blog.ide.k12.tr/ab8a94f1d575897dfa6a4c498aaca969c024f13e.jpg" alt="Sınıf İçi">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Sınıf İçi Eğitim</h4>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="https://kimi-web-img.moonshot.cn/img/idsb.tmgrup.com.tr/fe9986eb0d51521862a241016e0e4b89bb0fcb0d.jpg" alt="Türkiye Anaokulu">
                     <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
                         <h4>Resim Çalışması</h4>
                     </div>
                 </div>
@@ -1061,43 +1285,43 @@
     <section class="schedule">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="emoji">⏰</span>
+                <i class="fas fa-clock section-icon"></i>
                 <h2>Çalışma Saatlerimiz</h2>
                 <p>Haftanın 5 günü, çocuklarınız için buradayız</p>
             </div>
             <div class="schedule-grid fade-in">
                 <div class="day-card active">
-                    <div class="day-icon">📅</div>
+                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="day-name">Pazartesi</div>
                     <div class="day-hours">07:30 - 19:00</div>
                 </div>
                 <div class="day-card active">
-                    <div class="day-icon">📅</div>
+                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="day-name">Salı</div>
                     <div class="day-hours">07:30 - 19:00</div>
                 </div>
                 <div class="day-card active">
-                    <div class="day-icon">📅</div>
+                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="day-name">Çarşamba</div>
                     <div class="day-hours">07:30 - 19:00</div>
                 </div>
                 <div class="day-card active">
-                    <div class="day-icon">📅</div>
+                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="day-name">Perşembe</div>
                     <div class="day-hours">07:30 - 19:00</div>
                 </div>
                 <div class="day-card active">
-                    <div class="day-icon">📅</div>
+                    <div class="day-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="day-name">Cuma</div>
                     <div class="day-hours">07:30 - 19:00</div>
                 </div>
                 <div class="day-card closed">
-                    <div class="day-icon">😴</div>
+                    <div class="day-icon"><i class="fas fa-bed"></i></div>
                     <div class="day-name">Cumartesi</div>
                     <div class="day-hours">Kapalı</div>
                 </div>
                 <div class="day-card closed">
-                    <div class="day-icon">😴</div>
+                    <div class="day-icon"><i class="fas fa-bed"></i></div>
                     <div class="day-name">Pazar</div>
                     <div class="day-hours">Kapalı</div>
                 </div>
@@ -1109,16 +1333,16 @@
     <section class="contact" id="iletisim">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="emoji">📞</span>
+                <i class="fas fa-paper-plane section-icon"></i>
                 <h2>İletişim</h2>
                 <p>Bize ulaşın, çocuğunuzun geleceğini birlikte planlayalım</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info fade-in">
-                    <h3>Bize Ulaşın 📍</h3>
+                    <h3>Bize Ulaşın <i class="fas fa-map-pin" style="color: var(--primary);"></i></h3>
 
                     <div class="contact-item">
-                        <div class="contact-icon">📱</div>
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-text">
                             <h4>Telefon</h4>
                             <a href="tel:+905533231987">0553 323 19 87</a>
@@ -1126,7 +1350,7 @@
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h4>Adres</h4>
                             <p>Güneştepe Mah.<br>Soğanlı Cd. No:121<br>Güngören / İstanbul</p>
@@ -1134,7 +1358,7 @@
                     </div>
 
                     <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-text">
                             <h4>Çalışma Saatleri</h4>
                             <p>Pazartesi - Cuma<br>07:30 - 19:00</p>
@@ -1142,10 +1366,65 @@
                     </div>
 
                     <a href="tel:+905533231987" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
-                        📞 Hemen Ara
+                        <i class="fas fa-phone-volume"></i> Hemen Ara
                     </a>
                 </div>
 
+                <div class="message-form-container fade-in">
+                    <h3><i class="fas fa-envelope-open-text" style="color: var(--primary);"></i> Bize Mesaj Gönderin</h3>
+                    <p>Formu doldurun, en kısa sürede size dönüş yapalım.</p>
+
+                    <form id="contactForm" action="https://formsubmit.co/serdarcagran@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Minik Yürekler Anaokulu - Yeni Mesaj">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Adınız Soyadınız</label>
+                                <input type="text" name="name" placeholder="örn. Ahmet Yılmaz" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Telefon Numaranız</label>
+                                <input type="tel" name="phone" placeholder="örn. 0555 123 45 67" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> E-posta Adresiniz</label>
+                            <input type="email" name="email" placeholder="örn. email@ornek.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-child"></i> Çocuğunuzun Yaşı</label>
+                            <select name="child_age" required>
+                                <option value="">Yaş Grubu Seçin</option>
+                                <option value="0-2">0 - 2 Yaş (Minikler Grubu)</option>
+                                <option value="3-4">3 - 4 Yaş (Keşif Grubu)</option>
+                                <option value="4-5">4 - 5 Yaş (Hazırlık Grubu)</option>
+                                <option value="diger">Henüz Belli Değil / Diğer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-dots"></i> Mesajınız</label>
+                            <textarea name="message" placeholder="Bize iletmek istediğiniz notunuzu buraya yazabilirsiniz... (Opsiyonel)"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Mesaj Gönder
+                        </button>
+                    </form>
+
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Mesajınız Gönderildi!</h4>
+                        <p>En kısa sürede size dönüş yapacağız.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
                 <div class="map-container fade-in">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.5953454451637!2d28.8778333!3d41.0097222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7b8e9c6c6b%3A0x8c8c8c8c8c8c8c8c!2sG%C3%BCne%C5%9Ftepe%2C%20So%C4%9Fanl%C4%B1%20Cd.%20No%3A121%2C%2034560%20G%C3%BCng%C3%B6ren%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1234567890"
@@ -1161,22 +1440,28 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">🧸 Minik Yürekler Anaokulu</div>
+            <div class="footer-logo">
+                <i class="fas fa-child-reaching"></i> Minik Yürekler Anaokulu
+            </div>
             <p class="footer-text">Güngören / İstanbul - Çocuklarınızın güvenli geleceği için buradayız</p>
             <div class="meb-badge">
-                <span>🏛️</span>
+                <i class="fas fa-landmark"></i>
                 <span>Milli Eğitim Bakanlığına Bağlı Resmi Anaokulu</span>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Minik Yürekler Anaokulu. Tüm hakları saklıdır.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Güneştepe Mah. Soğanlı Cd. No:121, Güngören/İstanbul | Tel: 0553 323 19 87</p>
+                <p><i class="fas fa-copyright"></i> 2026 Minik Yürekler Anaokulu. Tüm hakları saklıdır.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    <i class="fas fa-map-marker-alt"></i> Güneştepe Mah. Soğanlı Cd. No:121, Güngören/İstanbul 
+                    <span style="margin: 0 0.5rem;">|</span> 
+                    <i class="fas fa-phone"></i> 0553 323 19 87
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close">✕</button>
+        <button class="lightbox-close"><i class="fas fa-times"></i></button>
         <img src="" alt="Gallery Image" id="lightbox-img">
     </div>
 
@@ -1269,6 +1554,21 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Form Submit Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // FormSubmit.co handles the actual submission
+            // This just shows a visual confirmation
+            const btn = this.querySelector('.submit-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 3000);
         });
     </script>
 </body>
