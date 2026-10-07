@@ -1,14 +1,340 @@
-<!DOCTYPE html>
-<html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#173b2a" />
-    <meta name="description" content="Giresun'dan üreticiden tüketiciye fındık. Giresun yağlı fındığı, üretim hikâyesi ve Karadeniz'in eşsiz doğası." />
-    <title>Çağran | Giresun Fındığı — Üreticiden Tüketiciye</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+"Minik Yürekler Anaokulu — Ana Sayfa Kodu
+Aşağıdaki kod, Twinkling Stars Preschool sitesinin yapısı ve tasarımı korunarak Minik Yürekler Anaokulu bilgileriyle güncellenmiştir.  
+Görseller, renkler ve diğer tüm tasarım öğeleri aynı bırakılmıştır; yalnızca metin ve bağlantı bilgileri değiştirilmiştir.
+---
+Değiştirilen Alanlar
+Alan	Eski Değer	Yeni Değer
+Site başlığı	Twinkling Stars Preschool	Minik Yürekler Anaokulu
+Slogan	Play. Explore. Learn.	Oyna. Keşfet. Büyü.
+Açıklama	Exceptional care for children 15 months–5 years	15 ay–5 yaş arası çocuklar için özenli bakım ve eğitim
+Adres	(yok)	Güneştepe, Soğanlı Cd. No:121, 34560 Güngören/İstanbul
+Telefon	773-281-4411	0553 323 19 87
+Faks	773-281-4412	(kaldırıldı)
+Sosyal medya	Facebook /TSPChicago	Instagram @minikyurekleranaokulu
+Kayıt butonu	ENROLL TODAY	KAYIT OL
+İletişim butonu	CONTACT US	BİZE ULAŞIN
+Programlar butonu	VIEW PROGRAMS	PROGRAMLARI GÖR
+Başla butonu	GET STARTED	BAŞLAYALIM
+---
+Güncellenmiş HTML (Bölüm Bölüm)
+1. `<title>` ve Meta Etiketleri
+```html
+<title>Minik Yürekler Anaokulu</title>
+<meta property="og:site_name" content="Minik Yürekler Anaokulu"/>
+<meta property="og:title" content="Minik Yürekler Anaokulu"/>
+<meta property="og:description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
+<meta name="description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar." />
+<meta name="twitter:title" content="Minik Yürekler Anaokulu"/>
+<meta name="twitter:description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
+<meta itemprop="name" content="Minik Yürekler Anaokulu"/>
+<meta itemprop="description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
+```
+---
+2. Header — Logo Alt Metni
+```html
+<!-- Logo img etiketlerinde alt="" yerine: -->
+alt="Minik Yürekler Anaokulu"
+```
+---
+3. Header — "ENROLL TODAY" Butonu → "KAYIT OL"
+```html
+<!-- Eski: -->
+<a class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
+   href="/s/Application-for-Enrollment-2026-2027.pdf"
+   target="_blank">
+  ENROLL TODAY
+</a>
+
+<!-- Yeni: -->
+<a class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
+   href="/kayit"
+   target="_blank">
+  KAYIT OL
+</a>
+```
+(Mobil header ve overlay menüsündeki aynı buton da değiştirilir.)
+---
+4. Hero Bölümü — Başlık ve Slogan
+```html
+<!-- Eski: -->
+<h3 style="text-align:center;white-space:pre-wrap;">Welcome to</h3>
+<h1 style="text-align:center;white-space:pre-wrap;">Twinkling Stars Preschool</h1>
+<h3 style="text-align:center;white-space:pre-wrap;">Play. Explore. Learn.</h3>
+
+<!-- Yeni: -->
+<h3 style="text-align:center;white-space:pre-wrap;">Hoş Geldiniz</h3>
+<h1 style="text-align:center;white-space:pre-wrap;">Minik Yürekler Anaokulu</h1>
+<h3 style="text-align:center;white-space:pre-wrap;">Oyna. Keşfet. Büyü.</h3>
+```
+---
+5. Hero — "GET STARTED" Butonu → "BAŞLAYALIM"
+```html
+<!-- Eski: -->
+<a href="/programs"
+   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
+  GET STARTED
+</a>
+
+<!-- Yeni: -->
+<a href="/programlar"
+   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
+  BAŞLAYALIM
+</a>
+```
+---
+6. Tanıtım Bölümü — Açıklama Metni
+```html
+<!-- Eski: -->
+<h3 style="text-align:center;white-space:pre-wrap;">
+  Twinkling Stars Preschool provides exceptional care and education in a safe and nurturing environment for children 15 months- 5 years old
+</h3>
+
+<!-- Yeni: -->
+<h3 style="text-align:center;white-space:pre-wrap;">
+  Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda üstün kaliteli bakım ve eğitim sunar.
+</h3>
+```
+---
+7. Sınıf Açıklamaları
+Toddler Sınıfı (15–24 ay)
+```html
+<!-- Eski: -->
+<h3>Toddler Classroom <br>(15-24 months)</h3>
+<p>With our low teacher to child ratio, we are able to provide a high level of teacher interaction with your child.
+   Your toddler will explore, question and discover with age appropriate materials and activities.</p>
+
+<!-- Yeni: -->
+<h3>Yürümeye Başlayanlar Sınıfı<br>(15–24 Ay)</h3>
+<p>Düşük öğretmen-çocuk oranımız sayesinde her çocuğa yüksek düzeyde bireysel ilgi gösteriyoruz.
+   Minik keşifçiniz, yaşına uygun materyaller ve etkinliklerle araştırır, sorgular ve keşfeder.</p>
+```
+2/3 Yaş Sınıfı
+```html
+<!-- Eski: -->
+<h3>2/3 Classroom<br>(2-3 years)</h3>
+<p>Your younger preschooler will build on basic concepts such as counting, letter and number recognition and phonemic awareness
+   while having plenty of opportunities to play and improve his/her social skills.</p>
+
+<!-- Yeni: -->
+<h3>2/3 Yaş Sınıfı<br>(2–3 Yaş)</h3>
+<p>Küçük okul öncesi çocuğunuz sayma, harf ve rakam tanıma ile ses bilinci gibi temel kavramları geliştirirken
+   sosyal becerilerini pekiştirmek için bol bol oyun oynama fırsatı bulur.</p>
+```
+Anaokulu Sınıfı (3–5 Yaş)
+```html
+<!-- Eski: -->
+<h3>Preschool Classroom<br>(3-5 years)</h3>
+<p>Our preschool program prepares your child for the next exciting chapter in his/her educational career…kindergarten!
+   With a combination of teacher-guided small and whole group learning experiences, child-guided activities and free choice centers,
+   your child will strengthen his/her areas of social and emotional, physical, language and literacy, mathematical reasoning,
+   social studies, science and creative developments.</p>
+
+<!-- Yeni: -->
+<h3>Anaokulu Sınıfı<br>(3–5 Yaş)</h3>
+<p>Anaokulu programımız çocuğunuzu eğitim hayatının bir sonraki heyecanlı adımına — ilkokula — hazırlar!
+   Öğretmen rehberliğinde küçük ve büyük grup etkinliklerini, çocuk merkezli çalışmaları ve serbest seçim köşelerini
+   bir araya getirerek çocuğunuzun sosyal-duygusal, fiziksel, dil-okuma yazma, matematiksel düşünme, sosyal bilgiler,
+   fen bilimleri ve yaratıcı gelişim alanlarını güçlendiriyoruz.</p>
+```
+---
+8. "VIEW PROGRAMS" Butonu → "PROGRAMLARI GÖR"
+```html
+<!-- Eski: -->
+<a href="/programs"
+   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
+  VIEW PROGRAMS
+</a>
+
+<!-- Yeni: -->
+<a href="/programlar"
+   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
+  PROGRAMLARI GÖR
+</a>
+```
+---
+9. Ebeveyn Yorumları Bölümü — Başlık
+```html
+<!-- Eski: -->
+<h3 style="text-align:center;white-space:pre-wrap;">See what parents are saying</h3>
+
+<!-- Yeni: -->
+<h3 style="text-align:center;white-space:pre-wrap;">Velilerimiz Ne Diyor?</h3>
+```
+Yorumlar (3 adet — orijinal yapı korunur, içerik Türkçeleştirilir)
+```html
+<!-- Yorum 1 — Eski: -->
+<p>"While attending Twinkling Stars Preschool, our daughter has been exposed to a variety of engaging subject matter
+   ranging from the Food Pyramid and healthy eating choices to the individual states which comprise our country."</p>
+
+<!-- Yorum 1 — Yeni: -->
+<p>"Minik Yürekler'de geçirdiği süre boyunca kızımız sağlıklı beslenme alışkanlıklarından Türkiye'nin bölgelerine kadar
+   pek çok ilgi çekici konuyla tanıştı. Her gün eve yeni bir şey öğrenerek dönüyor."</p>
+
+
+<!-- Yorum 2 — Eski: -->
+<p>"The environment is well structured, and there is a nice balance of activities that prep the kids for the sort of things
+   they'll do in kindergarten and more play-based activities, like going to the park and doing arts and crafts."</p>
+
+<!-- Yorum 2 — Yeni: -->
+<p>"Ortam çok iyi organize edilmiş; ilkokula hazırlık etkinlikleri ile parka gitmek ve el sanatları gibi oyun temelli
+   aktiviteler arasında harika bir denge var."</p>
+
+
+<!-- Yorum 3 — Eski: -->
+<p>"I feel comfortable with the care she receives and the open and welcoming atmosphere of the management team.
+   The lesson plans planning for the month is impressive but yet the kids still have a perfect balance of playtime
+   and structured learning time."</p>
+
+<!-- Yorum 3 — Yeni: -->
+<p>"Kızımın gördüğü ilgiden ve yönetim ekibinin sıcak karşılayıcı tutumundan çok memnunum.
+   Aylık ders planları gerçekten etkileyici; buna rağmen çocuklar oyun ve yapılandırılmış öğrenme zamanı arasında
+   mükemmel bir denge yakalıyor."</p>
+```
+---
+10. İletişim / Kayıt Bölümü
+```html
+<!-- Eski: -->
+<h3>Ready to join a learning adventure?</h3>
+<p>If you are interested in learning more about our program or how to enroll,
+   please click on the button below to fill out our questionnaire and we will get back to you as soon as possible!</p>
+
+<!-- Yeni: -->
+<h3>Öğrenme Macerasına Katılmaya Hazır mısınız?</h3>
+<p>Programımız veya kayıt hakkında daha fazla bilgi almak istiyorsanız
+   aşağıdaki butona tıklayarak formu doldurun, en kısa sürede size geri dönelim!</p>
+
+
+<!-- Eski buton: -->
+<button class="lightbox-handle sqs-system-button sqs-editable-button sqs-button-element--primary">
+  CONTACT US
+</button>
+
+<!-- Yeni buton: -->
+<button class="lightbox-handle sqs-system-button sqs-editable-button sqs-button-element--primary">
+  BİZE ULAŞIN
+</button>
+```
+---
+11. Footer — Logo Alt Metni
+```html
+alt="Minik Yürekler Anaokulu"
+```
+---
+12. Footer — Konum
+```html
+<!-- Eski: -->
+<h4><strong>Location</strong></h4>
+<p>2044 W Belmont<br>Chicago, Illinois 60618</p>
+
+<!-- Yeni: -->
+<h4><strong>Konum</strong></h4>
+<p>
+  <a href="https://www.google.com/maps?sca_esv=14ddabb60189eb57&sxsrf=ANbL-n7nJExvyAvTwE6S9bLMiQ3WZ695pA:1779989401436&biw=1536&bih=791&gs_lp=Egxnd3Mtd2l6LXNlcnAiHW1pbmlrIHnDvHJla2xlciBhbmFva3VsdSBnw7xuKgIIADIEECMYJzIEECMYJzIIEAAYgAQYogQyCBAAGIkFGKIEMgUQABjvBTIFEAAY7wUyCBAAGIkFGKIESKorUPYMWKUhcAJ4AZABAJgBhgGgAfQEqgEDMC41uAEByAEA-AEBmAIHoAKeBcICChAAGEcY1gQYsAPCAgUQABiABMICBhAAGBYYHsICBxAjGLACGCeYAwCIBgGQBgOSBwMyLjWgB9kksgcDMC41uAeUBcIHBTAuMS42yAcegAgB&um=1&ie=UTF-8&fb=1&gl=tr&sa=X&geocode=KUd_NiQou8oUMUnOfWOHjJ5Q&daddr=G%C3%BCne%C5%9Ftepe,+So%C4%9Fanl%C4%B1+Cd.+No:121,+34560+G%C3%BCng%C3%B6ren%2F%C4%B0stanbul"
+     target="_blank">
+    Güneştepe, Soğanlı Cd. No:121<br>34560 Güngören/İstanbul
+  </a>
+</p>
+```
+---
+13. Footer — Çalışma Saatleri
+```html
+<!-- Eski: -->
+<h4><strong>Hours</strong></h4>
+<p>Monday - Friday</p>
+<p>7:00 a.m - 6:00 p.m.*</p>
+<p>*Except on holidays and breaks</p>
+
+<!-- Yeni: -->
+<h4><strong>Çalışma Saatleri</strong></h4>
+<p>Pazartesi – Cuma</p>
+<p>07:00 – 18:00*</p>
+<p>*Resmi tatil ve ara tatillerde kapalıdır</p>
+```
+---
+14. Footer — İletişim
+```html
+<!-- Eski: -->
+<h4><strong>Contact</strong></h4>
+<p>Phone: <a href="tel:7732814411">773-281-4411</a></p>
+<p>Fax: <a href="tel:7732814412">773-281-4412</a></p>
+
+<!-- Yeni: -->
+<h4><strong>İletişim</strong></h4>
+<p>Tel: <a href="tel:05533231987">0553 323 19 87</a></p>
+```
+---
+15. Footer — Sosyal Medya
+```html
+<!-- Eski: -->
+<h4><strong>Follow</strong></h4>
+<p>Follow our news, updates and activities on:</p>
+
+<!-- Yeni: -->
+<h4><strong>Bizi Takip Edin</strong></h4>
+<p>Haberler, güncellemeler ve etkinlikler için bizi takip edin:</p>
+
+
+<!-- Eski sosyal bağlantı (Facebook): -->
+<a href="https://www.facebook.com/TSPChicago/"
+   target="_blank"
+   class="sqs-svg-icon--wrapper facebook-unauth"
+   aria-label="Facebook">
+  ...
+</a>
+
+<!-- Yeni sosyal bağlantı (Instagram): -->
+<a href="https://instagram.com/minikyurekleranaokulu"
+   target="_blank"
+   class="sqs-svg-icon--wrapper instagram"
+   aria-label="Instagram">
+  <div>
+    <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+      <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#instagram-icon"></use>
+      <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#instagram-mask"></use>
+    </svg>
+  </div>
+</a>
+```
+---
+16. Navigasyon Menüsü (Header ve Mobil Menü)
+Orijinal menü yapısı korunur, sayfa yolları Türkçe hale getirilir:
+```html
+<!-- Eski → Yeni -->
+Home       →  Ana Sayfa     (href="/")
+About      →  Hakkımızda    (href="/hakkimizda")
+Team       →  Ekibimiz      (href="/ekibimiz")
+Programs   →  Programlar    (href="/programlar")
+Enrollment →  Kayıt         (href="/kayit")
+Careers    →  Kariyer       (href="/kariyer")
+Contact    →  İletişim      (href="/iletisim")
+```
+---
+17. Kayıt Formu — Alan Başlıkları
+```json
+[
+  { "title": "Veli/Vasi adı soyadı" },
+  { "title": "E-posta" },
+  { "title": "Telefon numarası" },
+  { "title": "Çocuğun adı" },
+  { "title": "Çocuğun doğum tarihi" },
+  { "title": "Tahmini başlangıç tarihi" },
+  { "title": "Hangi günler ilgileniyorsunuz?", "options": ["Pazartesi","Salı","Çarşamba","Perşembe","Cuma"] },
+  { "title": "Çocuğunuz tuvalet eğitimi aldı mı?", "options": ["Evet","Hayır"] },
+  { "title": "Merkezi nasıl ziyaret etmek istersiniz?", "options": ["Yüz yüze","Sanal"] },
+  { "title": "Merkez turu için uygun gün ve saatleriniz?" },
+  { "title": "Eklemek istediğiniz ek bilgiler?" }
+]
+```
+Form gönder butonu: `Gönder`  
+Teşekkür mesajı:
+```html
+<p>Bilgilerinizi bize ilettiğiniz için teşekkür ederiz!
+   En kısa sürede sizinle iletişime geçeceğiz. Minik Yürekler ailesine hoş geldiniz!</p>
+```
+---
+Notlar
+Tüm görseller (hero fotoğrafı, sınıf görselleri, arka plan dokuları, logolar, ikonlar) orijinal haliyle bırakılmıştır.  
+Bunları kendi kurumsal görsellerinizle değiştirmeniz önerilir.
+Logo görselleri de orijinal Squarespace URL'lerinden çekilmektedir; kendi logonuzu yükleyip URL'leri güncelleyin.
+Google Maps linki footer'daki adres metnine bağlantı olarak eklenmiştir.
+Squarespace kullanıyorsanız menü yollarını (`/programlar`, `/kayit` vb.) kendi koleksiyon URL'lerinizle eşleştirin.
