@@ -1,340 +1,318 @@
-"Minik Yürekler Anaokulu — Ana Sayfa Kodu
-Aşağıdaki kod, Twinkling Stars Preschool sitesinin yapısı ve tasarımı korunarak Minik Yürekler Anaokulu bilgileriyle güncellenmiştir.  
-Görseller, renkler ve diğer tüm tasarım öğeleri aynı bırakılmıştır; yalnızca metin ve bağlantı bilgileri değiştirilmiştir.
----
-Değiştirilen Alanlar
-Alan	Eski Değer	Yeni Değer
-Site başlığı	Twinkling Stars Preschool	Minik Yürekler Anaokulu
-Slogan	Play. Explore. Learn.	Oyna. Keşfet. Büyü.
-Açıklama	Exceptional care for children 15 months–5 years	15 ay–5 yaş arası çocuklar için özenli bakım ve eğitim
-Adres	(yok)	Güneştepe, Soğanlı Cd. No:121, 34560 Güngören/İstanbul
-Telefon	773-281-4411	0553 323 19 87
-Faks	773-281-4412	(kaldırıldı)
-Sosyal medya	Facebook /TSPChicago	Instagram @minikyurekleranaokulu
-Kayıt butonu	ENROLL TODAY	KAYIT OL
-İletişim butonu	CONTACT US	BİZE ULAŞIN
-Programlar butonu	VIEW PROGRAMS	PROGRAMLARI GÖR
-Başla butonu	GET STARTED	BAŞLAYALIM
----
-Güncellenmiş HTML (Bölüm Bölüm)
-1. `<title>` ve Meta Etiketleri
-```html
-<title>Minik Yürekler Anaokulu</title>
-<meta property="og:site_name" content="Minik Yürekler Anaokulu"/>
-<meta property="og:title" content="Minik Yürekler Anaokulu"/>
-<meta property="og:description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
-<meta name="description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar." />
-<meta name="twitter:title" content="Minik Yürekler Anaokulu"/>
-<meta name="twitter:description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
-<meta itemprop="name" content="Minik Yürekler Anaokulu"/>
-<meta itemprop="description" content="Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda keşif, oyun ve öğrenme deneyimi sunar."/>
-```
----
-2. Header — Logo Alt Metni
-```html
-<!-- Logo img etiketlerinde alt="" yerine: -->
-alt="Minik Yürekler Anaokulu"
-```
----
-3. Header — "ENROLL TODAY" Butonu → "KAYIT OL"
-```html
-<!-- Eski: -->
-<a class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
-   href="/s/Application-for-Enrollment-2026-2027.pdf"
-   target="_blank">
-  ENROLL TODAY
-</a>
-
-<!-- Yeni: -->
-<a class="btn btn--border theme-btn--primary-inverse sqs-button-element--primary"
-   href="/kayit"
-   target="_blank">
-  KAYIT OL
-</a>
-```
-(Mobil header ve overlay menüsündeki aynı buton da değiştirilir.)
----
-4. Hero Bölümü — Başlık ve Slogan
-```html
-<!-- Eski: -->
-<h3 style="text-align:center;white-space:pre-wrap;">Welcome to</h3>
-<h1 style="text-align:center;white-space:pre-wrap;">Twinkling Stars Preschool</h1>
-<h3 style="text-align:center;white-space:pre-wrap;">Play. Explore. Learn.</h3>
-
-<!-- Yeni: -->
-<h3 style="text-align:center;white-space:pre-wrap;">Hoş Geldiniz</h3>
-<h1 style="text-align:center;white-space:pre-wrap;">Minik Yürekler Anaokulu</h1>
-<h3 style="text-align:center;white-space:pre-wrap;">Oyna. Keşfet. Büyü.</h3>
-```
----
-5. Hero — "GET STARTED" Butonu → "BAŞLAYALIM"
-```html
-<!-- Eski: -->
-<a href="/programs"
-   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
-  GET STARTED
-</a>
-
-<!-- Yeni: -->
-<a href="/programlar"
-   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
-  BAŞLAYALIM
-</a>
-```
----
-6. Tanıtım Bölümü — Açıklama Metni
-```html
-<!-- Eski: -->
-<h3 style="text-align:center;white-space:pre-wrap;">
-  Twinkling Stars Preschool provides exceptional care and education in a safe and nurturing environment for children 15 months- 5 years old
-</h3>
-
-<!-- Yeni: -->
-<h3 style="text-align:center;white-space:pre-wrap;">
-  Minik Yürekler Anaokulu, 15 ay ile 5 yaş arasındaki çocuklara güvenli ve sevgi dolu bir ortamda üstün kaliteli bakım ve eğitim sunar.
-</h3>
-```
----
-7. Sınıf Açıklamaları
-Toddler Sınıfı (15–24 ay)
-```html
-<!-- Eski: -->
-<h3>Toddler Classroom <br>(15-24 months)</h3>
-<p>With our low teacher to child ratio, we are able to provide a high level of teacher interaction with your child.
-   Your toddler will explore, question and discover with age appropriate materials and activities.</p>
-
-<!-- Yeni: -->
-<h3>Yürümeye Başlayanlar Sınıfı<br>(15–24 Ay)</h3>
-<p>Düşük öğretmen-çocuk oranımız sayesinde her çocuğa yüksek düzeyde bireysel ilgi gösteriyoruz.
-   Minik keşifçiniz, yaşına uygun materyaller ve etkinliklerle araştırır, sorgular ve keşfeder.</p>
-```
-2/3 Yaş Sınıfı
-```html
-<!-- Eski: -->
-<h3>2/3 Classroom<br>(2-3 years)</h3>
-<p>Your younger preschooler will build on basic concepts such as counting, letter and number recognition and phonemic awareness
-   while having plenty of opportunities to play and improve his/her social skills.</p>
-
-<!-- Yeni: -->
-<h3>2/3 Yaş Sınıfı<br>(2–3 Yaş)</h3>
-<p>Küçük okul öncesi çocuğunuz sayma, harf ve rakam tanıma ile ses bilinci gibi temel kavramları geliştirirken
-   sosyal becerilerini pekiştirmek için bol bol oyun oynama fırsatı bulur.</p>
-```
-Anaokulu Sınıfı (3–5 Yaş)
-```html
-<!-- Eski: -->
-<h3>Preschool Classroom<br>(3-5 years)</h3>
-<p>Our preschool program prepares your child for the next exciting chapter in his/her educational career…kindergarten!
-   With a combination of teacher-guided small and whole group learning experiences, child-guided activities and free choice centers,
-   your child will strengthen his/her areas of social and emotional, physical, language and literacy, mathematical reasoning,
-   social studies, science and creative developments.</p>
-
-<!-- Yeni: -->
-<h3>Anaokulu Sınıfı<br>(3–5 Yaş)</h3>
-<p>Anaokulu programımız çocuğunuzu eğitim hayatının bir sonraki heyecanlı adımına — ilkokula — hazırlar!
-   Öğretmen rehberliğinde küçük ve büyük grup etkinliklerini, çocuk merkezli çalışmaları ve serbest seçim köşelerini
-   bir araya getirerek çocuğunuzun sosyal-duygusal, fiziksel, dil-okuma yazma, matematiksel düşünme, sosyal bilgiler,
-   fen bilimleri ve yaratıcı gelişim alanlarını güçlendiriyoruz.</p>
-```
----
-8. "VIEW PROGRAMS" Butonu → "PROGRAMLARI GÖR"
-```html
-<!-- Eski: -->
-<a href="/programs"
-   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
-  VIEW PROGRAMS
-</a>
-
-<!-- Yeni: -->
-<a href="/programlar"
-   class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element">
-  PROGRAMLARI GÖR
-</a>
-```
----
-9. Ebeveyn Yorumları Bölümü — Başlık
-```html
-<!-- Eski: -->
-<h3 style="text-align:center;white-space:pre-wrap;">See what parents are saying</h3>
-
-<!-- Yeni: -->
-<h3 style="text-align:center;white-space:pre-wrap;">Velilerimiz Ne Diyor?</h3>
-```
-Yorumlar (3 adet — orijinal yapı korunur, içerik Türkçeleştirilir)
-```html
-<!-- Yorum 1 — Eski: -->
-<p>"While attending Twinkling Stars Preschool, our daughter has been exposed to a variety of engaging subject matter
-   ranging from the Food Pyramid and healthy eating choices to the individual states which comprise our country."</p>
-
-<!-- Yorum 1 — Yeni: -->
-<p>"Minik Yürekler'de geçirdiği süre boyunca kızımız sağlıklı beslenme alışkanlıklarından Türkiye'nin bölgelerine kadar
-   pek çok ilgi çekici konuyla tanıştı. Her gün eve yeni bir şey öğrenerek dönüyor."</p>
-
-
-<!-- Yorum 2 — Eski: -->
-<p>"The environment is well structured, and there is a nice balance of activities that prep the kids for the sort of things
-   they'll do in kindergarten and more play-based activities, like going to the park and doing arts and crafts."</p>
-
-<!-- Yorum 2 — Yeni: -->
-<p>"Ortam çok iyi organize edilmiş; ilkokula hazırlık etkinlikleri ile parka gitmek ve el sanatları gibi oyun temelli
-   aktiviteler arasında harika bir denge var."</p>
-
-
-<!-- Yorum 3 — Eski: -->
-<p>"I feel comfortable with the care she receives and the open and welcoming atmosphere of the management team.
-   The lesson plans planning for the month is impressive but yet the kids still have a perfect balance of playtime
-   and structured learning time."</p>
-
-<!-- Yorum 3 — Yeni: -->
-<p>"Kızımın gördüğü ilgiden ve yönetim ekibinin sıcak karşılayıcı tutumundan çok memnunum.
-   Aylık ders planları gerçekten etkileyici; buna rağmen çocuklar oyun ve yapılandırılmış öğrenme zamanı arasında
-   mükemmel bir denge yakalıyor."</p>
-```
----
-10. İletişim / Kayıt Bölümü
-```html
-<!-- Eski: -->
-<h3>Ready to join a learning adventure?</h3>
-<p>If you are interested in learning more about our program or how to enroll,
-   please click on the button below to fill out our questionnaire and we will get back to you as soon as possible!</p>
-
-<!-- Yeni: -->
-<h3>Öğrenme Macerasına Katılmaya Hazır mısınız?</h3>
-<p>Programımız veya kayıt hakkında daha fazla bilgi almak istiyorsanız
-   aşağıdaki butona tıklayarak formu doldurun, en kısa sürede size geri dönelim!</p>
-
-
-<!-- Eski buton: -->
-<button class="lightbox-handle sqs-system-button sqs-editable-button sqs-button-element--primary">
-  CONTACT US
-</button>
-
-<!-- Yeni buton: -->
-<button class="lightbox-handle sqs-system-button sqs-editable-button sqs-button-element--primary">
-  BİZE ULAŞIN
-</button>
-```
----
-11. Footer — Logo Alt Metni
-```html
-alt="Minik Yürekler Anaokulu"
-```
----
-12. Footer — Konum
-```html
-<!-- Eski: -->
-<h4><strong>Location</strong></h4>
-<p>2044 W Belmont<br>Chicago, Illinois 60618</p>
-
-<!-- Yeni: -->
-<h4><strong>Konum</strong></h4>
-<p>
-  <a href="https://www.google.com/maps?sca_esv=14ddabb60189eb57&sxsrf=ANbL-n7nJExvyAvTwE6S9bLMiQ3WZ695pA:1779989401436&biw=1536&bih=791&gs_lp=Egxnd3Mtd2l6LXNlcnAiHW1pbmlrIHnDvHJla2xlciBhbmFva3VsdSBnw7xuKgIIADIEECMYJzIEECMYJzIIEAAYgAQYogQyCBAAGIkFGKIEMgUQABjvBTIFEAAY7wUyCBAAGIkFGKIESKorUPYMWKUhcAJ4AZABAJgBhgGgAfQEqgEDMC41uAEByAEA-AEBmAIHoAKeBcICChAAGEcY1gQYsAPCAgUQABiABMICBhAAGBYYHsICBxAjGLACGCeYAwCIBgGQBgOSBwMyLjWgB9kksgcDMC41uAeUBcIHBTAuMS42yAcegAgB&um=1&ie=UTF-8&fb=1&gl=tr&sa=X&geocode=KUd_NiQou8oUMUnOfWOHjJ5Q&daddr=G%C3%BCne%C5%9Ftepe,+So%C4%9Fanl%C4%B1+Cd.+No:121,+34560+G%C3%BCng%C3%B6ren%2F%C4%B0stanbul"
-     target="_blank">
-    Güneştepe, Soğanlı Cd. No:121<br>34560 Güngören/İstanbul
-  </a>
-</p>
-```
----
-13. Footer — Çalışma Saatleri
-```html
-<!-- Eski: -->
-<h4><strong>Hours</strong></h4>
-<p>Monday - Friday</p>
-<p>7:00 a.m - 6:00 p.m.*</p>
-<p>*Except on holidays and breaks</p>
-
-<!-- Yeni: -->
-<h4><strong>Çalışma Saatleri</strong></h4>
-<p>Pazartesi – Cuma</p>
-<p>07:00 – 18:00*</p>
-<p>*Resmi tatil ve ara tatillerde kapalıdır</p>
-```
----
-14. Footer — İletişim
-```html
-<!-- Eski: -->
-<h4><strong>Contact</strong></h4>
-<p>Phone: <a href="tel:7732814411">773-281-4411</a></p>
-<p>Fax: <a href="tel:7732814412">773-281-4412</a></p>
-
-<!-- Yeni: -->
-<h4><strong>İletişim</strong></h4>
-<p>Tel: <a href="tel:05533231987">0553 323 19 87</a></p>
-```
----
-15. Footer — Sosyal Medya
-```html
-<!-- Eski: -->
-<h4><strong>Follow</strong></h4>
-<p>Follow our news, updates and activities on:</p>
-
-<!-- Yeni: -->
-<h4><strong>Bizi Takip Edin</strong></h4>
-<p>Haberler, güncellemeler ve etkinlikler için bizi takip edin:</p>
-
-
-<!-- Eski sosyal bağlantı (Facebook): -->
-<a href="https://www.facebook.com/TSPChicago/"
-   target="_blank"
-   class="sqs-svg-icon--wrapper facebook-unauth"
-   aria-label="Facebook">
-  ...
-</a>
-
-<!-- Yeni sosyal bağlantı (Instagram): -->
-<a href="https://instagram.com/minikyurekleranaokulu"
-   target="_blank"
-   class="sqs-svg-icon--wrapper instagram"
-   aria-label="Instagram">
-  <div>
-    <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
-      <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#instagram-icon"></use>
-      <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#instagram-mask"></use>
-    </svg>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Çağran Fındık — Giresun Tombul Fındık, Üreticisinden | cagran.com.tr</title>
+<meta name="description" content="Giresun'da kendi bahçemizden: güneşte kurutulmuş tombul fındık. Kabuklu, iç ve toptan (25 kg+). Sepetsiz, üyelik­siz — WhatsApp'tan yazın, hasat malını anlatalım.">
+<link rel="canonical" href="https://cagran.com.tr/">
+<meta property="og:title" content="Çağran Fındık — Tek bahçe, tek çeşit: Giresun tombulu">
+<meta property="og:description" content="Kendi bahçemizden kurutulmuş fındık. Kabuklu, iç, toptan. WhatsApp: +90 506 027 05 51">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cagran.com.tr/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://images.pexels.com/photos/7717466/pexels-photo-7717466.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<meta name="theme-color" content="#0C1F1C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C1F1C'/%3E%3Cellipse cx='32' cy='36' rx='11' ry='13' fill='%23E9A319'/%3E%3Cpath d='M18 18c4-5 9-7 14-7-1 4-4 8-8 10l-6-3Z' fill='%231E4D43'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Çağran Fındık","url":"https://cagran.com.tr/","telephone":"+905060270551","email":"serdarcagran@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Giresun","addressCountry":"TR"},"description":"Giresun'da kendi bahçesinde tombul fındık üreten aile işletmesi.","priceRange":"₺₺","openingHours":"Mo-Sa 09:00-19:00"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Nasıl sipariş veriyorum?","acceptedAnswer":{"@type":"Answer","text":"Sitede sepet yok. Ürünün kilosunu seçip Fiyat sor düğmesine basın, WhatsApp açılır. Adresi yazın, toplamı söyleyelim."}},{"@type":"Question","name":"Ödeme nasıl oluyor?","acceptedAnswer":{"@type":"Answer","text":"Havale/EFT ile. Kredi kartı ve kapıda ödeme yok."}},{"@type":"Question","name":"Toptan alt sınır nedir?","acceptedAnswer":{"@type":"Answer","text":"25 kg ve üzeri toptan sayılır. Önce numune göndeririz."}}]}
+</script>
+<style>
+:root{
+  --ink:#0C1F1C; --forest:#12332D; --moss:#1E4D43; --moss-line:rgba(246,238,224,.16);
+  --amber:#E9A319; --amber-hot:#FFC53D; --paper:#F5EEE0; --paper2:#EADFC6;
+  --bark:#5C2E10; --brick:#A8430F; --body:#22271F; --muted:#5D6257;
+  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --bw:1.5px solid var(--ink);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;font-family:var(--sans);background:var(--paper);color:var(--body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");}
+img{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--amber);color:#1c1204}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px;top:0;background:#000;color:#fff;padding:10px 16px;z-index:300}
+.skip:focus{left:0}
+.wrap{width:min(1220px,92%);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);letter-spacing:-.02em;line-height:.94;text-wrap:balance;margin:0}
+.topbar{background:var(--ink);color:#E9DFC8;font-size:12.5px;font-weight:600;letter-spacing:.04em}
+.topbar .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:7px 0}
+.topbar a{color:var(--amber-hot);text-decoration:none;font-weight:800}
+.sitehead{position:sticky;top:0;z-index:100;background:rgba(245,238,224,.94);backdrop-filter:blur(12px);border-bottom:var(--bw)}
+.head-in{display:flex;align-items:center;gap:18px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:44px;height:44px;flex:none;background:var(--ink);border-radius:12px;display:grid;place-items:center;border:1.5px solid var(--ink)}
+.brand b{font-family:var(--serif);font-weight:900;font-size:21px;line-height:1;display:block;color:var(--ink)}
+.brand small{font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--brick)}
+.headnav{display:none;gap:26px;margin-left:auto;font-weight:600;font-size:14.5px}
+.headnav a{text-decoration:none;position:relative;padding:4px 0}
+.headnav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--brick);transition:width .25s}
+.headnav a:hover::after{width:100%}
+.head-cta{margin-left:6px;display:none;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:14.5px;padding:12px 18px;border-radius:999px;border:1.5px solid var(--ink)}
+.head-cta:hover{background:var(--forest)}
+.burger{margin-left:auto;background:#fff;border:var(--bw);border-radius:10px;width:44px;height:44px;font-size:19px;cursor:pointer}
+.mmenu{display:none;border-top:var(--bw);background:var(--paper);padding:6px 4% 16px}
+.mmenu.open{display:block}
+.mmenu a{display:block;padding:13px 4px;font-weight:700;text-decoration:none;border-bottom:1px dashed rgba(12,31,28,.3)}
+@media(min-width:980px){.headnav{display:flex}.head-cta{display:inline-flex}.burger{display:none}}
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.hero-grid{display:grid;gap:30px;padding:34px 0 30px}
+@media(min-width:1020px){.hero-grid{grid-template-columns:7fr 5fr;gap:44px;padding:58px 0 46px;align-items:stretch}}
+.kicker-row{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--amber-hot)}
+.kicker-row::before{content:"";width:34px;height:2px;background:var(--amber-hot);display:inline-block}
+.hero h1{font-size:clamp(46px,7vw,92px);font-weight:850;margin:14px 0 10px;color:#FBF5E6}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--amber-hot)}
+.hero .lede{font-size:clamp(16px,1.8vw,18.5px);color:#CBD5C9;max-width:56ch}
+.hero .lede strong{color:#fff}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 14px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font-weight:800;font-size:15.5px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;line-height:1}
+.btn-amber{background:var(--amber);color:#1c1204;border-color:#000;box-shadow:5px 5px 0 rgba(0,0,0,.55)}
+.btn-amber:hover{background:var(--amber-hot)}
+.btn-ghost{border-color:rgba(246,238,224,.4);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#9FB3A9;padding:0;margin:6px 0 0;list-style:none}
+.trust li{display:flex;gap:8px;align-items:center}
+.mahsul{margin-top:22px;border:1px solid var(--moss-line);border-radius:14px;overflow:hidden}
+.mahsul-head{display:flex;justify-content:space-between;align-items:center;background:rgba(233,163,25,.12);padding:10px 16px;font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--amber-hot);border-bottom:1px solid var(--moss-line)}
+.mahsul-grid{display:grid;grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.mahsul-grid{grid-template-columns:repeat(4,1fr)}}
+.mahsul-grid div{padding:12px 16px;border-right:1px solid var(--moss-line);font-size:13.5px}
+.mahsul-grid div:last-child{border-right:none}
+.mahsul-grid b{display:block;font-family:var(--serif);font-size:19px;color:#fff}
+.hero-media{position:relative;min-height:480px}
+.ph{position:absolute;overflow:hidden;border:1.5px solid rgba(246,238,224,.35);background:#1a3831}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph-main{inset:0 0 70px 0;border-radius:18px 120px 18px 18px}
+.ph-sub{right:0;bottom:0;width:46%;height:220px;border-radius:14px;background:#2a1510;rotate:2deg;box-shadow:8px 8px 0 rgba(0,0,0,.5);border-color:var(--paper)}
+.ph-cap{position:absolute;font-size:12px;font-weight:700;background:var(--paper);color:var(--ink);padding:6px 11px;border-radius:999px;border:1.5px solid var(--ink)}
+.cap1{top:14px;left:14px;rotate:-3deg}
+.stamp{position:absolute;left:-28px;bottom:56px;width:132px;height:132px;z-index:3}
+.stamp .disk{position:absolute;inset:0;background:var(--amber);border:2px solid #000;border-radius:50%;box-shadow:4px 4px 0 rgba(0,0,0,.5)}
+.stamp svg{position:absolute;inset:6px;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp .core{position:absolute;inset:44px;background:var(--ink);border-radius:50%;display:grid;place-items:center;color:var(--amber-hot);font-family:var(--serif);font-weight:900;font-style:italic}
+.marquee{background:var(--amber);border-block:2px solid #000;overflow:hidden;white-space:nowrap}
+.marquee span{display:inline-block;padding:9px 0;font-weight:800;font-size:14px;letter-spacing:.06em;animation:slide 26s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+section.block{padding:62px 0}
+@media(min-width:980px){section.block{padding:88px 0}}
+.sec-head{display:grid;gap:14px;margin-bottom:30px}
+@media(min-width:980px){.sec-head{grid-template-columns:80px 1fr;gap:24px;align-items:start}}
+.sec-no{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--brick);border-top:3px solid var(--ink);padding-top:8px}
+.sec-head h2{font-size:clamp(34px,4.4vw,60px);font-weight:850;max-width:16ch}
+.sec-head h2 em{font-style:italic;font-weight:400;color:var(--brick)}
+.sec-head p{max-width:64ch;color:#3E443B;font-size:17px;margin:10px 0 0}
+.about{display:grid;gap:26px}
+@media(min-width:1020px){.about{grid-template-columns:5fr 6fr;gap:48px}}
+.fig{position:relative;border:var(--bw);border-radius:16px;overflow:hidden;background-color:#24423B;min-height:420px;box-shadow:8px 8px 0 var(--ink)}
+.fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fig .yedek{position:absolute;inset:0;display:grid;place-items:center;color:#EADFC6;text-align:center;padding:20px}
+.fig figcaption{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:rgba(12,31,28,.88);color:#F5EEE0;border-radius:10px;padding:10px 14px;font-size:13px}
+.drop::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4em;line-height:.82;padding-right:10px;color:var(--bark)}
+.margin{display:grid;gap:0;margin-top:22px;border:var(--bw);border-radius:12px;overflow:hidden}
+.margin div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:11px 14px;font-size:14px;border-bottom:1px solid rgba(12,31,28,.2);background:#fff}
+.margin div:last-child{border-bottom:none}
+.margin dt{font-weight:800}
+.margin dd{margin:0;color:#3E443B}
+.sign{font-family:var(--serif);font-style:italic;font-size:26px;margin-top:16px}
+#urunler{background:#EFE5CF;border-block:2px solid var(--ink)}
+.sira{border:2px solid var(--ink);background:#FFFCF2;border-radius:16px;overflow:hidden;display:grid;margin-bottom:18px;box-shadow:6px 6px 0 var(--ink)}
+@media(min-width:940px){.sira{grid-template-columns:300px 1fr 250px}}
+.sira-foto{position:relative;min-height:230px;background:#1c332e}
+.sira-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sira-foto .tag{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--amber-hot);font-size:12px;font-weight:800;letter-spacing:.08em;padding:6px 11px;border-radius:999px}
+.sira-info{padding:22px 24px}
+.sira-info h3{font-size:31px}
+.sira-info h3 span{font-family:var(--sans);font-size:12.5px;font-weight:800;letter-spacing:.1em;vertical-align:middle;background:var(--ink);color:#fff;border-radius:999px;padding:5px 10px;margin-left:8px}
+.sira-info .desc{color:#3E443B;margin:8px 0 12px;max-width:52ch}
+.spec{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;font-weight:600;color:#2c332c;list-style:none;padding:0;margin:0 0 14px}
+.spec li{display:flex;gap:7px;align-items:center}
+.kilos{display:flex;flex-wrap:wrap;gap:8px}
+.kilos button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:8px 14px;font-weight:800;font-size:13.5px;cursor:pointer}
+.kilos button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.sira-cta{background:var(--forest);color:#EDF3EC;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px;border-top:2px solid var(--ink)}
+@media(min-width:940px){.sira-cta{border-top:none;border-left:2px solid var(--ink)}}
+.sira:nth-child(3) .sira-cta{background:var(--amber);color:#1c1204}
+.sira-cta .fiyat-not{font-size:13px;opacity:.85}
+.sira-cta .btn{justify-content:center;width:100%}
+.mini-not{font-size:13px;color:#4a4f45;margin-top:14px}
+#findik{background:var(--ink);color:#E9E4D2}
+#findik .sec-head p{color:#A9BCB2}
+#findik .sec-no{color:var(--amber-hot);border-color:var(--amber-hot)}
+#findik .sec-head h2{color:#FBF5E6}
+#findik .sec-head h2 em{color:var(--amber-hot)}
+.bilgi{display:grid;gap:18px}
+@media(min-width:1020px){.bilgi{grid-template-columns:1.05fr .95fr;gap:22px}}
+.panel{border:1.5px solid rgba(246,238,224,.28);border-radius:16px;padding:26px;background:rgba(255,255,255,.03)}
+.bigpct{font-family:var(--serif);font-weight:900;font-size:clamp(76px,8vw,112px);line-height:.9;color:var(--amber-hot)}
+.panel h3{font-size:25px;color:#fff;margin:8px 0}
+.panel p{color:#B9C9C0;font-size:15.5px}
+.tombul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.tombul li{border:1px solid rgba(246,238,224,.22);border-radius:12px;padding:12px 14px;font-size:14.5px;background:rgba(233,163,25,.07)}
+.tombul b{color:#fff}
+.barlar{margin-top:14px;display:grid;gap:10px}
+.barlar .sat{display:grid;grid-template-columns:110px 1fr 64px;gap:10px;align-items:center;font-size:13.5px;font-weight:700}
+.barlar .ray{background:rgba(246,238,224,.16);border-radius:999px;height:10px;overflow:hidden}
+.barlar .dol{background:var(--amber);height:100%;border-radius:999px}
+.barlar .sat span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:#fff}
+.kaynak{font-size:12.5px;color:#8AA096;margin-top:12px;border-top:1px dashed rgba(246,238,224,.3);padding-top:10px}
+.steps{display:grid;gap:14px;margin-top:8px}
+@media(min-width:940px){.steps{grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#FFFCF2;box-shadow:6px 6px 0 var(--ink)}}
+.step{padding:22px;border:2px solid var(--ink);border-radius:14px;background:#FFFCF2}
+@media(min-width:940px){.step{border:none;border-radius:0;border-right:2px solid var(--ink)}.step:last-child{border-right:none}}
+.step .n{font-family:var(--serif);font-style:italic;font-size:42px;color:var(--brick);line-height:1}
+.step h3{font-size:22px;margin:4px 0 6px}
+.step p{font-size:14.5px;color:#3E443B;margin:0}
+.harman{margin-top:18px;display:grid;gap:14px}
+@media(min-width:940px){.harman{grid-template-columns:1.4fr .6fr}}
+.harman-fig{position:relative;border:2px solid var(--ink);border-radius:14px;overflow:hidden;min-height:240px;background:#5C2E10;box-shadow:6px 6px 0 var(--ink)}
+.harman-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.harman-fig span{position:absolute;left:12px;bottom:12px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:999px}
+.harman-note{border:2px dashed var(--ink);border-radius:14px;padding:18px;font-size:14.5px;background:#fff}
+.faq{display:grid;gap:22px}
+@media(min-width:1020px){.faq{grid-template-columns:380px 1fr;gap:44px;align-items:start}}
+.faq-side{position:sticky;top:110px;border:2px solid var(--ink);border-radius:16px;padding:22px;background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 rgba(12,31,28,.25)}
+.faq-side h2{font-size:38px;color:#fff}
+.faq-side p{color:#A9BCB2;font-size:15px}
+details.q{border:2px solid var(--ink);border-radius:12px;background:#fff;margin-bottom:10px;overflow:hidden}
+details.q summary{cursor:pointer;list-style:none;padding:16px 54px 16px 18px;font-weight:800;font-size:16px;position:relative}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";position:absolute;right:12px;top:11px;width:34px;height:34px;display:grid;place-items:center;background:var(--amber);border:1.5px solid var(--ink);border-radius:50%;font-size:21px;transition:transform .2s}
+details.q[open] summary::after{transform:rotate(45deg)}
+details.q .a{margin:0 18px 18px;padding-top:12px;border-top:1.5px dashed var(--ink);color:#3E443B;font-size:15.5px}
+#iletisim{background:var(--bark);color:#F8EBD2;border-top:2px solid var(--ink)}
+.contact{display:grid;gap:22px}
+@media(min-width:980px){.contact{grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}}
+#iletisim h2{font-size:clamp(42px,5.5vw,72px);color:#FFF6E3}
+#iletisim h2 em{font-style:italic;color:var(--amber-hot)}
+.tel{font-family:var(--serif);font-weight:900;font-size:clamp(30px,4vw,48px);color:#fff;text-decoration:none;display:inline-block;margin:10px 0;border-bottom:3px solid var(--amber)}
+.tel:hover{color:var(--amber-hot)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips button{border:1.5px solid rgba(255,246,227,.5);background:transparent;color:#FFF6E3;border-radius:999px;padding:9px 14px;font-size:13.5px;font-weight:700;cursor:pointer}
+.chips button:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.kart{background:#FFFCF2;color:var(--ink);border:2px solid var(--ink);border-radius:16px;padding:20px 22px;box-shadow:8px 8px 0 rgba(0,0,0,.4)}
+.kart a.row{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:800;padding:12px 0;border-bottom:1px dashed rgba(12,31,28,.3)}
+.kart a.row:last-of-type{border:none}
+.kart .ic{width:38px;height:38px;flex:none;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:var(--amber)}
+footer{background:#081412;color:#8FA69D;font-size:13.5px;padding:20px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:#C9D5CE}
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:150;width:62px;height:62px;border-radius:50%;background:#1FA855;border:2px solid #06110F;display:grid;place-items:center;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+.wa-float:hover{background:#25c264}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .marquee span{animation:none;white-space:normal}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#urunler">İçeriğe atla</a>
+<div class="topbar"><div class="wrap"><span>2025 HASADI · GİRESUN TOMBUL · GÜNEŞTE KURUTMA</span><span>Tel: <a href="tel:+905060270551">+90 506 027 05 51</a></span></div></div>
+<header class="sitehead">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Çağran Fındık">
+      <span class="brand-mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 64 64"><ellipse cx="32" cy="36" rx="11" ry="13" fill="#E9A319"/><path d="M18 18c4-5 9-7 14-7-1 4-4 8-8 10l-6-3Z" fill="#1E4D43"/></svg></span>
+      <span><b>Çağran Fındık</b><small>GİRESUN · cagran.com.tr</small></span>
+    </a>
+    <nav class="headnav" aria-label="Ana menü"><a href="#hakkimizda">Hakkımızda</a><a href="#urunler">Ürünler</a><a href="#findik">Fındık Hakkında</a><a href="#sss">Sık Sorulanlar</a><a href="#iletisim">İletişim</a></nav>
+    <a class="head-cta" data-wa="Merhaba, Giresun fındığı almak istiyorum. Güncel durumu yazabilir misiniz?" href="https://wa.me/905060270551" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+    <button class="burger" id="menuBtn" aria-expanded="false" aria-controls="mmenu" aria-label="Menü">☰</button>
   </div>
-</a>
-```
----
-16. Navigasyon Menüsü (Header ve Mobil Menü)
-Orijinal menü yapısı korunur, sayfa yolları Türkçe hale getirilir:
-```html
-<!-- Eski → Yeni -->
-Home       →  Ana Sayfa     (href="/")
-About      →  Hakkımızda    (href="/hakkimizda")
-Team       →  Ekibimiz      (href="/ekibimiz")
-Programs   →  Programlar    (href="/programlar")
-Enrollment →  Kayıt         (href="/kayit")
-Careers    →  Kariyer       (href="/kariyer")
-Contact    →  İletişim      (href="/iletisim")
-```
----
-17. Kayıt Formu — Alan Başlıkları
-```json
-[
-  { "title": "Veli/Vasi adı soyadı" },
-  { "title": "E-posta" },
-  { "title": "Telefon numarası" },
-  { "title": "Çocuğun adı" },
-  { "title": "Çocuğun doğum tarihi" },
-  { "title": "Tahmini başlangıç tarihi" },
-  { "title": "Hangi günler ilgileniyorsunuz?", "options": ["Pazartesi","Salı","Çarşamba","Perşembe","Cuma"] },
-  { "title": "Çocuğunuz tuvalet eğitimi aldı mı?", "options": ["Evet","Hayır"] },
-  { "title": "Merkezi nasıl ziyaret etmek istersiniz?", "options": ["Yüz yüze","Sanal"] },
-  { "title": "Merkez turu için uygun gün ve saatleriniz?" },
-  { "title": "Eklemek istediğiniz ek bilgiler?" }
-]
-```
-Form gönder butonu: `Gönder`  
-Teşekkür mesajı:
-```html
-<p>Bilgilerinizi bize ilettiğiniz için teşekkür ederiz!
-   En kısa sürede sizinle iletişime geçeceğiz. Minik Yürekler ailesine hoş geldiniz!</p>
-```
----
-Notlar
-Tüm görseller (hero fotoğrafı, sınıf görselleri, arka plan dokuları, logolar, ikonlar) orijinal haliyle bırakılmıştır.  
-Bunları kendi kurumsal görsellerinizle değiştirmeniz önerilir.
-Logo görselleri de orijinal Squarespace URL'lerinden çekilmektedir; kendi logonuzu yükleyip URL'leri güncelleyin.
-Google Maps linki footer'daki adres metnine bağlantı olarak eklenmiştir.
-Squarespace kullanıyorsanız menü yollarını (`/programlar`, `/kayit` vb.) kendi koleksiyon URL'lerinizle eşleştirin.
+  <div class="mmenu" id="mmenu"><a href="#hakkimizda">Hakkımızda</a><a href="#urunler">Ürünler</a><a href="#findik">Fındık Hakkında</a><a href="#sss">Sık Sorulanlar</a><a href="#iletisim">İletişim</a></div>
+</header>
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker-row">TEK BAHÇE · TEK ÇEŞİT · ARACISIZ</div>
+      <h1>Dalından değil, <em>üreticisinden</em> fındık.</h1>
+      <p class="lede">Biz Giresun'da kendi bahçemizin fındığını satıyoruz. <strong>Ağustosta toplayıp harmanda güneşte kurutuyoruz,</strong> boşunu ayıklayıp sipariş gelince paketliyoruz.</p>
+      <div class="cta-row">
+        <a class="btn btn-amber" data-wa="Merhaba, Giresun fındığı almak istiyorum. Ürün ve fiyat bilgisi alabilir miyim?" href="https://wa.me/905060270551" target="_blank" rel="noopener">WhatsApp'tan sipariş ver →</a>
+        <a class="btn btn-ghost" href="#urunler">Kilo ve çeşitlere bak</a>
+      </div>
+      <div class="mahsul">
+        <div class="mahsul-head"><span>MAHSUL KARTI — 2025</span><span>GİRESUN / MERKEZ KÖY</span></div>
+        <div class="mahsul-grid">
+          <div><b>Tombul</b>çeşit, seçme</div>
+          <div><b>~300 m</b>rakım, yamaç bahçe</div>
+          <div><b>8–10 gün</b>güneşte kurutma</div>
+          <div><b>%6 altı</b>nemde çuvallama</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="ph ph-main">
+        <img src="images/hero.jpg" data-fallback="https://images.pexels.com/photos/7717466/pexels-photo-7717466.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kurutulmuş Giresun tombul fındıkların yakın çekimi" fetchpriority="high" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}">
+        <span class="ph-cap cap1">Bu senenin malı — harman çıkışı</span>
+      </div>
+      <div class="ph ph-sub">
+        <img src="images/uretici.jpg" data-fallback="https://images.pexels.com/photos/5425021/pexels-photo-5425021.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ayıklanmış iç tombul fındık" loading="lazy" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}">
+      </div>
+      <div class="stamp" aria-hidden="true"><span class="disk"></span><svg viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text font-size="10.5" font-weight="800" letter-spacing="2"><textPath href="#c">GİRESUN TOMBUL • 2025 HASAT • </textPath></text></svg><span class="core">Ç</span></div>
+    </div>
+  </div>
+</div>
+<div class="marquee" aria-hidden="true"><span>&nbsp;KABUKLU — 1 · 5 · 10 KG ✦ İÇ FINDIK — 500 G · 1 · 5 KG ✦ TOPTAN — 25 KG VE ÜZERİ ✦ NUMUNE GÖNDERİYORUZ ✦ KABUKLU — 1 · 5 · 10 KG ✦ İÇ FINDIK — 500 G · 1 · 5 KG ✦ TOPTAN — 25 KG VE ÜZERİ ✦&nbsp;</span></div>
+<section class="block" id="hakkimizda"><div class="wrap">
+  <div class="sec-head"><div class="sec-no">01</div><div><h2>Bahçe bizim, <em>malın arkası da biziz.</em></h2><p>Tüccarlık yapmıyoruz. Ne çıkarsa onu satıyoruz — iyi senede çok, kurak senede az.</p></div></div>
+  <div class="about">
+    <figure class="fig" style="margin:0">
+      <div class="yedek"><p><b>Harman fotoğrafı</b><br>images/kurutma.jpg eklenince burada görünecek</p></div>
+      <img src="images/kurutma.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Hazelnuts%20(from%20France).jpg" alt="Harmanda serili kabuklu Giresun fındığı" loading="lazy" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}">
+      <figcaption><span>Ağustos harmanı — ince serim</span><span>Giresun</span></figcaption>
+    </figure>
+    <div>
+      <p class="drop">Fındıkta hile çoktur: geçen senenin malı, başka köyün çeşidi, nemli çuval. Biz tek şeyi satıyoruz — kendi harmamızı. Patozdan çıkan fındık 8-10 gün güneşte yatar. Elinle karıştırdığında şıkır şıkır ses gelmeden çuvala girmez.</p>
+      <dl class="margin"><div><dt>Kim?</dt><dd>Serdar Çağran ve ailesi — 3 kuşaktır aynı bahçe</dd></div><div><dt>Ne?</dt><dd>Sadece tombul, karışık çuval yok</dd></div><div><dt>Nasıl?</dt><dd>Güneşte kurutma, elde ayıklama, sipariş üstüne paket</dd></div></dl>
+      <p class="sign">— Serdar Çağran</p>
+    </div>
+  </div>
+</div></section>
+<section class="block" id="urunler"><div class="wrap">
+  <div class="sec-head"><div class="sec-no">02</div><div><h2>Üç mal, üçü de <em>harmandan.</em></h2><p>Fiyatı siteye yazmıyoruz. Kilonu seç, düğmeye bas — WhatsApp'ta hazır mesaj açılsın.</p></div></div>
+  <article class="sira" data-urun="KABUKLU tombul fındık"><div class="sira-foto"><img src="images/kabuklu.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Hazelnuts%20(from%20France).jpg" alt="Kabuklu tombul fındık" loading="lazy" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}"><span class="tag">EN ÇOK GİDEN</span></div><div class="sira-info"><h3>Kabuklu Fındık <span>EVLİK</span></h3><p class="desc">Çıtlatmalık, boylanmış, boşu ayıklanmış.</p><div class="kilos"><button aria-pressed="true">1 kg</button><button aria-pressed="false">5 kg</button><button aria-pressed="false">10 kg</button></div></div><div class="sira-cta"><a class="btn btn-amber" data-wa-base="Merhaba, KABUKLU tombul fındık için güncel fiyat almak istiyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener">Fiyat sor →</a><span class="fiyat-not">Seçili: <b class="secilen">1 kg</b></span></div></article>
+  <article class="sira" data-urun="İÇ tombul fındık"><div class="sira-foto"><img src="images/ic.jpg" data-fallback="https://upload.wikimedia.org/wikipedia/commons/e/eb/Hazelnuts_in_bowl.jpg" alt="İç tombul fındık" loading="lazy" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}"><span class="tag">AYIKLANMIŞ</span></div><div class="sira-info"><h3>İç Fındık <span>HAZIR</span></h3><p class="desc">Z kunguru doğal iç, kırığı elenmiş. Kahvaltıya, tatlıya.</p><div class="kilos"><button aria-pressed="true">500 g</button><button aria-pressed="false">1 kg</button><button aria-pressed="false">5 kg</button></div></div><div class="sira-cta"><a class="btn btn-amber" data-wa-base="Merhaba, İÇ tombul fındık için güncel fiyat almak istiyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener">Fiyat sor →</a><span class="fiyat-not">Seçili: <b class="secilen">500 g</b></span></div></article>
+  <article class="sira" data-urun="TOPTAN fındık"><div class="sira-foto"><img src="images/toptan.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Hazelnuts%20without%20shell.jpg" alt="Toptan fındık" loading="lazy" onerror="if(!this.dataset.done){this.dataset.done=1;this.src=this.dataset.fallback}else{this.style.display='none'}"><span class="tag">İŞLETMELERE</span></div><div class="sira-info"><h3>Toptan Çuval <span>25 KG +</span></h3><p class="desc">Pastane ve kuruyemişçiye. Önce numune, sonra karar.</p><div class="kilos"><button aria-pressed="true">25 kg</button><button aria-pressed="false">50 kg</button><button aria-pressed="false">100 kg +</button></div></div><div class="sira-cta"><a class="btn" style="background:#0C1F1C;color:#fff" data-wa-base="Merhaba, TOPTAN fındık için fiyat ve numune görüşmek istiyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener">Toptan fiyat al →</a><span class="fiyat-not">Seçili: <b class="secilen">25 kg</b></span></div></article>
+</div></section>
+<section class="block" id="findik"><div class="wrap">
+  <div class="sec-head"><div class="sec-no">03</div><div><h2>Giresun tombulu <em>neden aranır?</em></h2><p>Yağı, boyu ve aromasıyla ünlenmesi Giresun'un yağmurundan ve eğiminden.</p></div></div>
+  <div class="bilgi"><div class="panel"><div class="bigpct">~%65</div><h3>Dünya fındığının üçte ikisi Türkiye'den</h3><p>Kalbi Karadeniz. Tombul ince kabuklu, yağlı ve tatlıdır.</p><ul class="tombul"><li><b>Tombul:</b> ufak, yuvarlak, yağ oranı yüksek.</li><li><b>İklim:</b> bol yağış + eğimli arazi.</li><li><b>Nem:</b> %6'nın altına inmeden çuvala girmez.</li></ul></div>
+  <div class="panel" style="background:#F5EEE0;color:#22271F;border-color:#0C1F1C"><h3 style="color:#0C1F1C">100 g iç fındıkta ne var?</h3><p style="color:#5D6257">Yaklaşık: enerji ~630 kcal, yağ ~61 g, protein ~15 g, lif ~10 g, E vitamini ~15 mg, magnezyum ~160 mg.</p><p class="kaynak" style="color:#5D6257;border-color:rgba(12,31,28,.3)">Değerler ortalamadır.</p></div></div>
+</div></section>
+<section class="block" id="surec"><div class="wrap">
+  <div class="sec-head"><div class="sec-no">04</div><div><h2>Hasattan kargoya <em>dört iş.</em></h2><p>Her çuval aynı yoldan geçer, kestirmesi yok.</p></div></div>
+  <div class="steps"><div class="step"><div class="n">01</div><h3>Hasat</h3><p>Ağustos ortası, aynı gün harmana.</p></div><div class="step"><div class="n">02</div><h3>Kurutma</h3><p>İnce serim, her gün karıştırma.</p></div><div class="step"><div class="n">03</div><h3>Ayıklama</h3><p>Boş ve cılız ayrılır.</p></div><div class="step"><div class="n">04</div><h3>Paketleme</h3><p>Sipariş üstüne tartılır, kargoya verilir.</p></div></div>
+</div></section>
+<section class="block" id="sss"><div class="wrap faq"><div class="faq-side"><h2>Aklınızda kalanlar.</h2><p>WhatsApp'tan sorun, açık cevaplayalım.</p><a class="btn btn-amber" data-wa="Merhaba, fındık hakkında bir sorum var:" href="https://wa.me/905060270551" target="_blank" rel="noopener">Soru sor →</a></div><div>
+<details class="q" open><summary>Nasıl sipariş veriyorum?</summary><p class="a">Kilonu seçip Fiyat sor'a basın, WhatsApp açılsın.</p></details>
+<details class="q"><summary>Ödeme nasıl?</summary><p class="a">Havale / EFT. Kapıda ödeme yok.</p></details>
+<details class="q"><summary>Kargo?</summary><p class="a">1-3 iş günü, ücreti alıcıya ait.</p></details>
+<details class="q"><summary>Saklama?</summary><p class="a">Serin, kuru, hava almayan kapta.</p></details>
+<details class="q"><summary>Bozuk gelirse?</summary><p class="a">Fotoğraf atın, yenisini gönderelim ya da iade edelim.</p></details>
+<details class="q"><summary>Toptan sınır?</summary><p class="a">25 kg ve üzeri, önce numune.</p></details>
+</div></div></section>
+<section class="block" id="iletisim"><div class="wrap contact"><div><h2>Yazın, <em>konuşalım.</em></h2><a class="tel" href="tel:+905060270551">+90 506 027 05 51</a><div class="chips"><button data-wa="Merhaba, 1 kg kabuklu fındık almak istiyorum.">1 kg kabuklu sor</button><button data-wa="Merhaba, 1 kg iç fındık almak istiyorum.">1 kg iç sor</button><button data-wa="Merhaba, toptan için yazıyorum.">Toptan yaz</button></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-amber" data-wa="Merhaba, fındık siparişi için yazıyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener">WhatsApp'tan yaz</a><a class="btn" style="border-color:#FFF6E3;color:#FFF6E3" href="mailto:serdarcagran@gmail.com">E-posta</a></div></div><div class="kart"><a class="row" data-wa="Merhaba, bilgi almak istiyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener">WhatsApp: +90 506 027 05 51 →</a><a class="row" href="tel:+905060270551">Telefon: +90 506 027 05 51</a><a class="row" href="mailto:serdarcagran@gmail.com">serdarcagran@gmail.com</a></div></div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="yil">2026</span> Çağran Fındık — cagran.com.tr</span><span><a href="#top">Başa dön ↑</a></span></div></footer>
+<a class="wa-float" data-wa="Merhaba, fındık almak istiyorum." href="https://wa.me/905060270551" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg></a>
+<script>
+(function(){var NO="905060270551";function link(m){return "https://wa.me/"+NO+"?text="+encodeURIComponent(m)}
+document.querySelectorAll("[data-wa]").forEach(function(a){a.href=link(a.getAttribute("data-wa"))});
+document.querySelectorAll("[data-wa-base]").forEach(function(a){a.href=link(a.getAttribute("data-wa-base"))});
+document.querySelectorAll(".sira").forEach(function(row){var urun=row.getAttribute("data-urun")||"fındık";var btns=row.querySelectorAll(".kilos button");var cta=row.querySelector("[data-wa-base]");var base=cta.getAttribute("data-wa-base");var out=row.querySelector(".secilen");function sync(){var sec=row.querySelector('.kilos button[aria-pressed="true"]');var kilo=sec?sec.textContent.trim():"";if(out)out.textContent=kilo;cta.href=link(base+" ("+kilo+" "+urun+")")}btns.forEach(function(b){b.addEventListener("click",function(){btns.forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");sync()})});sync()});
+document.querySelectorAll(".chips button").forEach(function(c){c.addEventListener("click",function(){window.open(link(c.getAttribute("data-wa")),"_blank","noopener")})});
+var btn=document.getElementById("menuBtn"),menu=document.getElementById("mmenu");btn.addEventListener("click",function(){var o=menu.classList.toggle("open");btn.setAttribute("aria-expanded",o);btn.textContent=o?"✕":"☰"});document.getElementById("yil").textContent=new Date().getFullYear();})();
+</script>
+</body>
+</html>
